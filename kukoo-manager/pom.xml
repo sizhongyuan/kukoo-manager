@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.bootdo</groupId>
-    <artifactId>bootdo</artifactId>
-    <version>1.6.9</version>
+    <artifactId>kukoo-manager</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>bootdo</name>
+    <name>kukoo-manager</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>

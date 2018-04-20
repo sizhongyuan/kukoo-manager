@@ -1,0 +1,527 @@
+logback- 2018-04-20 17:20:47.531 [20] INFO  com.bootdo.BootdoApplication - Starting BootdoApplication on localhost with PID 10560 (/Users/zhangshijie/VarietyShop/Git/kukoo-manager/kukoo-manager/target/classes started by zhangshijie in /Users/zhangshijie/VarietyShop/Git/kukoo-manager/kukoo-manager)
+logback- 2018-04-20 17:20:47.535 [20] DEBUG com.bootdo.BootdoApplication - Running with Spring Boot v1.5.9.RELEASE, Spring v4.3.13.RELEASE
+logback- 2018-04-20 17:20:47.548 [20] INFO  com.bootdo.BootdoApplication - The following profiles are active: dev
+logback- 2018-04-20 17:20:47.978 [23] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.6.Final
+logback- 2018-04-20 17:20:48.280 [20] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@868b91a: startup date [Fri Apr 20 17:20:48 CST 2018]; root of context hierarchy
+logback- 2018-04-20 17:20:52.399 [20] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+logback- 2018-04-20 17:20:55.021 [20] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$9b0a838e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+logback- 2018-04-20 17:20:55.753 [20] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'shiroConfig' of type [com.bootdo.system.config.ShiroConfig$$EnhancerBySpringCGLIB$$8d63b235] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+logback- 2018-04-20 17:20:56.323 [20] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'userRealm' of type [com.bootdo.system.shiro.UserRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+logback- 2018-04-20 17:20:56.689 [20] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'ehCacheManager' of type [org.apache.shiro.cache.ehcache.EhCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+logback- 2018-04-20 17:20:56.697 [20] INFO  o.a.s.cache.ehcache.EhCacheManager - Cache with name 'com.bootdo.system.shiro.UserRealm.authorizationCache' does not yet exist.  Creating now.
+logback- 2018-04-20 17:20:56.699 [20] INFO  o.a.s.cache.ehcache.EhCacheManager - Added EhCache named [com.bootdo.system.shiro.UserRealm.authorizationCache]
+logback- 2018-04-20 17:20:56.712 [20] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'sessionDAO' of type [org.apache.shiro.session.mgt.eis.MemorySessionDAO] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+logback- 2018-04-20 17:20:56.752 [20] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'sessionManager' of type [org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+logback- 2018-04-20 17:20:56.838 [20] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+logback- 2018-04-20 17:20:56.963 [20] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+logback- 2018-04-20 17:20:58.807 [20] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8099 (http)
+logback- 2018-04-20 17:20:58.854 [20] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+logback- 2018-04-20 17:20:58.858 [20] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+logback- 2018-04-20 17:20:59.408 [49] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+logback- 2018-04-20 17:20:59.409 [49] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 11129 ms
+logback- 2018-04-20 17:21:00.511 [49] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+logback- 2018-04-20 17:21:00.515 [49] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+logback- 2018-04-20 17:21:00.515 [49] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+logback- 2018-04-20 17:21:00.515 [49] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+logback- 2018-04-20 17:21:00.517 [49] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+logback- 2018-04-20 17:21:00.517 [49] INFO  o.s.b.w.s.FilterRegistrationBean - Filter xssFilter was not registered (disabled)
+logback- 2018-04-20 17:21:00.517 [49] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*]
+logback- 2018-04-20 17:21:00.523 [49] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'shiroFilterFactoryBean' to: [/*]
+logback- 2018-04-20 17:21:00.524 [49] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'statViewServlet' to [/druid/*]
+logback- 2018-04-20 17:21:00.527 [49] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+logback- 2018-04-20 17:21:03.318 [20] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+logback- 2018-04-20 17:21:07.178 [20] INFO  o.a.engine.impl.ProcessEngineImpl - ProcessEngine default created
+logback- 2018-04-20 17:21:08.306 [20] DEBUG c.b.c.c.ApplicationContextRegister - ApplicationContext registed-->org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@868b91a: startup date [Fri Apr 20 17:20:48 CST 2018]; root of context hierarchy
+logback- 2018-04-20 17:21:08.714 [20] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+logback- 2018-04-20 17:21:08.733 [20] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+logback- 2018-04-20 17:21:08.735 [20] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.2.1 created.
+logback- 2018-04-20 17:21:08.737 [20] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+logback- 2018-04-20 17:21:08.738 [20] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.2.1) 'schedulerFactoryBean' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+logback- 2018-04-20 17:21:08.739 [20] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'schedulerFactoryBean' initialized from an externally provided properties instance.
+logback- 2018-04-20 17:21:08.739 [20] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.2.1
+logback- 2018-04-20 17:21:08.740 [20] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: com.bootdo.common.quartz.factory.JobFactory@35c87f09
+logback- 2018-04-20 17:21:09.112 [20] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService  'clientInboundChannelExecutor'
+logback- 2018-04-20 17:21:09.177 [20] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService  'clientOutboundChannelExecutor'
+logback- 2018-04-20 17:21:10.875 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/activiti/model/{id}],methods=[DELETE]}" onto public com.bootdo.common.utils.R com.bootdo.activiti.controller.ModelController.remove(java.lang.String)
+logback- 2018-04-20 17:21:10.878 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/activiti/model/list],methods=[GET]}" onto com.bootdo.common.utils.PageUtils com.bootdo.activiti.controller.ModelController.list(int,int)
+logback- 2018-04-20 17:21:10.880 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/activiti/model/batchRemove],methods=[POST]}" onto public com.bootdo.common.utils.R com.bootdo.activiti.controller.ModelController.batchRemove(java.lang.String[])
+logback- 2018-04-20 17:21:10.881 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/activiti/model],methods=[GET]}" onto org.springframework.web.servlet.ModelAndView com.bootdo.activiti.controller.ModelController.model()
+logback- 2018-04-20 17:21:10.882 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/activiti/model/add]}" onto public void com.bootdo.activiti.controller.ModelController.newModel(javax.servlet.http.HttpServletResponse) throws java.io.UnsupportedEncodingException
+logback- 2018-04-20 17:21:10.887 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/activiti/model/{modelId}/json],methods=[GET]}" onto public com.fasterxml.jackson.databind.node.ObjectNode com.bootdo.activiti.controller.ModelController.getEditorJson(java.lang.String)
+logback- 2018-04-20 17:21:10.888 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/activiti/editor/stencilset],methods=[GET],produces=[application/json;charset=utf-8]}" onto public java.lang.String com.bootdo.activiti.controller.ModelController.getStencilset()
+logback- 2018-04-20 17:21:10.889 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/activiti/model/edit/{id}],methods=[GET]}" onto public void com.bootdo.activiti.controller.ModelController.edit(javax.servlet.http.HttpServletResponse,java.lang.String)
+logback- 2018-04-20 17:21:10.889 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/activiti/model/deploy/{id}],methods=[POST]}" onto public com.bootdo.common.utils.R com.bootdo.activiti.controller.ModelController.deploy(java.lang.String) throws java.lang.Exception
+logback- 2018-04-20 17:21:10.891 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/activiti/model/{modelId}/save],methods=[PUT]}" onto public void com.bootdo.activiti.controller.ModelController.saveModel(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+logback- 2018-04-20 17:21:10.891 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/activiti/model/export/{id}],methods=[GET]}" onto public void com.bootdo.activiti.controller.ModelController.exportToXml(java.lang.String,javax.servlet.http.HttpServletResponse)
+logback- 2018-04-20 17:21:10.898 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/activiti/process/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.bootdo.activiti.controller.ProcessController.add()
+logback- 2018-04-20 17:21:10.898 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/activiti/process/remove],methods=[POST]}" onto public com.bootdo.common.utils.R com.bootdo.activiti.controller.ProcessController.remove(java.lang.String)
+logback- 2018-04-20 17:21:10.900 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/activiti/process/list],methods=[GET]}" onto com.bootdo.common.utils.PageUtils com.bootdo.activiti.controller.ProcessController.list(int,int)
+logback- 2018-04-20 17:21:10.901 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/activiti/process/batchRemove],methods=[POST]}" onto public com.bootdo.common.utils.R com.bootdo.activiti.controller.ProcessController.batchRemove(java.lang.String[])
+logback- 2018-04-20 17:21:10.901 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/activiti/process/save],methods=[POST]}" onto public com.bootdo.common.utils.R com.bootdo.activiti.controller.ProcessController.deploy(java.lang.String,java.lang.String,org.springframework.web.multipart.MultipartFile)
+logback- 2018-04-20 17:21:10.902 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/activiti/process],methods=[GET]}" onto org.springframework.web.servlet.ModelAndView com.bootdo.activiti.controller.ProcessController.process()
+logback- 2018-04-20 17:21:10.904 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/activiti/process/convertToModel/{procDefId}]}" onto public com.bootdo.common.utils.R com.bootdo.activiti.controller.ProcessController.convertToModel(java.lang.String,org.springframework.web.servlet.mvc.support.RedirectAttributes) throws java.io.UnsupportedEncodingException,javax.xml.stream.XMLStreamException
+logback- 2018-04-20 17:21:10.907 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/activiti/process/resource/read/{xml}/{id}]}" onto public void com.bootdo.activiti.controller.ProcessController.resourceRead(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+logback- 2018-04-20 17:21:10.922 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/act/salary/form],methods=[GET]}" onto java.lang.String com.bootdo.activiti.controller.SalaryController.add()
+logback- 2018-04-20 17:21:10.922 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/act/salary/remove],methods=[POST]}" onto public com.bootdo.common.utils.R com.bootdo.activiti.controller.SalaryController.remove(java.lang.String)
+logback- 2018-04-20 17:21:10.923 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/act/salary/batchRemove],methods=[POST]}" onto public com.bootdo.common.utils.R com.bootdo.activiti.controller.SalaryController.remove(java.lang.String[])
+logback- 2018-04-20 17:21:10.924 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/act/salary/update]}" onto public com.bootdo.common.utils.R com.bootdo.activiti.controller.SalaryController.update(com.bootdo.activiti.domain.SalaryDO)
+logback- 2018-04-20 17:21:10.925 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/act/salary/list],methods=[GET]}" onto public com.bootdo.common.utils.PageUtils com.bootdo.activiti.controller.SalaryController.list(java.util.Map<java.lang.String, java.lang.Object>)
+logback- 2018-04-20 17:21:10.926 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/act/salary/form/{taskId}],methods=[GET]}" onto java.lang.String com.bootdo.activiti.controller.SalaryController.edit(java.lang.String,org.springframework.ui.Model)
+logback- 2018-04-20 17:21:10.926 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/act/salary],methods=[GET]}" onto java.lang.String com.bootdo.activiti.controller.SalaryController.Salary()
+logback- 2018-04-20 17:21:10.927 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/act/salary/save],methods=[POST]}" onto public com.bootdo.common.utils.R com.bootdo.activiti.controller.SalaryController.saveOrUpdate(com.bootdo.activiti.domain.SalaryDO)
+logback- 2018-04-20 17:21:10.936 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/activiti/task/form/{procDefId}/{taskId}],methods=[GET]}" onto public void com.bootdo.activiti.controller.TaskController.form(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+logback- 2018-04-20 17:21:10.938 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/activiti/task/gotoList],methods=[GET]}" onto com.bootdo.common.utils.PageUtils com.bootdo.activiti.controller.TaskController.list(int,int)
+logback- 2018-04-20 17:21:10.939 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/activiti/task/goto],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.bootdo.activiti.controller.TaskController.gotoTask()
+logback- 2018-04-20 17:21:10.939 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/activiti/task/form/{procDefId}],methods=[GET]}" onto public void com.bootdo.activiti.controller.TaskController.startForm(java.lang.String,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+logback- 2018-04-20 17:21:10.939 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/activiti/task/todo],methods=[GET]}" onto org.springframework.web.servlet.ModelAndView com.bootdo.activiti.controller.TaskController.todo()
+logback- 2018-04-20 17:21:10.940 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/activiti/task/todoList],methods=[GET]}" onto java.util.List<com.bootdo.activiti.vo.TaskVO> com.bootdo.activiti.controller.TaskController.todoList()
+logback- 2018-04-20 17:21:10.941 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/activiti/task/trace/photo/{procDefId}/{execId}]}" onto public void com.bootdo.activiti.controller.TaskController.tracePhoto(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+logback- 2018-04-20 17:21:10.942 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/blog/open/post/{cid}],methods=[GET]}" onto java.lang.String com.bootdo.blog.controller.BlogController.post(java.lang.Long,org.springframework.ui.Model)
+logback- 2018-04-20 17:21:10.945 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/blog/open/list],methods=[GET]}" onto public com.bootdo.common.utils.PageUtils com.bootdo.blog.controller.BlogController.opentList(java.util.Map<java.lang.String, java.lang.Object>)
+logback- 2018-04-20 17:21:10.945 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/blog],methods=[GET]}" onto java.lang.String com.bootdo.blog.controller.BlogController.blog()
+logback- 2018-04-20 17:21:10.945 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/blog/open/page/{categories}],methods=[GET]}" onto java.lang.String com.bootdo.blog.controller.BlogController.about(java.lang.String,org.springframework.ui.Model)
+logback- 2018-04-20 17:21:10.948 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/blog/bContent/add],methods=[GET]}" onto java.lang.String com.bootdo.blog.controller.ContentController.add()
+logback- 2018-04-20 17:21:10.949 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/blog/bContent/remove],methods=[POST]}" onto public com.bootdo.common.utils.R com.bootdo.blog.controller.ContentController.remove(java.lang.Long)
+logback- 2018-04-20 17:21:10.951 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/blog/bContent/batchRemove],methods=[POST]}" onto public com.bootdo.common.utils.R com.bootdo.blog.controller.ContentController.remove(java.lang.Long[])
+logback- 2018-04-20 17:21:10.953 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/blog/bContent/update]}" onto public com.bootdo.common.utils.R com.bootdo.blog.controller.ContentController.update(com.bootdo.blog.domain.ContentDO)
+logback- 2018-04-20 17:21:10.954 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/blog/bContent/list],methods=[GET]}" onto public com.bootdo.common.utils.PageUtils com.bootdo.blog.controller.ContentController.list(java.util.Map<java.lang.String, java.lang.Object>)
+logback- 2018-04-20 17:21:10.955 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/blog/bContent/save],methods=[POST]}" onto public com.bootdo.common.utils.R com.bootdo.blog.controller.ContentController.save(com.bootdo.blog.domain.ContentDO)
+logback- 2018-04-20 17:21:10.956 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/blog/bContent/edit/{cid}],methods=[GET]}" onto java.lang.String com.bootdo.blog.controller.ContentController.edit(java.lang.Long,org.springframework.ui.Model)
+logback- 2018-04-20 17:21:10.956 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/blog/bContent],methods=[GET]}" onto java.lang.String com.bootdo.blog.controller.ContentController.bContent()
+logback- 2018-04-20 17:21:10.961 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/dict/add],methods=[GET]}" onto java.lang.String com.bootdo.common.controller.DictController.add()
+logback- 2018-04-20 17:21:10.962 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/dict/remove],methods=[POST]}" onto public com.bootdo.common.utils.R com.bootdo.common.controller.DictController.remove(java.lang.Long)
+logback- 2018-04-20 17:21:10.963 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/dict/batchRemove],methods=[POST]}" onto public com.bootdo.common.utils.R com.bootdo.common.controller.DictController.remove(java.lang.Long[])
+logback- 2018-04-20 17:21:10.963 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/dict/update]}" onto public com.bootdo.common.utils.R com.bootdo.common.controller.DictController.update(com.bootdo.common.domain.DictDO)
+logback- 2018-04-20 17:21:10.964 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/dict/list],methods=[GET]}" onto public com.bootdo.common.utils.PageUtils com.bootdo.common.controller.DictController.list(java.util.Map<java.lang.String, java.lang.Object>)
+logback- 2018-04-20 17:21:10.965 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/dict/save],methods=[POST]}" onto public com.bootdo.common.utils.R com.bootdo.common.controller.DictController.save(com.bootdo.common.domain.DictDO)
+logback- 2018-04-20 17:21:10.972 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/dict/type],methods=[GET]}" onto public java.util.List<com.bootdo.common.domain.DictDO> com.bootdo.common.controller.DictController.listType()
+logback- 2018-04-20 17:21:10.973 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/dict/edit/{id}],methods=[GET]}" onto java.lang.String com.bootdo.common.controller.DictController.edit(java.lang.Long,org.springframework.ui.Model)
+logback- 2018-04-20 17:21:10.974 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/dict],methods=[GET]}" onto java.lang.String com.bootdo.common.controller.DictController.dict()
+logback- 2018-04-20 17:21:10.975 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/dict/add/{type}/{description}],methods=[GET]}" onto java.lang.String com.bootdo.common.controller.DictController.addD(org.springframework.ui.Model,java.lang.String,java.lang.String)
+logback- 2018-04-20 17:21:10.980 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/dict/list/{type}],methods=[GET]}" onto public java.util.List<com.bootdo.common.domain.DictDO> com.bootdo.common.controller.DictController.listByType(java.lang.String)
+logback- 2018-04-20 17:21:10.993 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/sysFile/add],methods=[GET]}" onto java.lang.String com.bootdo.common.controller.FileController.add()
+logback- 2018-04-20 17:21:10.994 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/sysFile/batchRemove],methods=[POST]}" onto public com.bootdo.common.utils.R com.bootdo.common.controller.FileController.remove(java.lang.Long[])
+logback- 2018-04-20 17:21:10.996 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/sysFile/remove],methods=[POST]}" onto public com.bootdo.common.utils.R com.bootdo.common.controller.FileController.remove(java.lang.Long,javax.servlet.http.HttpServletRequest)
+logback- 2018-04-20 17:21:10.998 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/sysFile/update]}" onto public com.bootdo.common.utils.R com.bootdo.common.controller.FileController.update(com.bootdo.common.domain.FileDO)
+logback- 2018-04-20 17:21:11.006 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/sysFile/list],methods=[GET]}" onto public com.bootdo.common.utils.PageUtils com.bootdo.common.controller.FileController.list(java.util.Map<java.lang.String, java.lang.Object>)
+logback- 2018-04-20 17:21:11.007 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/sysFile/save],methods=[POST]}" onto public com.bootdo.common.utils.R com.bootdo.common.controller.FileController.save(com.bootdo.common.domain.FileDO)
+logback- 2018-04-20 17:21:11.007 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/sysFile/edit],methods=[GET]}" onto java.lang.String com.bootdo.common.controller.FileController.edit(java.lang.Long,org.springframework.ui.Model)
+logback- 2018-04-20 17:21:11.014 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/sysFile],methods=[GET]}" onto java.lang.String com.bootdo.common.controller.FileController.sysFile(org.springframework.ui.Model)
+logback- 2018-04-20 17:21:11.016 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/sysFile/upload],methods=[POST]}" onto com.bootdo.common.utils.R com.bootdo.common.controller.FileController.upload(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletRequest)
+logback- 2018-04-20 17:21:11.021 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/sysFile/info/{id}]}" onto public com.bootdo.common.utils.R com.bootdo.common.controller.FileController.info(java.lang.Long)
+logback- 2018-04-20 17:21:11.029 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/generator/update],methods=[POST]}" onto com.bootdo.common.utils.R com.bootdo.common.controller.GeneratorController.update(java.util.Map<java.lang.String, java.lang.Object>)
+logback- 2018-04-20 17:21:11.030 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/generator/list],methods=[GET]}" onto java.util.List<java.util.Map<java.lang.String, java.lang.Object>> com.bootdo.common.controller.GeneratorController.list()
+logback- 2018-04-20 17:21:11.030 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/generator],methods=[GET]}" onto java.lang.String com.bootdo.common.controller.GeneratorController.generator()
+logback- 2018-04-20 17:21:11.031 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/generator/edit],methods=[GET]}" onto public java.lang.String com.bootdo.common.controller.GeneratorController.edit(org.springframework.ui.Model)
+logback- 2018-04-20 17:21:11.032 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/generator/code/{tableName}]}" onto public void com.bootdo.common.controller.GeneratorController.code(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.lang.String) throws java.io.IOException
+logback- 2018-04-20 17:21:11.034 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/generator/batchCode]}" onto public void com.bootdo.common.controller.GeneratorController.batchCode(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.lang.String) throws java.io.IOException
+logback- 2018-04-20 17:21:11.045 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/job/add],methods=[GET]}" onto java.lang.String com.bootdo.common.controller.JobController.add()
+logback- 2018-04-20 17:21:11.045 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/job/remove],methods=[POST]}" onto public com.bootdo.common.utils.R com.bootdo.common.controller.JobController.remove(java.lang.Long)
+logback- 2018-04-20 17:21:11.046 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/job/batchRemove],methods=[POST]}" onto public com.bootdo.common.utils.R com.bootdo.common.controller.JobController.remove(java.lang.Long[])
+logback- 2018-04-20 17:21:11.046 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/job/update],methods=[POST]}" onto public com.bootdo.common.utils.R com.bootdo.common.controller.JobController.update(com.bootdo.common.domain.TaskDO)
+logback- 2018-04-20 17:21:11.047 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/job/list],methods=[GET]}" onto public com.bootdo.common.utils.PageUtils com.bootdo.common.controller.JobController.list(java.util.Map<java.lang.String, java.lang.Object>)
+logback- 2018-04-20 17:21:11.049 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/job/save],methods=[POST]}" onto public com.bootdo.common.utils.R com.bootdo.common.controller.JobController.save(com.bootdo.common.domain.TaskDO)
+logback- 2018-04-20 17:21:11.050 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/job/edit/{id}],methods=[GET]}" onto java.lang.String com.bootdo.common.controller.JobController.edit(java.lang.Long,org.springframework.ui.Model)
+logback- 2018-04-20 17:21:11.051 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/job/info/{id}]}" onto public com.bootdo.common.utils.R com.bootdo.common.controller.JobController.info(java.lang.Long)
+logback- 2018-04-20 17:21:11.052 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/job],methods=[GET]}" onto java.lang.String com.bootdo.common.controller.JobController.taskScheduleJob()
+logback- 2018-04-20 17:21:11.054 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/job/changeJobStatus],methods=[POST]}" onto public com.bootdo.common.utils.R com.bootdo.common.controller.JobController.changeJobStatus(java.lang.Long,java.lang.String)
+logback- 2018-04-20 17:21:11.064 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/log/remove],methods=[POST]}" onto com.bootdo.common.utils.R com.bootdo.common.controller.LogController.remove(java.lang.Long)
+logback- 2018-04-20 17:21:11.064 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/log],methods=[GET]}" onto java.lang.String com.bootdo.common.controller.LogController.log()
+logback- 2018-04-20 17:21:11.065 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/log/list],methods=[GET]}" onto com.bootdo.common.domain.PageDO<com.bootdo.common.domain.LogDO> com.bootdo.common.controller.LogController.list(java.util.Map<java.lang.String, java.lang.Object>)
+logback- 2018-04-20 17:21:11.065 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/common/log/batchRemove],methods=[POST]}" onto com.bootdo.common.utils.R com.bootdo.common.controller.LogController.batchRemove(java.lang.Long[])
+logback- 2018-04-20 17:21:11.067 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public com.bootdo.common.utils.R com.bootdo.common.exception.MainsiteErrorController.handleError(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+logback- 2018-04-20 17:21:11.068 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView com.bootdo.common.exception.MainsiteErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+logback- 2018-04-20 17:21:11.073 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/oa/notify/add],methods=[GET]}" onto java.lang.String com.bootdo.oa.controller.NotifyController.add()
+logback- 2018-04-20 17:21:11.074 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/oa/notify/remove],methods=[POST]}" onto public com.bootdo.common.utils.R com.bootdo.oa.controller.NotifyController.remove(java.lang.Long)
+logback- 2018-04-20 17:21:11.075 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/oa/notify/batchRemove],methods=[POST]}" onto public com.bootdo.common.utils.R com.bootdo.oa.controller.NotifyController.remove(java.lang.Long[])
+logback- 2018-04-20 17:21:11.078 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/oa/notify/update]}" onto public com.bootdo.common.utils.R com.bootdo.oa.controller.NotifyController.update(com.bootdo.oa.domain.NotifyDO)
+logback- 2018-04-20 17:21:11.095 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/oa/notify/read/{id}],methods=[GET]}" onto java.lang.String com.bootdo.oa.controller.NotifyController.read(java.lang.Long,org.springframework.ui.Model)
+logback- 2018-04-20 17:21:11.096 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/oa/notify/list],methods=[GET]}" onto public com.bootdo.common.utils.PageUtils com.bootdo.oa.controller.NotifyController.list(java.util.Map<java.lang.String, java.lang.Object>)
+logback- 2018-04-20 17:21:11.097 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/oa/notify/save],methods=[POST]}" onto public com.bootdo.common.utils.R com.bootdo.oa.controller.NotifyController.save(com.bootdo.oa.domain.NotifyDO)
+logback- 2018-04-20 17:21:11.100 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/oa/notify/message],methods=[GET]}" onto com.bootdo.common.utils.PageUtils com.bootdo.oa.controller.NotifyController.message()
+logback- 2018-04-20 17:21:11.101 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/oa/notify],methods=[GET]}" onto java.lang.String com.bootdo.oa.controller.NotifyController.oaNotify()
+logback- 2018-04-20 17:21:11.101 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/oa/notify/edit/{id}],methods=[GET]}" onto java.lang.String com.bootdo.oa.controller.NotifyController.edit(java.lang.Long,org.springframework.ui.Model)
+logback- 2018-04-20 17:21:11.107 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/oa/notify/selfList],methods=[GET]}" onto com.bootdo.common.utils.PageUtils com.bootdo.oa.controller.NotifyController.selfList(java.util.Map<java.lang.String, java.lang.Object>)
+logback- 2018-04-20 17:21:11.124 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/oa/notify/selfNotify],methods=[GET]}" onto java.lang.String com.bootdo.oa.controller.NotifyController.selefNotify()
+logback- 2018-04-20 17:21:11.150 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/system/sysDept/add/{pId}],methods=[GET]}" onto java.lang.String com.bootdo.system.controller.DeptController.add(java.lang.Long,org.springframework.ui.Model)
+logback- 2018-04-20 17:21:11.162 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/system/sysDept/remove],methods=[POST]}" onto public com.bootdo.common.utils.R com.bootdo.system.controller.DeptController.remove(java.lang.Long)
+logback- 2018-04-20 17:21:11.164 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/system/sysDept/batchRemove],methods=[POST]}" onto public com.bootdo.common.utils.R com.bootdo.system.controller.DeptController.remove(java.lang.Long[])
+logback- 2018-04-20 17:21:11.166 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/system/sysDept/update]}" onto public com.bootdo.common.utils.R com.bootdo.system.controller.DeptController.update(com.bootdo.system.domain.DeptDO)
+logback- 2018-04-20 17:21:11.167 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/system/sysDept/list],methods=[GET]}" onto public java.util.List<com.bootdo.system.domain.DeptDO> com.bootdo.system.controller.DeptController.list()
+logback- 2018-04-20 17:21:11.169 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/system/sysDept/save],methods=[POST]}" onto public com.bootdo.common.utils.R com.bootdo.system.controller.DeptController.save(com.bootdo.system.domain.DeptDO)
+logback- 2018-04-20 17:21:11.171 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/system/sysDept/tree],methods=[GET]}" onto public com.bootdo.common.domain.Tree<com.bootdo.system.domain.DeptDO> com.bootdo.system.controller.DeptController.tree()
+logback- 2018-04-20 17:21:11.172 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/system/sysDept/edit/{deptId}],methods=[GET]}" onto java.lang.String com.bootdo.system.controller.DeptController.edit(java.lang.Long,org.springframework.ui.Model)
+logback- 2018-04-20 17:21:11.172 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/system/sysDept],methods=[GET]}" onto java.lang.String com.bootdo.system.controller.DeptController.dept()
+logback- 2018-04-20 17:21:11.173 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/system/sysDept/treeView],methods=[GET]}" onto java.lang.String com.bootdo.system.controller.DeptController.treeView()
+logback- 2018-04-20 17:21:11.187 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/index],methods=[GET]}" onto java.lang.String com.bootdo.system.controller.LoginController.index(org.springframework.ui.Model)
+logback- 2018-04-20 17:21:11.188 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/main],methods=[GET]}" onto java.lang.String com.bootdo.system.controller.LoginController.main()
+logback- 2018-04-20 17:21:11.189 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/logout],methods=[GET]}" onto java.lang.String com.bootdo.system.controller.LoginController.logout()
+logback- 2018-04-20 17:21:11.189 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/login],methods=[GET]}" onto java.lang.String com.bootdo.system.controller.LoginController.login()
+logback- 2018-04-20 17:21:11.190 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/ || ],methods=[GET]}" onto java.lang.String com.bootdo.system.controller.LoginController.welcome(org.springframework.ui.Model)
+logback- 2018-04-20 17:21:11.190 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/login],methods=[POST]}" onto com.bootdo.common.utils.R com.bootdo.system.controller.LoginController.ajaxLogin(java.lang.String,java.lang.String)
+logback- 2018-04-20 17:21:11.207 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/menu/add/{pId}],methods=[GET]}" onto java.lang.String com.bootdo.system.controller.MenuController.add(org.springframework.ui.Model,java.lang.Long)
+logback- 2018-04-20 17:21:11.208 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/menu/remove],methods=[POST]}" onto com.bootdo.common.utils.R com.bootdo.system.controller.MenuController.remove(java.lang.Long)
+logback- 2018-04-20 17:21:11.211 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/menu/update],methods=[POST]}" onto com.bootdo.common.utils.R com.bootdo.system.controller.MenuController.update(com.bootdo.system.domain.MenuDO)
+logback- 2018-04-20 17:21:11.212 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/menu/list]}" onto java.util.List<com.bootdo.system.domain.MenuDO> com.bootdo.system.controller.MenuController.list(java.util.Map<java.lang.String, java.lang.Object>)
+logback- 2018-04-20 17:21:11.214 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/menu/save],methods=[POST]}" onto com.bootdo.common.utils.R com.bootdo.system.controller.MenuController.save(com.bootdo.system.domain.MenuDO)
+logback- 2018-04-20 17:21:11.222 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/menu/tree/{roleId}],methods=[GET]}" onto com.bootdo.common.domain.Tree<com.bootdo.system.domain.MenuDO> com.bootdo.system.controller.MenuController.tree(java.lang.Long)
+logback- 2018-04-20 17:21:11.246 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/menu/tree],methods=[GET]}" onto com.bootdo.common.domain.Tree<com.bootdo.system.domain.MenuDO> com.bootdo.system.controller.MenuController.tree()
+logback- 2018-04-20 17:21:11.246 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/menu/edit/{id}],methods=[GET]}" onto java.lang.String com.bootdo.system.controller.MenuController.edit(org.springframework.ui.Model,java.lang.Long)
+logback- 2018-04-20 17:21:11.247 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/menu],methods=[GET]}" onto java.lang.String com.bootdo.system.controller.MenuController.menu(org.springframework.ui.Model)
+logback- 2018-04-20 17:21:11.259 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/role/add],methods=[GET]}" onto java.lang.String com.bootdo.system.controller.RoleController.add()
+logback- 2018-04-20 17:21:11.261 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/role/update],methods=[POST]}" onto com.bootdo.common.utils.R com.bootdo.system.controller.RoleController.update(com.bootdo.system.domain.RoleDO)
+logback- 2018-04-20 17:21:11.261 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/role/list],methods=[GET]}" onto java.util.List<com.bootdo.system.domain.RoleDO> com.bootdo.system.controller.RoleController.list()
+logback- 2018-04-20 17:21:11.262 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/role/remove],methods=[POST]}" onto com.bootdo.common.utils.R com.bootdo.system.controller.RoleController.save(java.lang.Long)
+logback- 2018-04-20 17:21:11.262 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/role/save],methods=[POST]}" onto com.bootdo.common.utils.R com.bootdo.system.controller.RoleController.save(com.bootdo.system.domain.RoleDO)
+logback- 2018-04-20 17:21:11.263 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/role/batchRemove],methods=[POST]}" onto com.bootdo.common.utils.R com.bootdo.system.controller.RoleController.batchRemove(java.lang.Long[])
+logback- 2018-04-20 17:21:11.264 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/role/edit/{id}],methods=[GET]}" onto java.lang.String com.bootdo.system.controller.RoleController.edit(java.lang.Long,org.springframework.ui.Model)
+logback- 2018-04-20 17:21:11.265 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/role],methods=[GET]}" onto java.lang.String com.bootdo.system.controller.RoleController.role()
+logback- 2018-04-20 17:21:11.277 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/online/list]}" onto public java.util.List<com.bootdo.system.domain.UserOnline> com.bootdo.system.controller.SessionController.list()
+logback- 2018-04-20 17:21:11.277 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/online],methods=[GET]}" onto public java.lang.String com.bootdo.system.controller.SessionController.online()
+logback- 2018-04-20 17:21:11.278 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/online/forceLogout/{sessionId}]}" onto public com.bootdo.common.utils.R com.bootdo.system.controller.SessionController.forceLogout(java.lang.String,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+logback- 2018-04-20 17:21:11.282 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/online/sessionList]}" onto public java.util.Collection<org.apache.shiro.session.Session> com.bootdo.system.controller.SessionController.sessionList()
+logback- 2018-04-20 17:21:11.300 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/user/exit],methods=[POST]}" onto boolean com.bootdo.system.controller.UserController.exit(java.util.Map<java.lang.String, java.lang.Object>)
+logback- 2018-04-20 17:21:11.301 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/user/add],methods=[GET]}" onto java.lang.String com.bootdo.system.controller.UserController.add(org.springframework.ui.Model)
+logback- 2018-04-20 17:21:11.302 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/user/remove],methods=[POST]}" onto com.bootdo.common.utils.R com.bootdo.system.controller.UserController.remove(java.lang.Long)
+logback- 2018-04-20 17:21:11.312 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/user/update],methods=[POST]}" onto com.bootdo.common.utils.R com.bootdo.system.controller.UserController.update(com.bootdo.system.domain.UserDO)
+logback- 2018-04-20 17:21:11.320 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/user/list],methods=[GET]}" onto com.bootdo.common.utils.PageUtils com.bootdo.system.controller.UserController.list(java.util.Map<java.lang.String, java.lang.Object>)
+logback- 2018-04-20 17:21:11.342 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/user/save],methods=[POST]}" onto com.bootdo.common.utils.R com.bootdo.system.controller.UserController.save(com.bootdo.system.domain.UserDO)
+logback- 2018-04-20 17:21:11.342 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/user/batchRemove],methods=[POST]}" onto com.bootdo.common.utils.R com.bootdo.system.controller.UserController.batchRemove(java.lang.Long[])
+logback- 2018-04-20 17:21:11.358 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/user/tree],methods=[GET]}" onto public com.bootdo.common.domain.Tree<com.bootdo.system.domain.DeptDO> com.bootdo.system.controller.UserController.tree()
+logback- 2018-04-20 17:21:11.360 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/user],methods=[GET]}" onto java.lang.String com.bootdo.system.controller.UserController.user(org.springframework.ui.Model)
+logback- 2018-04-20 17:21:11.362 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/user/edit/{id}],methods=[GET]}" onto java.lang.String com.bootdo.system.controller.UserController.edit(org.springframework.ui.Model,java.lang.Long)
+logback- 2018-04-20 17:21:11.363 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/user/treeView],methods=[GET]}" onto java.lang.String com.bootdo.system.controller.UserController.treeView()
+logback- 2018-04-20 17:21:11.380 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/user/resetPwd],methods=[POST]}" onto com.bootdo.common.utils.R com.bootdo.system.controller.UserController.resetPwd(com.bootdo.system.vo.UserVO)
+logback- 2018-04-20 17:21:11.381 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/user/resetPwd/{id}],methods=[GET]}" onto java.lang.String com.bootdo.system.controller.UserController.resetPwd(java.lang.Long,org.springframework.ui.Model)
+logback- 2018-04-20 17:21:11.382 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/user/updatePeronal],methods=[POST]}" onto com.bootdo.common.utils.R com.bootdo.system.controller.UserController.updatePeronal(com.bootdo.system.domain.UserDO)
+logback- 2018-04-20 17:21:11.382 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/user/adminResetPwd],methods=[POST]}" onto com.bootdo.common.utils.R com.bootdo.system.controller.UserController.adminResetPwd(com.bootdo.system.vo.UserVO)
+logback- 2018-04-20 17:21:11.383 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/user/personal],methods=[GET]}" onto java.lang.String com.bootdo.system.controller.UserController.personal(org.springframework.ui.Model)
+logback- 2018-04-20 17:21:11.384 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sys/user/uploadImg],methods=[POST]}" onto com.bootdo.common.utils.R com.bootdo.system.controller.UserController.uploadImg(org.springframework.web.multipart.MultipartFile,java.lang.String,javax.servlet.http.HttpServletRequest)
+logback- 2018-04-20 17:21:11.399 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+logback- 2018-04-20 17:21:11.416 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/swagger-resources/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+logback- 2018-04-20 17:21:11.421 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/swagger-resources/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+logback- 2018-04-20 17:21:11.436 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+logback- 2018-04-20 17:21:12.054 [20] INFO  o.s.s.c.ThreadPoolTaskScheduler - Initializing ExecutorService  'messageBrokerTaskScheduler'
+logback- 2018-04-20 17:21:12.153 [20] INFO  o.s.w.s.s.s.WebSocketHandlerMapping - Mapped URL path [/endpointChat/**] onto handler of type [class org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler]
+logback- 2018-04-20 17:21:12.206 [20] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService  'brokerChannelExecutor'
+logback- 2018-04-20 17:21:12.814 [20] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@868b91a: startup date [Fri Apr 20 17:20:48 CST 2018]; root of context hierarchy
+logback- 2018-04-20 17:21:12.955 [20] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/files/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+logback- 2018-04-20 17:21:12.955 [20] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+logback- 2018-04-20 17:21:12.955 [20] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+logback- 2018-04-20 17:21:13.006 [20] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in BDExceptionHandler
+logback- 2018-04-20 17:21:13.143 [20] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+logback- 2018-04-20 17:21:14.846 [20] INFO  o.s.b.a.s.AuthenticationManagerConfiguration - 
+
+Using default security password: bebcc181-3476-4d9e-a44b-4afb93d2a08a
+
+logback- 2018-04-20 17:21:14.931 [20] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/css/**'], Ant [pattern='/js/**'], Ant [pattern='/images/**'], Ant [pattern='/webjars/**'], Ant [pattern='/**/favicon.ico'], Ant [pattern='/error']]], []
+logback- 2018-04-20 17:21:15.114 [20] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.boot.autoconfigure.security.SpringBootWebSecurityConfiguration$ApplicationNoWebSecurityConfigurerAdapter$1@3484aada, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1c81af35, org.springframework.security.web.context.SecurityContextPersistenceFilter@27321779, org.springframework.security.web.header.HeaderWriterFilter@7ccc54dc, org.springframework.security.web.csrf.CsrfFilter@13284b6a, org.springframework.security.web.authentication.logout.LogoutFilter@59a155b8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1ee6b038, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3cfbfd2c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4fde3588, org.springframework.security.web.session.SessionManagementFilter@4d006153, org.springframework.security.web.access.ExceptionTranslationFilter@7afb4506]
+logback- 2018-04-20 17:21:15.934 [20] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+logback- 2018-04-20 17:21:16.079 [20] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+logback- 2018-04-20 17:21:16.084 [20] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+logback- 2018-04-20 17:21:16.102 [20] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+logback- 2018-04-20 17:21:16.109 [20] INFO  o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase 2147483647
+logback- 2018-04-20 17:21:16.109 [20] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+logback- 2018-04-20 17:21:16.170 [20] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+logback- 2018-04-20 17:21:16.241 [20] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+logback- 2018-04-20 17:21:17.109 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: removeUsingPOST_1
+logback- 2018-04-20 17:21:17.192 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: addUsingGET_1
+logback- 2018-04-20 17:21:17.203 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: editUsingGET_1
+logback- 2018-04-20 17:21:17.216 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: listUsingGET_1
+logback- 2018-04-20 17:21:17.221 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: removeUsingPOST_2
+logback- 2018-04-20 17:21:17.233 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: removeUsingPOST_3
+logback- 2018-04-20 17:21:17.243 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: saveUsingPOST_1
+logback- 2018-04-20 17:21:17.265 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingGET_1
+logback- 2018-04-20 17:21:17.268 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingHEAD_1
+logback- 2018-04-20 17:21:17.274 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingPOST_1
+logback- 2018-04-20 17:21:17.283 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingPUT_1
+logback- 2018-04-20 17:21:17.288 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingPATCH_1
+logback- 2018-04-20 17:21:17.295 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingDELETE_1
+logback- 2018-04-20 17:21:17.299 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingOPTIONS_1
+logback- 2018-04-20 17:21:17.302 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingTRACE_1
+logback- 2018-04-20 17:21:17.310 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: addUsingGET_2
+logback- 2018-04-20 17:21:17.368 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: editUsingGET_2
+logback- 2018-04-20 17:21:17.383 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: listUsingGET_2
+logback- 2018-04-20 17:21:17.487 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: removeUsingPOST_4
+logback- 2018-04-20 17:21:17.498 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: removeUsingPOST_5
+logback- 2018-04-20 17:21:17.508 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: saveUsingPOST_2
+logback- 2018-04-20 17:21:17.515 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingGET_2
+logback- 2018-04-20 17:21:17.526 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingHEAD_2
+logback- 2018-04-20 17:21:17.543 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingPOST_2
+logback- 2018-04-20 17:21:17.564 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingPUT_2
+logback- 2018-04-20 17:21:17.574 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingPATCH_2
+logback- 2018-04-20 17:21:17.595 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingDELETE_2
+logback- 2018-04-20 17:21:17.611 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingOPTIONS_2
+logback- 2018-04-20 17:21:17.628 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingTRACE_2
+logback- 2018-04-20 17:21:17.643 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: addUsingGET_3
+logback- 2018-04-20 17:21:17.652 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: editUsingGET_3
+logback- 2018-04-20 17:21:17.713 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: listUsingGET_3
+logback- 2018-04-20 17:21:17.724 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: removeUsingPOST_6
+logback- 2018-04-20 17:21:17.745 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: removeUsingPOST_7
+logback- 2018-04-20 17:21:17.770 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: saveUsingPOST_3
+logback- 2018-04-20 17:21:17.819 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingGET_3
+logback- 2018-04-20 17:21:17.844 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingHEAD_3
+logback- 2018-04-20 17:21:17.861 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingPOST_3
+logback- 2018-04-20 17:21:17.882 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingPUT_3
+logback- 2018-04-20 17:21:17.895 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingPATCH_3
+logback- 2018-04-20 17:21:17.904 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingDELETE_3
+logback- 2018-04-20 17:21:17.910 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingOPTIONS_3
+logback- 2018-04-20 17:21:17.917 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingTRACE_3
+logback- 2018-04-20 17:21:18.150 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: editUsingGET_4
+logback- 2018-04-20 17:21:18.169 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: listUsingGET_4
+logback- 2018-04-20 17:21:18.192 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingPOST_4
+logback- 2018-04-20 17:21:18.195 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: addUsingGET_4
+logback- 2018-04-20 17:21:18.211 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: editUsingGET_5
+logback- 2018-04-20 17:21:18.218 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: infoUsingGET_1
+logback- 2018-04-20 17:21:18.224 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: infoUsingHEAD_1
+logback- 2018-04-20 17:21:18.228 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: infoUsingPOST_1
+logback- 2018-04-20 17:21:18.236 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: infoUsingPUT_1
+logback- 2018-04-20 17:21:18.240 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: infoUsingPATCH_1
+logback- 2018-04-20 17:21:18.243 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: infoUsingDELETE_1
+logback- 2018-04-20 17:21:18.249 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: infoUsingOPTIONS_1
+logback- 2018-04-20 17:21:18.251 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: infoUsingTRACE_1
+logback- 2018-04-20 17:21:18.255 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: listUsingGET_5
+logback- 2018-04-20 17:21:18.261 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: removeUsingPOST_8
+logback- 2018-04-20 17:21:18.267 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: removeUsingPOST_9
+logback- 2018-04-20 17:21:18.276 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: saveUsingPOST_4
+logback- 2018-04-20 17:21:18.291 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingPOST_5
+logback- 2018-04-20 17:21:18.308 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: listUsingGET_6
+logback- 2018-04-20 17:21:18.316 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: removeUsingPOST_10
+logback- 2018-04-20 17:21:18.343 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: welcomeUsingGET_1
+logback- 2018-04-20 17:21:18.487 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: addUsingGET_5
+logback- 2018-04-20 17:21:18.502 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: editUsingGET_6
+logback- 2018-04-20 17:21:18.514 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: listUsingGET_7
+logback- 2018-04-20 17:21:18.549 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: removeUsingPOST_11
+logback- 2018-04-20 17:21:18.555 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: saveUsingPOST_5
+logback- 2018-04-20 17:21:18.562 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: treeUsingGET_1
+logback- 2018-04-20 17:21:18.569 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: treeUsingGET_2
+logback- 2018-04-20 17:21:18.582 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingPOST_6
+logback- 2018-04-20 17:21:18.593 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: batchRemoveUsingPOST_1
+logback- 2018-04-20 17:21:18.601 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: editUsingGET_7
+logback- 2018-04-20 17:21:18.641 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: listUsingGET_8
+logback- 2018-04-20 17:21:18.677 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: addUsingGET_6
+logback- 2018-04-20 17:21:18.685 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: editUsingGET_8
+logback- 2018-04-20 17:21:18.690 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: listUsingGET_9
+logback- 2018-04-20 17:21:18.725 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: removeUsingPOST_12
+logback- 2018-04-20 17:21:18.746 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: removeUsingPOST_13
+logback- 2018-04-20 17:21:18.781 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: saveUsingPOST_6
+logback- 2018-04-20 17:21:18.832 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingGET_4
+logback- 2018-04-20 17:21:18.843 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingHEAD_4
+logback- 2018-04-20 17:21:18.851 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingPOST_7
+logback- 2018-04-20 17:21:18.856 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingPUT_4
+logback- 2018-04-20 17:21:18.863 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingPATCH_4
+logback- 2018-04-20 17:21:18.869 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingDELETE_4
+logback- 2018-04-20 17:21:18.871 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingOPTIONS_4
+logback- 2018-04-20 17:21:18.878 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingTRACE_4
+logback- 2018-04-20 17:21:18.883 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: addUsingGET_7
+logback- 2018-04-20 17:21:18.887 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: batchRemoveUsingPOST_2
+logback- 2018-04-20 17:21:18.916 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: deployUsingPOST_1
+logback- 2018-04-20 17:21:18.919 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: listUsingGET_10
+logback- 2018-04-20 17:21:18.927 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: removeUsingPOST_14
+logback- 2018-04-20 17:21:19.066 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: addUsingGET_8
+logback- 2018-04-20 17:21:19.081 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: batchRemoveUsingPOST_3
+logback- 2018-04-20 17:21:19.090 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: editUsingGET_9
+logback- 2018-04-20 17:21:19.108 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: listUsingGET_11
+logback- 2018-04-20 17:21:19.118 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: saveUsingPOST_7
+logback- 2018-04-20 17:21:19.131 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: saveUsingPOST_8
+logback- 2018-04-20 17:21:19.136 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingPOST_8
+logback- 2018-04-20 17:21:19.144 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: addUsingGET_9
+logback- 2018-04-20 17:21:19.149 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: editUsingGET_10
+logback- 2018-04-20 17:21:19.154 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: listUsingGET_12
+logback- 2018-04-20 17:21:19.159 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: removeUsingPOST_15
+logback- 2018-04-20 17:21:19.162 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: removeUsingPOST_16
+logback- 2018-04-20 17:21:19.180 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingGET_5
+logback- 2018-04-20 17:21:19.188 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingHEAD_5
+logback- 2018-04-20 17:21:19.191 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingPOST_9
+logback- 2018-04-20 17:21:19.193 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingPUT_5
+logback- 2018-04-20 17:21:19.195 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingPATCH_5
+logback- 2018-04-20 17:21:19.200 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingDELETE_5
+logback- 2018-04-20 17:21:19.204 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingOPTIONS_5
+logback- 2018-04-20 17:21:19.206 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingTRACE_5
+logback- 2018-04-20 17:21:19.240 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: listUsingGET_13
+logback- 2018-04-20 17:21:19.242 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: listUsingHEAD_1
+logback- 2018-04-20 17:21:19.244 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: listUsingPOST_1
+logback- 2018-04-20 17:21:19.245 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: listUsingPUT_1
+logback- 2018-04-20 17:21:19.247 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: listUsingPATCH_1
+logback- 2018-04-20 17:21:19.251 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: listUsingDELETE_1
+logback- 2018-04-20 17:21:19.253 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: listUsingOPTIONS_1
+logback- 2018-04-20 17:21:19.256 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: listUsingTRACE_1
+logback- 2018-04-20 17:21:19.332 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: listUsingGET_14
+logback- 2018-04-20 17:21:19.436 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: addUsingGET_10
+logback- 2018-04-20 17:21:19.452 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: batchRemoveUsingPOST_4
+logback- 2018-04-20 17:21:19.457 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: editUsingGET_11
+logback- 2018-04-20 17:21:19.468 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: listUsingGET_15
+logback- 2018-04-20 17:21:19.478 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: removeUsingPOST_17
+logback- 2018-04-20 17:21:19.495 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: saveUsingPOST_9
+logback- 2018-04-20 17:21:19.500 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: treeUsingGET_3
+logback- 2018-04-20 17:21:19.504 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: treeViewUsingGET_1
+logback- 2018-04-20 17:21:19.511 [20] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateUsingPOST_10
+logback- 2018-04-20 17:21:19.559 [20] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+logback- 2018-04-20 17:21:19.560 [20] INFO  org.quartz.core.QuartzScheduler - Scheduler schedulerFactoryBean_$_NON_CLUSTERED started.
+logback- 2018-04-20 17:21:19.560 [20] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+logback- 2018-04-20 17:21:19.560 [20] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+logback- 2018-04-20 17:21:19.561 [20] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+logback- 2018-04-20 17:21:19.585 [20] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8099"]
+logback- 2018-04-20 17:21:19.608 [20] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8099"]
+logback- 2018-04-20 17:21:19.653 [20] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+logback- 2018-04-20 17:21:19.685 [20] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8099 (http)
+logback- 2018-04-20 17:21:19.732 [20] DEBUG com.bootdo.common.dao.TaskDao.list - ==>  Preparing: select `id`,`cron_expression`,`method_name`,`is_concurrent`,`description`,`update_by`,`bean_class`,`create_date`,`job_status`,`job_group`,`update_date`,`create_by`,`spring_bean`,`job_name` from sys_task order by id desc 
+logback- 2018-04-20 17:21:19.745 [20] DEBUG com.bootdo.common.dao.TaskDao.list - ==> Parameters: 
+logback- 2018-04-20 17:21:19.835 [20] DEBUG com.bootdo.common.dao.TaskDao.list - <==      Total: 1
+logback- 2018-04-20 17:21:19.841 [20] INFO  com.bootdo.BootdoApplication - Started BootdoApplication in 33.494 seconds (JVM running for 36.172)
+logback- 2018-04-20 17:22:12.207 [94] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+logback- 2018-04-20 17:22:19.747 [116] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+logback- 2018-04-20 17:22:19.748 [116] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+logback- 2018-04-20 17:22:19.826 [116] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 77 ms
+logback- 2018-04-20 17:22:19.879 [116] INFO  o.a.s.s.m.AbstractValidatingSessionManager - Enabling session validation scheduler...
+logback- 2018-04-20 17:22:19.954 [116] INFO  c.bootdo.common.aspect.WebLogAspect - 请求地址 : http://localhost:8099/
+logback- 2018-04-20 17:22:19.954 [116] INFO  c.bootdo.common.aspect.WebLogAspect - HTTP METHOD : GET
+logback- 2018-04-20 17:22:19.981 [116] INFO  c.bootdo.common.aspect.WebLogAspect - CLASS_METHOD : com.bootdo.system.controller.LoginController.welcome
+logback- 2018-04-20 17:22:19.983 [116] INFO  c.bootdo.common.aspect.WebLogAspect - 参数 : [{}]
+logback- 2018-04-20 17:22:20.012 [116] INFO  c.bootdo.common.aspect.WebLogAspect - 耗时 : 59
+logback- 2018-04-20 17:22:20.033 [116] DEBUG c.bootdo.common.aspect.WebLogAspect - 返回值 : redirect:/blog
+logback- 2018-04-20 17:22:20.402 [116] INFO  c.bootdo.common.aspect.WebLogAspect - 请求地址 : http://localhost:8099/blog
+logback- 2018-04-20 17:22:20.402 [116] INFO  c.bootdo.common.aspect.WebLogAspect - HTTP METHOD : GET
+logback- 2018-04-20 17:22:20.402 [116] INFO  c.bootdo.common.aspect.WebLogAspect - CLASS_METHOD : com.bootdo.blog.controller.BlogController.blog
+logback- 2018-04-20 17:22:20.402 [116] INFO  c.bootdo.common.aspect.WebLogAspect - 参数 : []
+logback- 2018-04-20 17:22:20.403 [116] INFO  c.bootdo.common.aspect.WebLogAspect - 耗时 : 1
+logback- 2018-04-20 17:22:20.403 [116] DEBUG c.bootdo.common.aspect.WebLogAspect - 返回值 : blog/index/main
+logback- 2018-04-20 17:22:20.447 [116] INFO  org.thymeleaf.TemplateEngine - [THYMELEAF] INITIALIZING TEMPLATE ENGINE
+logback- 2018-04-20 17:22:20.509 [116] INFO  o.t.t.AbstractTemplateResolver - [THYMELEAF] INITIALIZING TEMPLATE RESOLVER: org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+logback- 2018-04-20 17:22:20.510 [116] INFO  o.t.t.AbstractTemplateResolver - [THYMELEAF] TEMPLATE RESOLVER INITIALIZED OK
+logback- 2018-04-20 17:22:20.510 [116] INFO  o.t.m.AbstractMessageResolver - [THYMELEAF] INITIALIZING MESSAGE RESOLVER: org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+logback- 2018-04-20 17:22:20.510 [116] INFO  o.t.m.AbstractMessageResolver - [THYMELEAF] MESSAGE RESOLVER INITIALIZED OK
+logback- 2018-04-20 17:22:20.515 [116] INFO  org.thymeleaf.TemplateEngine.CONFIG - [THYMELEAF] TEMPLATE ENGINE CONFIGURATION:
+[THYMELEAF] * Cache Factory implementation: org.thymeleaf.cache.StandardCacheManager
+[THYMELEAF] * Template modes:
+[THYMELEAF]     * VALIDXHTML
+[THYMELEAF]     * VALIDXML
+[THYMELEAF]     * XHTML
+[THYMELEAF]     * XML
+[THYMELEAF]     * HTML5
+[THYMELEAF]     * LEGACYHTML5
+[THYMELEAF] * Template resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+[THYMELEAF] * Message resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+[THYMELEAF] * Dialect [1 of 3]: org.thymeleaf.spring4.dialect.SpringStandardDialect
+[THYMELEAF]     * Prefix: "th"
+[THYMELEAF] * Dialect [2 of 3]: at.pollux.thymeleaf.shiro.dialect.ShiroDialect
+[THYMELEAF]     * Prefix: "shiro"
+[THYMELEAF] * Dialect [3 of 3]: nz.net.ultraq.thymeleaf.LayoutDialect
+[THYMELEAF]     * Prefix: "layout"
+[THYMELEAF] TEMPLATE ENGINE CONFIGURED OK
+logback- 2018-04-20 17:22:20.515 [116] INFO  org.thymeleaf.TemplateEngine - [THYMELEAF] TEMPLATE ENGINE INITIALIZED
+logback- 2018-04-20 17:22:21.554 [122] INFO  c.bootdo.common.aspect.WebLogAspect - 请求地址 : http://localhost:8099/blog/open/list
+logback- 2018-04-20 17:22:21.555 [122] INFO  c.bootdo.common.aspect.WebLogAspect - HTTP METHOD : GET
+logback- 2018-04-20 17:22:21.555 [122] INFO  c.bootdo.common.aspect.WebLogAspect - CLASS_METHOD : com.bootdo.blog.controller.BlogController.opentList
+logback- 2018-04-20 17:22:21.555 [122] INFO  c.bootdo.common.aspect.WebLogAspect - 参数 : [{type=article, limit=10, offset=0}]
+logback- 2018-04-20 17:22:21.664 [122] DEBUG com.bootdo.blog.dao.ContentDao.list - ==>  Preparing: select `cid`,`title`,`slug`,`created`,`modified`,`content`,`type`,`tags`,`categories`,`hits`,`comments_num`,`allow_comment`,`allow_ping`,`allow_feed`,`status`,`author`,`gtm_create`,`gtm_modified` from blog_content WHERE type = ? order by cid desc limit 0, 10 
+logback- 2018-04-20 17:22:21.681 [122] DEBUG com.bootdo.blog.dao.ContentDao.list - ==> Parameters: article(String)
+logback- 2018-04-20 17:22:21.823 [125] INFO  c.bootdo.common.aspect.WebLogAspect - 请求地址 : http://localhost:8099/login;JSESSIONID=3715d37e-9bb1-4b4e-95ae-7c91baf51b9a
+logback- 2018-04-20 17:22:21.823 [125] INFO  c.bootdo.common.aspect.WebLogAspect - HTTP METHOD : GET
+logback- 2018-04-20 17:22:21.823 [125] INFO  c.bootdo.common.aspect.WebLogAspect - CLASS_METHOD : com.bootdo.system.controller.LoginController.login
+logback- 2018-04-20 17:22:21.823 [125] INFO  c.bootdo.common.aspect.WebLogAspect - 参数 : []
+logback- 2018-04-20 17:22:21.823 [125] INFO  c.bootdo.common.aspect.WebLogAspect - 耗时 : 0
+logback- 2018-04-20 17:22:21.824 [125] DEBUG c.bootdo.common.aspect.WebLogAspect - 返回值 : login
+logback- 2018-04-20 17:22:22.913 [122] DEBUG com.bootdo.blog.dao.ContentDao.list - <==      Total: 10
+logback- 2018-04-20 17:22:22.914 [122] DEBUG com.bootdo.blog.dao.ContentDao.count - ==>  Preparing: select count(*) from blog_content WHERE type = ? 
+logback- 2018-04-20 17:22:22.916 [122] DEBUG com.bootdo.blog.dao.ContentDao.count - ==> Parameters: article(String)
+logback- 2018-04-20 17:22:22.974 [122] DEBUG com.bootdo.blog.dao.ContentDao.count - <==      Total: 1
+logback- 2018-04-20 17:22:22.974 [122] INFO  c.bootdo.common.aspect.WebLogAspect - 耗时 : 1420
+logback- 2018-04-20 17:22:22.975 [122] DEBUG c.bootdo.common.aspect.WebLogAspect - 返回值 : com.bootdo.common.utils.PageUtils@3bec8004
+logback- 2018-04-20 17:22:25.413 [117] INFO  c.bootdo.common.aspect.WebLogAspect - 请求地址 : http://localhost:8099/blog/open/post/121
+logback- 2018-04-20 17:22:25.414 [117] INFO  c.bootdo.common.aspect.WebLogAspect - HTTP METHOD : GET
+logback- 2018-04-20 17:22:25.414 [117] INFO  c.bootdo.common.aspect.WebLogAspect - CLASS_METHOD : com.bootdo.blog.controller.BlogController.post
+logback- 2018-04-20 17:22:25.414 [117] INFO  c.bootdo.common.aspect.WebLogAspect - 参数 : [121, {}]
+logback- 2018-04-20 17:22:25.414 [117] DEBUG com.bootdo.blog.dao.ContentDao.get - ==>  Preparing: select `cid`,`title`,`slug`,`created`,`modified`,`content`,`type`,`tags`,`categories`,`hits`,`comments_num`,`allow_comment`,`allow_ping`,`allow_feed`,`status`,`author`,`gtm_create`,`gtm_modified` from blog_content where cid = ? 
+logback- 2018-04-20 17:22:25.417 [117] DEBUG com.bootdo.blog.dao.ContentDao.get - ==> Parameters: 121(Long)
+logback- 2018-04-20 17:22:25.544 [117] DEBUG com.bootdo.blog.dao.ContentDao.get - <==      Total: 1
+logback- 2018-04-20 17:22:25.546 [117] INFO  c.bootdo.common.aspect.WebLogAspect - 耗时 : 133
+logback- 2018-04-20 17:22:25.546 [117] DEBUG c.bootdo.common.aspect.WebLogAspect - 返回值 : blog/index/post
+logback- 2018-04-20 17:22:27.138 [124] INFO  c.bootdo.common.aspect.WebLogAspect - 请求地址 : http://localhost:8099/login
+logback- 2018-04-20 17:22:27.138 [124] INFO  c.bootdo.common.aspect.WebLogAspect - HTTP METHOD : GET
+logback- 2018-04-20 17:22:27.138 [124] INFO  c.bootdo.common.aspect.WebLogAspect - CLASS_METHOD : com.bootdo.system.controller.LoginController.login
+logback- 2018-04-20 17:22:27.138 [124] INFO  c.bootdo.common.aspect.WebLogAspect - 参数 : []
+logback- 2018-04-20 17:22:27.138 [124] INFO  c.bootdo.common.aspect.WebLogAspect - 耗时 : 0
+logback- 2018-04-20 17:22:27.138 [124] DEBUG c.bootdo.common.aspect.WebLogAspect - 返回值 : login
+logback- 2018-04-20 17:22:28.324 [118] DEBUG com.bootdo.system.dao.UserDao.list - ==>  Preparing: select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user WHERE username = ? order by user_id desc 
+logback- 2018-04-20 17:22:28.325 [118] DEBUG com.bootdo.system.dao.UserDao.list - ==> Parameters: admin(String)
+logback- 2018-04-20 17:22:28.402 [118] DEBUG com.bootdo.system.dao.UserDao.list - <==      Total: 1
+logback- 2018-04-20 17:22:28.419 [118] INFO  c.bootdo.common.aspect.WebLogAspect - 请求地址 : http://localhost:8099/login
+logback- 2018-04-20 17:22:28.419 [118] INFO  c.bootdo.common.aspect.WebLogAspect - HTTP METHOD : POST
+logback- 2018-04-20 17:22:28.419 [118] INFO  c.bootdo.common.aspect.WebLogAspect - CLASS_METHOD : com.bootdo.system.controller.LoginController.ajaxLogin
+logback- 2018-04-20 17:22:28.419 [118] INFO  c.bootdo.common.aspect.WebLogAspect - 参数 : [admin, 111111]
+logback- 2018-04-20 17:22:28.428 [118] DEBUG com.bootdo.system.dao.UserDao.list - ==>  Preparing: select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user WHERE username = ? order by user_id desc 
+logback- 2018-04-20 17:22:28.428 [118] DEBUG com.bootdo.system.dao.UserDao.list - ==> Parameters: admin(String)
+logback- 2018-04-20 17:22:28.507 [118] DEBUG com.bootdo.system.dao.UserDao.list - <==      Total: 1
+logback- 2018-04-20 17:22:28.513 [118] INFO  c.bootdo.common.aspect.WebLogAspect - 耗时 : 94
+logback- 2018-04-20 17:22:28.513 [118] DEBUG c.bootdo.common.aspect.WebLogAspect - 返回值 : {msg=操作成功, code=0}
+logback- 2018-04-20 17:22:28.631 [118] INFO  o.s.s.a.AnnotationAsyncExecutionInterceptor - More than one TaskExecutor bean found within the context, and none is named 'taskExecutor'. Mark one of them as primary or name it 'taskExecutor' (possibly as an alias) in order to use it for async processing: [clientInboundChannelExecutor, clientOutboundChannelExecutor, brokerChannelExecutor, messageBrokerTaskScheduler]
+logback- 2018-04-20 17:22:28.634 [140] DEBUG com.bootdo.common.dao.LogDao.save - ==>  Preparing: insert into sys_log ( `user_id`, `username`, `operation`, `time`, `method`, `params`, `ip`, `gmt_create` ) values ( ?, ?, ?, ?, ?, ?, ?, ? ) 
+logback- 2018-04-20 17:22:28.645 [140] DEBUG com.bootdo.common.dao.LogDao.save - ==> Parameters: 1(Long), admin(String), 登录(String), 94(Integer), com.bootdo.system.controller.LoginController.ajaxLogin()(String), null, 127.0.0.1(String), 2018-04-20 17:22:28.628(Timestamp)
+logback- 2018-04-20 17:22:28.668 [119] INFO  c.bootdo.common.aspect.WebLogAspect - 请求地址 : http://localhost:8099/index
+logback- 2018-04-20 17:22:28.668 [119] INFO  c.bootdo.common.aspect.WebLogAspect - HTTP METHOD : GET
+logback- 2018-04-20 17:22:28.668 [119] INFO  c.bootdo.common.aspect.WebLogAspect - CLASS_METHOD : com.bootdo.system.controller.LoginController.index
+logback- 2018-04-20 17:22:28.668 [119] INFO  c.bootdo.common.aspect.WebLogAspect - 参数 : [{}]
+logback- 2018-04-20 17:22:29.150 [140] DEBUG com.bootdo.common.dao.LogDao.save - <==    Updates: 1
+logback- 2018-04-20 17:22:29.674 [119] DEBUG c.b.s.dao.MenuDao.listMenuByUserId - ==>  Preparing: select distinct m.menu_id , parent_id, name, url, perms,`type`,icon,order_num,gmt_create, gmt_modified from sys_menu m left join sys_role_menu rm on m.menu_id = rm.menu_id left join sys_user_role ur on rm.role_id =ur.role_id where ur.user_id = ? and m.type in(0,1) order by m.order_num 
+logback- 2018-04-20 17:22:29.681 [119] DEBUG c.b.s.dao.MenuDao.listMenuByUserId - ==> Parameters: 1(Long)
+logback- 2018-04-20 17:22:29.771 [119] DEBUG c.b.s.dao.MenuDao.listMenuByUserId - <==      Total: 28
+logback- 2018-04-20 17:22:29.948 [119] DEBUG com.bootdo.common.dao.FileDao.get - ==>  Preparing: select `id`,`type`,`url`,`create_date` from sys_file where id = ? 
+logback- 2018-04-20 17:22:29.949 [119] DEBUG com.bootdo.common.dao.FileDao.get - ==> Parameters: 138(Long)
+logback- 2018-04-20 17:22:30.042 [119] DEBUG com.bootdo.common.dao.FileDao.get - <==      Total: 1
+logback- 2018-04-20 17:22:30.043 [119] INFO  c.bootdo.common.aspect.WebLogAspect - 耗时 : 1375
+logback- 2018-04-20 17:22:30.043 [119] DEBUG c.bootdo.common.aspect.WebLogAspect - 返回值 : index_v1
+logback- 2018-04-20 17:22:30.074 [141] DEBUG com.bootdo.common.dao.LogDao.save - ==>  Preparing: insert into sys_log ( `user_id`, `username`, `operation`, `time`, `method`, `params`, `ip`, `gmt_create` ) values ( ?, ?, ?, ?, ?, ?, ?, ? ) 
+logback- 2018-04-20 17:22:30.075 [141] DEBUG com.bootdo.common.dao.LogDao.save - ==> Parameters: 1(Long), admin(String), 请求访问主页(String), 1375(Integer), com.bootdo.system.controller.LoginController.index()(String), null, 127.0.0.1(String), 2018-04-20 17:22:30.073(Timestamp)
+logback- 2018-04-20 17:22:30.196 [141] DEBUG com.bootdo.common.dao.LogDao.save - <==    Updates: 1
+logback- 2018-04-20 17:22:30.223 [118] INFO  c.bootdo.common.aspect.WebLogAspect - 请求地址 : http://localhost:8099/main
+logback- 2018-04-20 17:22:30.223 [118] INFO  c.bootdo.common.aspect.WebLogAspect - HTTP METHOD : GET
+logback- 2018-04-20 17:22:30.223 [118] INFO  c.bootdo.common.aspect.WebLogAspect - CLASS_METHOD : com.bootdo.system.controller.LoginController.main
+logback- 2018-04-20 17:22:30.223 [118] INFO  c.bootdo.common.aspect.WebLogAspect - 参数 : []
+logback- 2018-04-20 17:22:30.223 [118] INFO  c.bootdo.common.aspect.WebLogAspect - 耗时 : 0
+logback- 2018-04-20 17:22:30.223 [118] DEBUG c.bootdo.common.aspect.WebLogAspect - 返回值 : main
+logback- 2018-04-20 17:22:30.334 [123] INFO  c.bootdo.common.aspect.WebLogAspect - 请求地址 : http://localhost:8099/oa/notify/message
+logback- 2018-04-20 17:22:30.334 [123] INFO  c.bootdo.common.aspect.WebLogAspect - HTTP METHOD : GET
+logback- 2018-04-20 17:22:30.334 [123] INFO  c.bootdo.common.aspect.WebLogAspect - CLASS_METHOD : com.bootdo.oa.controller.NotifyController.message
+logback- 2018-04-20 17:22:30.334 [123] INFO  c.bootdo.common.aspect.WebLogAspect - 参数 : []
+logback- 2018-04-20 17:22:30.336 [123] DEBUG com.bootdo.oa.dao.NotifyDao.listDTO - ==>  Preparing: select DISTINCT n.id ,`type`,`title`,`content`,`files`,r.is_read,`status`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from oa_notify_record r right JOIN oa_notify n on r.notify_id = n.id WHERE r.is_read = ? and r.user_id = ? order by is_read ASC, update_date DESC limit ?, ? 
+logback- 2018-04-20 17:22:30.339 [123] DEBUG com.bootdo.oa.dao.NotifyDao.listDTO - ==> Parameters: 0(String), 1(Long), 0(Integer), 3(Integer)
+logback- 2018-04-20 17:22:30.422 [125] INFO  c.bootdo.common.aspect.WebLogAspect - 请求地址 : http://localhost:8099/main
+logback- 2018-04-20 17:22:30.423 [125] INFO  c.bootdo.common.aspect.WebLogAspect - HTTP METHOD : GET
+logback- 2018-04-20 17:22:30.423 [125] INFO  c.bootdo.common.aspect.WebLogAspect - CLASS_METHOD : com.bootdo.system.controller.LoginController.main
+logback- 2018-04-20 17:22:30.423 [125] INFO  c.bootdo.common.aspect.WebLogAspect - 参数 : []
+logback- 2018-04-20 17:22:30.423 [125] INFO  c.bootdo.common.aspect.WebLogAspect - 耗时 : 1
+logback- 2018-04-20 17:22:30.423 [125] DEBUG c.bootdo.common.aspect.WebLogAspect - 返回值 : main
+logback- 2018-04-20 17:22:30.434 [123] DEBUG com.bootdo.oa.dao.NotifyDao.listDTO - <==      Total: 0
+logback- 2018-04-20 17:22:30.435 [123] DEBUG com.bootdo.oa.dao.NotifyDao.countDTO - ==>  Preparing: select count(*) from oa_notify_record r right JOIN oa_notify n on r.notify_id = n.id where r.user_id =? and r.is_read = ? 
+logback- 2018-04-20 17:22:30.437 [123] DEBUG com.bootdo.oa.dao.NotifyDao.countDTO - ==> Parameters: 1(Long), 0(String)
+logback- 2018-04-20 17:22:30.520 [123] DEBUG com.bootdo.oa.dao.NotifyDao.countDTO - <==      Total: 1
+logback- 2018-04-20 17:22:30.521 [123] INFO  c.bootdo.common.aspect.WebLogAspect - 耗时 : 188
+logback- 2018-04-20 17:22:30.521 [123] DEBUG c.bootdo.common.aspect.WebLogAspect - 返回值 : com.bootdo.common.utils.PageUtils@252a24ff
+logback- 2018-04-20 17:23:45.203 [130] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@868b91a: startup date [Fri Apr 20 17:20:48 CST 2018]; root of context hierarchy
+logback- 2018-04-20 17:23:45.209 [130] INFO  o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase 2147483647
+logback- 2018-04-20 17:23:45.212 [130] INFO  org.quartz.core.QuartzScheduler - Scheduler schedulerFactoryBean_$_NON_CLUSTERED paused.
+logback- 2018-04-20 17:23:45.213 [130] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopping...
+logback- 2018-04-20 17:23:45.214 [130] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+logback- 2018-04-20 17:23:45.214 [130] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopped.
+logback- 2018-04-20 17:23:45.218 [130] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+logback- 2018-04-20 17:23:45.218 [130] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+logback- 2018-04-20 17:23:45.224 [130] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'brokerChannelExecutor'
+logback- 2018-04-20 17:23:45.226 [130] INFO  o.s.s.c.ThreadPoolTaskScheduler - Shutting down ExecutorService 'messageBrokerTaskScheduler'
+logback- 2018-04-20 17:23:45.234 [130] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'clientOutboundChannelExecutor'
+logback- 2018-04-20 17:23:45.234 [130] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'clientInboundChannelExecutor'
+logback- 2018-04-20 17:23:45.235 [130] INFO  org.quartz.core.QuartzScheduler - Scheduler schedulerFactoryBean_$_NON_CLUSTERED shutting down.
+logback- 2018-04-20 17:23:45.235 [130] INFO  org.quartz.core.QuartzScheduler - Scheduler schedulerFactoryBean_$_NON_CLUSTERED paused.
+logback- 2018-04-20 17:23:45.238 [130] INFO  org.quartz.core.QuartzScheduler - Scheduler schedulerFactoryBean_$_NON_CLUSTERED shutdown complete.
+logback- 2018-04-20 17:23:45.239 [130] INFO  o.s.s.quartz.SchedulerFactoryBean - Shutting down Quartz Scheduler
+logback- 2018-04-20 17:23:45.247 [130] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+logback- 2018-04-20 17:23:45.249 [130] INFO  o.a.s.s.m.AbstractValidatingSessionManager - Disabled session validation scheduler.

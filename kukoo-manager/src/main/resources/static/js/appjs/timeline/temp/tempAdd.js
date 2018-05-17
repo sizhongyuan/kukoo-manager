@@ -41,7 +41,7 @@ function save() {
 	$.ajax({
 		cache : true,
 		type : "POST",
-		url : "/TL/temp/save",
+		url : "/timeline/temp/save",
 		data : $('#signupForm').serialize(),// 你的formid
 		async : false,
 		error : function(request) {

@@ -26,11 +26,11 @@ public interface TLTempService {
     int save(TtTimelineTempLink ttTimelineTempLink,HttpServletRequest request);
 
 //    int update(NotifyDO notify);
-//
-//    int remove(Long id);
-//
-//    int batchRemove(Long[] ids);
-//
+
+    int remove(int id);
+
+    int batchRemove(int[] ids);
+
 ////	Map<String, Object> message(Long userId);
 //
 //    PageUtils selfList(Map<String, Object> map);

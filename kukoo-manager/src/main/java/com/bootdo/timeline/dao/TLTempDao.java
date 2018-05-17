@@ -30,11 +30,15 @@ public interface TLTempDao {
 	int saveFile(List<TtTimelineTempFile> ttTimelineTempFileList);
 
 //	int update(NotifyDO notify);
-//
-//	int remove(Long id);
-//
-//	int batchRemove(Long[] ids);
-//
+
+	int remove(int id);
+
+	int batchRemove(int[] ids);
+
+	int removeFile(int id);
+
+	int batchRemoveFile(int[] ids);
+
 //	List<NotifyDO> listByIds(Long[] ids);
 //
 //	int countDTO(Map<String, Object> map);

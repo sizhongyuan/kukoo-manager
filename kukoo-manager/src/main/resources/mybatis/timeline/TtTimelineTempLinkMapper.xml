@@ -27,6 +27,7 @@
 			<if test="last_update_user_id != null and last_update_user_id != ''"> and last_update_user_id = #{lastUpdateUserId} </if>
 			<if test="last_update_time != null and last_update_time != ''"> and last_update_time = #{lastUpdateTime} </if>
 			<if test="remark != null and remark != ''"> and remark = #{remark} </if>
+			and deleted = 0
 		</where>
 		<choose>
 			<when test="sort != null and sort.trim() != ''">
@@ -57,6 +58,7 @@
 			<if test="last_update_user_id != null and last_update_user_id != ''"> and last_update_user_id = #{lastUpdateUserId} </if>
 			<if test="last_update_time != null and last_update_time != ''"> and last_update_time = #{lastUpdateTime} </if>
 			<if test="remark != null and remark != ''"> and remark = #{remark} </if>
+			and deleted = 0
 		</where>
 	</select>
 
@@ -126,17 +128,29 @@
 		<!--where id = #{id}-->
 	<!--</update>-->
 
-	<!--<delete id="remove">-->
-		<!--delete from oa_notify where id = #{value}-->
-	<!--</delete>-->
+	<update id="remove" parameterType="com.bootdo.timeline.domain.TtTimelineTempLink">
+		update tt_timeline_temp_link set deleted = 1 where id = #{id}
+	</update>
 
-	<!--<delete id="batchRemove">-->
-		<!--delete from oa_notify where id in-->
-		<!--<foreach item="id" collection="array" open="(" separator=","-->
-			<!--close=")">-->
-			<!--#{id}-->
-		<!--</foreach>-->
-	<!--</delete>-->
+	<update id="removeFile" parameterType="com.bootdo.timeline.domain.TtTimelineTempFile">
+		update tt_timeline_temp_file set deleted = 1 where temp_id = #{id}
+	</update>
+
+	<update id="batchRemove" parameterType="com.bootdo.timeline.domain.TtTimelineTempLink">
+		update tt_timeline_temp_link set deleted = 1 where id in
+		<foreach item="id" collection="array" open="(" separator=","
+				 close=")">
+			#{id}
+		</foreach>
+	</update>
+
+	<update id="batchRemoveFile" parameterType="com.bootdo.timeline.domain.TtTimelineTempFile">
+		update tt_timeline_temp_file set deleted = 1 where temp_id in
+		<foreach item="id" collection="array" open="(" separator=","
+				 close=")">
+			#{id}
+		</foreach>
+	</update>
 
 	<!--<select id="listByIds" resultType="com.bootdo.oa.domain.NotifyDO">-->
 		<!--select-->

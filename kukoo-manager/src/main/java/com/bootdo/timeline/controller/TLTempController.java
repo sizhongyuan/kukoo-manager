@@ -34,7 +34,7 @@ import java.util.Map;
  */
 
 @Controller
-@RequestMapping("/TL/temp")
+@RequestMapping("/timeline/temp")
 public class TLTempController extends BaseController {
     @Autowired
     private TLTempService tlTempService;
@@ -112,37 +112,37 @@ public class TLTempController extends BaseController {
 //        notifyService.update(notify);
 //        return R.ok();
 //    }
-//
-//    /**
-//     * 删除
-//     */
-//    @PostMapping("/remove")
-//    @ResponseBody
-//    @RequiresPermissions("oa:notify:remove")
-//    public R remove(Long id) {
-//        if (Constant.DEMO_ACCOUNT.equals(getUsername())) {
-//            return R.error(1, "演示系统不允许修改,完整体验请部署程序");
-//        }
-//        if (notifyService.remove(id) > 0) {
-//            return R.ok();
-//        }
-//        return R.error();
-//    }
-//
-//    /**
-//     * 删除
-//     */
-//    @PostMapping("/batchRemove")
-//    @ResponseBody
-//    @RequiresPermissions("oa:notify:batchRemove")
-//    public R remove(@RequestParam("ids[]") Long[] ids) {
-//        if (Constant.DEMO_ACCOUNT.equals(getUsername())) {
-//            return R.error(1, "演示系统不允许修改,完整体验请部署程序");
-//        }
-//        notifyService.batchRemove(ids);
-//        return R.ok();
-//    }
-//
+
+    /**
+     * 删除
+     */
+    @PostMapping("/remove")
+    @ResponseBody
+    @RequiresPermissions("timeline:temp:remove")
+    public R remove(int id) {
+        if (Constant.DEMO_ACCOUNT.equals(getUsername())) {
+            return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+        }
+        if (tlTempService.remove(id) > 0) {
+            return R.ok();
+        }
+        return R.error();
+    }
+
+    /**
+     * 批量删除
+     */
+    @PostMapping("/batchRemove")
+    @ResponseBody
+    @RequiresPermissions("timeline:temp:batchRemove")
+    public R remove(@RequestParam("ids[]") int[] ids) {
+        if (Constant.DEMO_ACCOUNT.equals(getUsername())) {
+            return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+        }
+        tlTempService.batchRemove(ids);
+        return R.ok();
+    }
+
 //    @ResponseBody
 //    @GetMapping("/message")
 //    PageUtils message() {

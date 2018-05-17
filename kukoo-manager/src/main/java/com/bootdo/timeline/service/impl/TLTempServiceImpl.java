@@ -95,22 +95,22 @@ public class TLTempServiceImpl implements TLTempService {
 //    public int update(NotifyDO notify) {
 //        return notifyDao.update(notify);
 //    }
-//
-//    @Transactional
-//    @Override
-//    public int remove(Long id) {
-//        recordDao.removeByNotifbyId(id);
-//        return notifyDao.remove(id);
-//    }
-//
-//    @Transactional
-//    @Override
-//    public int batchRemove(Long[] ids) {
-//        recordDao.batchRemoveByNotifbyId(ids);
-//        return notifyDao.batchRemove(ids);
-//    }
-//
-//
+
+    @Transactional
+    @Override
+    public int remove(int id) {
+        tlTempDao.removeFile(id);
+        return tlTempDao.remove(id);
+    }
+
+    @Transactional
+    @Override
+    public int batchRemove(int[] ids) {
+        tlTempDao.batchRemoveFile(ids);
+        return tlTempDao.batchRemove(ids);
+    }
+
+
 //    @Override
 //    public PageUtils selfList(Map<String, Object> map) {
 //        List<NotifyDTO> rows = notifyDao.listDTO(map);

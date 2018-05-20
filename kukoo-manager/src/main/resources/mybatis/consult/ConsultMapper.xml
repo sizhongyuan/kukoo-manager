@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.consult.dao.ConsultDao">
+
+	<select id="get" resultType="com.bootdo.consult.model.Consult">
+		select
+		`id`,`user_id`,`user_name`,`user_telephone`,`create_time`,`adviser`,`consult_record`,`consult_result`
+		from tt_consult
+		where id = #{id}
+	</select>
+
+	<select id="list" resultType="com.bootdo.consult.model.Consult">
+		select `id`,`user_id`,`user_name`,`user_telephone`,`create_time`,`adviser`,`consult_record`,`consult_result`
+		from tt_consult
+		<where>
+			<if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+			<if test="userName != null and userName != ''"> and user_name = #{userName} </if>
+			<if test="userTelephone != null and userTelephone != ''"> and user_telephone = #{userTelephone} </if>
+			<if test="adviser != null and adviser != ''"> and adviser = #{adviser} </if>
+			<if test="consultRecord != null and consultRecord != ''"> and consult_record = #{consultRecord} </if>
+			<if test="consultResult != null and consultResult != ''"> and consult_result = #{consultResult} </if>
+		</where>
+		    order by create_time desc
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+	<select id="count" resultType="int">
+		select count(*) from tt_consult
+		<where>
+			<if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+			<if test="userName != null and userName != ''"> and user_name = #{userName} </if>
+			<if test="userTelephone != null and userTelephone != ''"> and user_telephone = #{userTelephone} </if>
+			<if test="adviser != null and adviser != ''"> and adviser = #{adviser} </if>
+			<if test="consultRecord != null and consultRecord != ''"> and consult_record = #{consultRecord} </if>
+			<if test="consultResult != null and consultResult != ''"> and consult_result = #{consultResult} </if>
+		</where>
+	</select>
+
+	<insert id="save" parameterType="com.bootdo.consult.model.Consult"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into tt_consult
+		(
+		`user_id`,
+		`user_name`,
+		`user_telephone`,
+		`create_time`,
+		`adviser`,
+		`consult_record`,
+		`consult_result`
+		)
+		values
+		(
+		#{userId},
+		#{userName},
+		#{userTelephone},
+		#{createTime},
+		#{adviser},
+		#{consultRecord},
+		#{consultResult}
+		)
+	</insert>
+
+	<update id="update" parameterType="com.bootdo.consult.model.Consult">
+		update tt_consult
+		<set>
+			<if test="userName != null">`user_name` = #{userName}, </if>
+			<if test="userId != null">`user_id` = #{userId}, </if>
+			<if test="userTelephone != null">`user_telephone` = #{userTelephone}, </if>
+			<if test="createTime != null">`create_time` = #{createTime},</if>
+			<if test="adviser != null">`adviser` = #{adviser},</if>
+			<if test="consultRecord != null">`consult_record` = #{consultRecord},</if>
+			<if test="consultResult != null">`consult_result` = #{consultResult}</if>
+		</set>
+		where id = #{id}
+	</update>
+
+	<delete id="remove">
+		delete from tt_consult where id = #{id}
+	</delete>
+
+	<delete id="batchRemove">
+		delete from tt_consult where id in
+		<foreach item="id" collection="array" open="(" separator=","
+			close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

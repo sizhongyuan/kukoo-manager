@@ -19,7 +19,6 @@
 			<if test="value != null and value != ''"> and value = #{value} </if>
 			<if test="type != null and type != ''"> and type = #{type} </if>
 			<if test="description != null and description != ''"> and description = #{description} </if>
-			<if test="sort != null and sort != ''"> and sort = #{sort} </if>
 			<if test="parentId != null and parentId != ''"> and parent_id = #{parentId} </if>
 			<if test="createBy != null and createBy != ''"> and create_by = #{createBy} </if>
 			<if test="createDate != null and createDate != ''"> and create_date = #{createDate} </if>
@@ -49,7 +48,6 @@
 			<if test="value != null and value != ''"> and value = #{value} </if>
 			<if test="type != null and type != ''"> and type = #{type} </if>
 			<if test="description != null and description != ''"> and description = #{description} </if>
-			<if test="sort != null and sort != ''"> and sort = #{sort} </if>
 			<if test="parentId != null and parentId != ''"> and parent_id = #{parentId} </if>
 			<if test="createBy != null and createBy != ''"> and create_by = #{createBy} </if>
 			<if test="createDate != null and createDate != ''"> and create_date = #{createDate} </if>

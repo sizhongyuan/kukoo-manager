@@ -7,11 +7,14 @@ import com.bootdo.common.utils.PageUtils;
 import com.bootdo.common.utils.Query;
 import com.bootdo.common.utils.R;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,6 +31,8 @@ import java.util.Map;
 public class DictController extends BaseController {
 	@Autowired
 	private DictService dictService;
+
+	private static final Logger logger = LoggerFactory.getLogger(DictController.class);
 
 	@GetMapping()
 	@RequiresPermissions("common:dict:dict")
@@ -138,11 +143,21 @@ public class DictController extends BaseController {
 
 	@ResponseBody
 	@GetMapping("/list/{type}")
-	public List<DictDO> listByType(@PathVariable("type") String type) {
+	public List<DictDO> listByType(@PathVariable("type") String type, HttpServletRequest request) {
 		// 查询列表数据
 		Map<String, Object> map = new HashMap<>(16);
+		String sort = request.getParameter("sort");
+		String order = request.getParameter("order");
 		map.put("type", type);
+		if(!"".equals(sort)){
+			map.put("sort", sort);
+		}
+		if(!"".equals(order)){
+			map.put("order", order);
+		}
 		List<DictDO> dictList = dictService.list(map);
 		return dictList;
 	}
+
+
 }

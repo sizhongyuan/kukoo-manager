@@ -5,23 +5,20 @@
 
 	<select id="get" resultType="com.bootdo.consult.model.Consult">
 		select
-		`id`,`user_id`,`user_name`,`user_telephone`,`create_time`,`adviser`,`consult_record`,`consult_result`
+		`id`,`parent_id`,`user_id`,`user_name`,`user_telephone`,`create_time`,`adviser`,`consult_record`,`consult_result`
 		from tt_consult
-		where id = #{id}
+		where id = #{id} and del_flag='0'
 	</select>
 
 	<select id="list" resultType="com.bootdo.consult.model.Consult">
-		select `id`,`user_id`,`user_name`,`user_telephone`,`create_time`,`adviser`,`consult_record`,`consult_result`
+		select `id`,`parent_id`,`user_id`,`user_name`,`user_telephone`,`create_time`,`adviser`,`consult_record`,`consult_result`
 		from tt_consult
-		<where>
-			<if test="userId != null and userId != ''"> and user_id = #{userId} </if>
-			<if test="userName != null and userName != ''"> and user_name = #{userName} </if>
-			<if test="userTelephone != null and userTelephone != ''"> and user_telephone = #{userTelephone} </if>
-			<if test="adviser != null and adviser != ''"> and adviser = #{adviser} </if>
-			<if test="consultRecord != null and consultRecord != ''"> and consult_record = #{consultRecord} </if>
-			<if test="consultResult != null and consultResult != ''"> and consult_result = #{consultResult} </if>
-		</where>
-		    order by create_time desc
+		where
+			parent_id = #{parentId} and del_flag='0'
+		<if test="userId != null and userId != ''"> and (user_id = #{userId} </if>
+			<if test="userName != null and userName != ''"> OR user_name = #{userName} </if>
+			<if test="userTelephone != null and userTelephone != ''"> OR user_telephone = #{userTelephone} )</if>
+		order by create_time desc
 		<if test="offset != null and limit != null">
 			limit #{offset}, #{limit}
 		</if>
@@ -30,19 +27,23 @@
 	<select id="count" resultType="int">
 		select count(*) from tt_consult
 		<where>
+			<if test="parentId != null and parentId != ''"> and parent_id = #{parentId} </if>
 			<if test="userId != null and userId != ''"> and user_id = #{userId} </if>
 			<if test="userName != null and userName != ''"> and user_name = #{userName} </if>
 			<if test="userTelephone != null and userTelephone != ''"> and user_telephone = #{userTelephone} </if>
 			<if test="adviser != null and adviser != ''"> and adviser = #{adviser} </if>
 			<if test="consultRecord != null and consultRecord != ''"> and consult_record = #{consultRecord} </if>
 			<if test="consultResult != null and consultResult != ''"> and consult_result = #{consultResult} </if>
+			and del_flag='0'
 		</where>
+
 	</select>
 
 	<insert id="save" parameterType="com.bootdo.consult.model.Consult"
 		useGeneratedKeys="true" keyProperty="id">
 		insert into tt_consult
 		(
+		`parent_id`,
 		`user_id`,
 		`user_name`,
 		`user_telephone`,
@@ -53,6 +54,7 @@
 		)
 		values
 		(
+		#{parentId},
 		#{userId},
 		#{userName},
 		#{userTelephone},

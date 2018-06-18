@@ -14,7 +14,7 @@ import java.util.Map;
  */
 public interface ProjectService {
 
-    ProjectDO get(int id);
+    ProjectDO get(String id);
 
     List<ProjectDO> list(Map<String, Object> map);
 
@@ -24,9 +24,13 @@ public interface ProjectService {
 
     int update(ProjectDO projectDO);
 
-    int remove(int id);
+    int remove(String id);
 
     int batchRemove(String[] ids);
 
-    PageUtils selfList(Map<String, Object> map);
+    /**
+     * 获取project序列
+     * @return int
+     * */
+    int getSequence();
 }

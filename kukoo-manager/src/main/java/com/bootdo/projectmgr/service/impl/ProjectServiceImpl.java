@@ -1,6 +1,5 @@
 package com.bootdo.projectmgr.service.impl;
 
-import com.bootdo.common.utils.PageUtils;
 import com.bootdo.projectmgr.dao.ProjectDao;
 import com.bootdo.projectmgr.domain.ProjectDO;
 import com.bootdo.projectmgr.service.ProjectService;
@@ -18,7 +17,7 @@ public class ProjectServiceImpl implements ProjectService {
     private ProjectDao projectDao;
 
     @Override
-    public ProjectDO get(int id) {
+    public ProjectDO get(String id) {
         ProjectDO projectDO = projectDao.get(id);
         return projectDO;
     }
@@ -49,7 +48,7 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Transactional
     @Override
-    public int remove(int id) {
+    public int remove(String id) {
         return projectDao.remove(id);
     }
 
@@ -59,8 +58,12 @@ public class ProjectServiceImpl implements ProjectService {
         return projectDao.batchRemove(ids);
     }
 
+    /**
+     * 获取project序列
+     * @return int
+     * */
     @Override
-    public PageUtils selfList(Map<String, Object> map) {
-        return null;
+    public int getSequence(){
+        return projectDao.getSequence();
     }
 }

@@ -69,13 +69,11 @@ function loadType(){
 
             $("#country").bind("change",function(){
                 var value = $(this).val();
-                console.log("==="+value);
                 var url = '/common/dict/list/'+value;
                 $.get(url,{
                     sort : 'sort',
                     order : 'asc'
                 },function(data){
-                    console.log("==="+data);
                     var ahtml="";
                     if(data != '' && data.length>0){
                         for (var i = 0; i < data.length; i++) {

@@ -52,7 +52,7 @@ function load() {
 						field : 'id',
 						title : '编号'
 					},
-					
+
 					{
 						field : 'title',
 						title : '标题',

@@ -11,6 +11,8 @@ public class Consult implements Serializable {
 	
 	//主键ID
 	private Integer id;
+	//和ID组成上下级关心
+	private Integer parentId;
 	//用户ID
 	private String userId;
 	//用户名
@@ -25,6 +27,8 @@ public class Consult implements Serializable {
 	private String consultRecord;
 	//咨询结果
 	private String consultResult;
+	//删除标示
+	private String del_flag;
 
 
 	public Integer getId() {
@@ -89,6 +93,22 @@ public class Consult implements Serializable {
 
 	public void setConsultResult(String consultResult) {
 		this.consultResult = consultResult;
+	}
+
+	public Integer getParentId() {
+		return parentId;
+	}
+
+	public void setParentId(Integer parentId) {
+		this.parentId = parentId;
+	}
+
+	public String getDel_flag() {
+		return del_flag;
+	}
+
+	public void setDel_flag(String del_flag) {
+		this.del_flag = del_flag;
 	}
 
 	@Override

@@ -24,6 +24,7 @@
         <result column="cicnews" property="cicnews" jdbcType="VARCHAR" />
         <result column="gradeUrl" property="gradeUrl" jdbcType="VARCHAR" />
 		<result column="remark" property="remark" jdbcType="VARCHAR" />
+		<result column="deleted" property="deleted" jdbcType="VARCHAR" />
     </resultMap>
 
     <sql id="Base_Column_List" >
@@ -47,7 +48,8 @@
 		visaType,
 		cicnews,
 		gradeUrl,
-		remark
+		remark,
+		deleted
 	</sql>
     <select id="get" resultMap="BaseResultMap">
 		select
@@ -60,6 +62,7 @@
 		<include refid="Base_Column_List" />
 		from project_detail
 		<where>
+			and deleted = '0'
 			<if test="id != null and id != ''"> and id = #{id} </if>
 			<if test="projectName != null and projectName != ''">
 				<bind name="projectNameLike" value="'%'+projectName+'%'"/>
@@ -85,6 +88,7 @@
 	<select id="count" resultType="int">
 		select count(*) from project_detail
 		<where>
+			and deleted = '0'
 			<if test="id != null and id != ''"> and id = #{id} </if>
 			<if test="projectName != null and projectName != ''"> and projectName = #{projectName} </if>
 			<if test="country != null and country != ''"> and country = #{country} </if>
@@ -93,10 +97,10 @@
 		</where>
 	</select>
 
-	<insert id="save" parameterType="com.bootdo.projectmgr.domain.ProjectDO"
-			useGeneratedKeys="true" keyProperty="id">
+	<insert id="save" parameterType="com.bootdo.projectmgr.domain.ProjectDO" keyProperty="id">
 		insert into project_detail
 		(
+		id,
 		createTime,
 		projectName,
 		country,
@@ -116,10 +120,12 @@
 		visaType,
 		cicnews,
 		gradeUrl,
-		remark
+		remark,
+		deleted
 		)
 		values
 		(
+		#{id},
 		#{createTime},
 		#{projectName},
 		#{country},
@@ -139,42 +145,43 @@
 		#{visaType},
 		#{cicnews},
 		#{gradeUrl},
-		#{remark}
+		#{remark},
+		#{deleted}
 		)
 	</insert>
 
 	<update id="update" parameterType="com.bootdo.projectmgr.domain.ProjectDO">
 		update project_detail
 		<set>
-			<if test="projectName != null and projectName != ''"> projectName = #{projectName} </if>
-			<if test="country != null and country != ''"> , country = #{country} </if>
-			<if test="projectType != null and projectType != ''"> , projectType = #{projectType} </if>
-			<if test="projectTypeOther != null and projectTypeOther != ''"> , projectTypeOther = #{projectTypeOther} </if>
-			<if test="immigrationMode != null and immigrationMode != ''"> , immigrationMode = #{immigrationMode} </if>
-			<if test="ifOpen != null and ifOpen != ''"> , ifOpen = #{ifOpen} </if>
-			<if test="introduction != null and introduction != ''"> , introduction = #{introduction} </if>
-			<if test="policyInterpretation != null and policyInterpretation != ''"> , policyInterpretation = #{policyInterpretation} </if>
-			<if test="applicationProcess != null and applicationProcess != ''"> , applicationProcess = #{applicationProcess} </if>
-			<if test="applicationRequirement != null and applicationRequirement != ''"> , applicationRequirement = #{applicationRequirement} </if>
-			<if test="material != null and material != ''"> , material = #{material} </if>
-			<if test="costDetail != null and costDetail != ''"> , costDetail = #{costDetail} </if>
-			<if test="funding != null and funding != ''"> , funding = #{funding} </if>
-			<if test="processingeriod != null and processingeriod != ''"> , processingeriod = #{processingeriod} </if>
-			<if test="residenceRequirement != null and residenceRequirement != ''"> , residenceRequirement = #{residenceRequirement} </if>
-			<if test="visaType != null and visaType != ''"> , visaType = #{visaType} </if>
-			<if test="cicnews != null and cicnews != ''"> , cicnews = #{cicnews} </if>
-			<if test="gradeUrl != null and gradeUrl != ''"> , gradeUrl = #{gradeUrl} </if>
-			<if test="remark != null and remark != ''"> , remark = #{remark} </if>
+			<if test="projectName != null and projectName != ''"> projectName = #{projectName}, </if>
+			<if test="country != null and country != ''"> country = #{country}, </if>
+			<if test="projectType != null and projectType != ''"> projectType = #{projectType}, </if>
+			<if test="projectTypeOther != null and projectTypeOther != ''"> projectTypeOther = #{projectTypeOther}, </if>
+			<if test="immigrationMode != null and immigrationMode != ''"> immigrationMode = #{immigrationMode}, </if>
+			<if test="ifOpen != null and ifOpen != ''"> ifOpen = #{ifOpen}, </if>
+			<if test="introduction != null and introduction != ''"> introduction = #{introduction}, </if>
+			<if test="policyInterpretation != null and policyInterpretation != ''"> policyInterpretation = #{policyInterpretation}, </if>
+			<if test="applicationProcess != null and applicationProcess != ''"> applicationProcess = #{applicationProcess}, </if>
+			<if test="applicationRequirement != null and applicationRequirement != ''"> applicationRequirement = #{applicationRequirement}, </if>
+			<if test="material != null and material != ''"> material = #{material}, </if>
+			<if test="costDetail != null and costDetail != ''"> costDetail = #{costDetail}, </if>
+			<if test="funding != null and funding != ''"> funding = #{funding}, </if>
+			<if test="processingeriod != null and processingeriod != ''"> processingeriod = #{processingeriod}, </if>
+			<if test="residenceRequirement != null and residenceRequirement != ''"> residenceRequirement = #{residenceRequirement}, </if>
+			<if test="visaType != null and visaType != ''"> visaType = #{visaType}, </if>
+			<if test="cicnews != null and cicnews != ''"> cicnews = #{cicnews}, </if>
+			<if test="gradeUrl != null and gradeUrl != ''"> gradeUrl = #{gradeUrl}, </if>
+			<if test="remark != null and remark != ''"> remark = #{remark}, </if>
 		</set>
 		where id = #{id}
 	</update>
 
 	<delete id="remove" >
-		delete from project_detail where id = #{id}
+		update project_detail set deleted='1' where id = #{id}
 	</delete>
 
 	<delete id="batchRemove">
-		delete from project_detail where id in
+		update project_detail set deleted='1' where id in
 		<foreach item="id" collection="array" open="(" separator=","
 				 close=")">
 			#{id}
@@ -191,9 +198,13 @@
 		</foreach>
 	</select>
 
+	<select id="getSequence" resultType="int">
+		SELECT func_nextval('project');
+	</select>
+
 </mapper>
 <!--create table project_detail(
-	id int NOT NULL PRIMARY key	AUTO_INCREMENT COMMENT '主键',
+	id VARCHAR(10) PRIMARY key COMMENT '主键',
 	createTime datetime,
 	projectName VARCHAR(200),
 	country VARCHAR(50),
@@ -213,5 +224,6 @@
 	visaType VARCHAR(20),
 	cicnews VARCHAR(200),
 	gradeUrl VARCHAR(200),
-	remark VARCHAR(500)
+	remark VARCHAR(500),
+	deleted VARCHAR(10)
 ) -->

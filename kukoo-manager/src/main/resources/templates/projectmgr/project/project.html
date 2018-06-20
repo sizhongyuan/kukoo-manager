@@ -37,7 +37,9 @@
     <script type="text/javascript">
         var s_edit_h = 'hidden';
         var s_remove_h = 'hidden';
-        var s_resetPwd_h = 'hidden';
+        var sub_new_h = 'hidden';
+        var sub_edit_h = 'hidden';
+        var sub_remove_h = 'hidden';
     </script>
 </div>
 <div shiro:hasPermission="projectmgr:project:edit">
@@ -50,9 +52,20 @@
         var s_remove_h = '';
     </script>
 </div>
-<div shiro:hasPermission="projectmgr:project:resetPwd">
+<!-- 二级项目权限-->
+<div shiro:hasPermission="projectmgr:subproject:add">
     <script type="text/javascript">
-        var s_resetPwd_h = '';
+        var sub_new_h = '';
+    </script>
+</div>
+<div shiro:hasPermission="projectmgr:subproject:edit">
+    <script type="text/javascript">
+        var sub_edit_h = '';
+    </script>
+</div>
+<div shiro:hasPermission="projectmgr:subproject:remove">
+    <script type="text/javascript">
+        var sub_remove_h = '';
     </script>
 </div>
 <div th:include="include :: footer"></div>

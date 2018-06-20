@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content ">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <form class="form-horizontal m-t" id="signupForm">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">二级项目名称：</label>
+                            <div class="col-sm-8">
+                                <input id="subProjectName" name="subProjectName" class="form-control" type="text" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">所属一级项目：</label>
+                            <div class="col-sm-8">
+                                <input id="projectName" name="projectName" class="form-control" type="text" th:value="${projectDO.projectName}" required readonly>
+                                <input id="projectId" name="projectId" class="form-control" type="hidden" th:value="${projectDO.id}" required>
+                            </div>
+                        </div>
+                        <div class="form-group" id="projectTypeDiv">
+                            <label class="col-sm-3 control-label">配额情况：</label>
+                            <div class="col-sm-8">
+                                <input id="quota" name="quota" class="form-control" type="text" required>
+                            </div>
+                        </div>
+                        <div class="form-group" id="projectTypeOtherDiv" >
+                            <label class="col-sm-3 control-label">是否抢名额：</label>
+                            <div class="col-sm-8">
+                                <select data-placeholder="--请选择--" name="ifQuota" id="ifQuota"
+                                        class="form-control chosen-select" tabindex="2" required>
+                                    <option value="">--请选择--</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">项目状态：</label>
+                            <div class="col-sm-8">
+                                <select data-placeholder="--请选择--" name="status" id="status"
+                                        class="form-control chosen-select" tabindex="2" required>
+                                    <option value="">--请选择--</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">政策开始时间：</label>
+                            <div class="col-sm-8">
+                                <input id="startTime" name="startTime" class="form-control" type="text" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">政策结束时间：</label>
+                            <div class="col-sm-8">
+                                <input id="endTime" name="endTime" class="form-control" type="text" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">政策细节：</label>
+                            <div class="col-sm-8">
+                                <textarea id="policy" name="policy" class="form-control" required></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">备注信息：</label>
+                            <div class="col-sm-8">
+                                <textarea id="remark" name="remark" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-8 col-sm-offset-3">
+                                <button type="submit" class="btn btn-primary">提交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="include::footer"></div>
+
+<script type="text/javascript" src="/js/appjs/projectmgr/subproject/add.js"></script>
+</body>
+</html>

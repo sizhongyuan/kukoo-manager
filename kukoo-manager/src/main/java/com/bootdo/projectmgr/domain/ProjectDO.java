@@ -13,7 +13,7 @@ public class ProjectDO implements Serializable {
     /**
      * 一级项目id
      * */
-    private int id;
+    private String id;
     /**
      * 注册时间
      * */
@@ -94,12 +94,24 @@ public class ProjectDO implements Serializable {
      * 备注
      * */
     private String remark;
+    /**
+     * 删除标识 0,正常；1,已删除
+     * */
+    private String deleted;
 
-    public int getId() {
+    public String getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(String deleted) {
+        this.deleted = deleted;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

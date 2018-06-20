@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.projectmgr.dao.SubProjectDao">
+
+    <resultMap id="BaseResultMap" type="com.bootdo.projectmgr.domain.SubProjectDO" >
+        <id column="id" property="id" jdbcType="VARCHAR" />
+        <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+        <result column="subProjectName" property="subProjectName" jdbcType="VARCHAR" />
+        <result column="projectId" property="projectId" jdbcType="VARCHAR" />
+        <result column="quota" property="quota" jdbcType="VARCHAR" />
+        <result column="ifQuota" property="ifQuota" jdbcType="VARCHAR" />
+        <result column="status" property="status" jdbcType="VARCHAR" />
+        <result column="startTime" property="startTime" jdbcType="DATE" />
+        <result column="endTime" property="endTime" jdbcType="DATE" />
+        <result column="policy" property="policy" jdbcType="VARCHAR" />
+        <result column="remark" property="remark" jdbcType="VARCHAR" />
+        <result column="deleted" property="deleted" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+		id,
+		createTime,
+		subProjectName,
+		projectId,
+		quota,
+		ifQuota,
+		status,
+		startTime,
+		endTime,
+		policy,
+		remark,
+		deleted
+	</sql>
+
+    <select id="get" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from sub_project_detail where id = #{id}
+    </select>
+
+    <select id="list" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from sub_project_detail
+
+        <where>
+            and deleted = '0'
+            <if test="id != null and id != ''"> and id = #{id} </if>
+            <if test="subProjectName != null and subProjectName != ''">
+                <bind name="subProjectNameLike" value="'%'+subProjectName+'%'"/>
+                and subProjectName like #{subProjectNameLike}
+            </if>
+            <if test="projectId != null and projectId != ''"> and projectId = #{projectId} </if>
+            <if test="ifQuota != null and ifQuota != ''"> and ifQuota = #{ifQuota} </if>
+            <if test="status != null and status != ''"> and status = #{status} </if>
+        </where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+            <otherwise>
+                order by createTime desc
+            </otherwise>
+        </choose>
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+    <select id="count" resultType="int">
+        select count(*) from sub_project_detail
+        <where>
+            and deleted = '0'
+            <if test="id != null and id != ''"> and id = #{id} </if>
+            <if test="subProjectName != null and subProjectName != ''">
+                <bind name="subProjectNameLike" value="'%'+subProjectName+'%'"/>
+                and subProjectName like #{subProjectNameLike}
+            </if>
+            <if test="projectId != null and projectId != ''"> and projectId = #{projectId} </if>
+            <if test="ifQuota != null and ifQuota != ''"> and ifQuota = #{ifQuota} </if>
+            <if test="status != null and status != ''"> and status = #{status} </if>
+        </where>
+    </select>
+
+    <insert id="save" parameterType="com.bootdo.projectmgr.domain.SubProjectDO" keyProperty="id">
+		insert into sub_project_detail
+		(
+		id,
+		createTime,
+        subProjectName,
+        projectId,
+        quota,
+        ifQuota,
+        status,
+        startTime,
+        endTime,
+        policy,
+		remark,
+		deleted
+		)
+		values
+		(
+		#{id},
+		#{createTime},
+		#{subProjectName},
+		#{projectId},
+		#{quota},
+		#{ifQuota},
+		#{status},
+		#{startTime},
+		#{endTime},
+		#{policy},
+		#{remark},
+		#{deleted}
+		)
+	</insert>
+
+    <update id="update" parameterType="com.bootdo.projectmgr.domain.SubProjectDO">
+        update sub_project_detail
+        <set>
+            <if test="createTime != null "> createTime = #{createTime}, </if>
+            <if test="subProjectName != null and subProjectName != ''"> subProjectName = #{subProjectName}, </if>
+            <if test="projectId != null and projectId != ''"> projectId = #{projectId}, </if>
+            <if test="quota != null and quota != ''"> quota = #{quota}, </if>
+            <if test="ifQuota != null and ifQuota != ''"> ifQuota = #{ifQuota}, </if>
+            <if test="status != null and status != ''"> status = #{status}, </if>
+            <if test="startTime != null "> startTime = #{startTime}, </if>
+            <if test="endTime != null "> endTime = #{endTime}, </if>
+            <if test="policy != null and policy != ''"> policy = #{policy}, </if>
+            <if test="remark != null and remark != ''"> remark = #{remark}, </if>
+            <if test="deleted != null and deleted != ''"> deleted = #{deleted}, </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="remove" >
+		update sub_project_detail set deleted='1' where id = #{id}
+	</delete>
+
+    <delete id="batchRemove">
+        update sub_project_detail set deleted='1' where id in
+        <foreach item="id" collection="array" open="(" separator=","
+                 close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="listByIds" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from sub_project_detail where id in
+        <foreach item="id" collection="array" open="(" separator=","
+                 close=")">
+            #{id}
+        </foreach>
+    </select>
+
+    <select id="getSequence" resultType="int">
+		SELECT func_nextval('subProject');
+	</select>
+
+</mapper>
+<!--
+create table sub_project_detail(
+	id VARCHAR(10) PRIMARY key COMMENT '主键',
+	createTime datetime,
+	subProjectName VARCHAR(100),
+	projectId VARCHAR(10),
+	quota VARCHAR(100),
+	ifQuota VARCHAR(10),
+	status VARCHAR(20),
+	startTime datetime,
+	endTime datetime,
+	policy VARCHAR(500),
+	remark VARCHAR(500),
+	deleted VARCHAR(10)
+)
+
+-->

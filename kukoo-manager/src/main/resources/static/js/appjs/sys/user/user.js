@@ -1,7 +1,7 @@
 var prefix = "/sys/user"
 $(function() {
 	var deptId = '';
-	getTreeData();
+	//getTreeData();
 	load(deptId);
 });
 
@@ -35,7 +35,7 @@ function load(deptId) {
 						// 说明：传入后台的参数包括offset开始索引，limit步长，sort排序列，order：desc或者,以及所有列的键值对
 						limit : params.limit,
 						offset : params.offset,
-						name : $('#searchName').val(),
+						searchCondition : $('#searchCondition').val(),
 						deptId : deptId
 					};
 				},
@@ -50,16 +50,35 @@ function load(deptId) {
 						checkbox : true
 					},
 					{
-						field : 'userId', // 列字段名
-						title : '序号' // 列标题
+						field : 'headImg', // 列字段名
+						title : '头像', // 列标题
+						align : 'center',
+						formatter:function(value,row,index){
+							var url = row.headImg;
+							var s = '<a class = "view"  href="javascript:void(0)" onclick="detail('+row.userId+')"><img style="width:20px;height:20px;border-radius:20px;"  src="/img/user.png" /></a>';
+							return s;
+						}
 					},
+//					{
+//						field : 'userId', // 列字段名
+//						title : '序号' // 列标题
+//					},
 					{
 						field : 'name',
-						title : '姓名'
+						title : '姓名',
+						formatter:function(value,row,index){
+							var url = row.headImg;
+							var s = '<a class = "view"  href="javascript:void(0)" onclick="detail('+row.userId+')">'+row.name+'</a>';
+							return s;
+						}
 					},
 					{
-						field : 'username',
-						title : '用户名'
+						field : 'mobileInland',
+						title : '手机号'
+					},
+					{
+						field : 'gmtCreate',
+						title : '注册时间'
 					},
 					{
 						field : 'email',
@@ -75,6 +94,27 @@ function load(deptId) {
 							} else if (value == '1') {
 								return '<span class="label label-primary">正常</span>';
 							}
+						}
+					},
+					{
+						field : 'peopleNumber',
+						title : '负责人数',
+						formatter : function(value, row, index) {
+							return '<a href="">100</a>';
+						}
+					},
+					{
+						field : 'caseNumber',
+						title : '负责case数',
+						formatter : function(value, row, index) {
+							return '<a href="">100</a>';
+						}
+					},
+					{
+						field : 'consultNumber',
+						title : '咨询人数',
+						formatter : function(value, row, index) {
+							return '<a href="">100</a>';
 						}
 					},
 					{
@@ -96,20 +136,59 @@ function load(deptId) {
 					} ]
 			});
 }
+//查询
 function reLoad() {
 	$('#exampleTable').bootstrapTable('refresh');
 }
+//回车搜索
+function getKey(){  
+	reLoad();     
+} 
+
+//var layerIndex;
+//var layerInitWidth;
+//var layerInitHeight;
+//function add() {
+//	// iframe层
+//	layer.open({
+//		type : 2,
+//		title : '增加用户',
+//		maxmin : true,
+//		shadeClose : false, // 点击遮罩关闭层
+//		area : [ '100%','100%'],
+//		content : prefix + '/add',
+//		success:function(layero,index){
+//			layer.full(index);
+//			//获取当前弹出窗口的索引及初始大小
+//            layerIndex      = index;
+//            layerInitWidth  = $("#layui-layer"+layerIndex).width();
+//            layerInitHeight = $("#layui-layer"+layerIndex).height();
+//            //utils.resizeLayer(layerIndex,layerInitWidth,layerInitHeight);
+//            form.render(null, 'form-edit');
+//		}
+//	});
+//}
 function add() {
 	// iframe层
 	layer.open({
+		id : 'addUser',
 		type : 2,
 		title : '增加用户',
 		maxmin : true,
 		shadeClose : false, // 点击遮罩关闭层
-		area : [ '800px', '520px' ],
-		content : prefix + '/add'
+		area : [ '100%','100%'],
+		content : prefix + '/add',
+		success:function(layero,index){
+			layer.full(index);
+		}
 	});
 }
+$(window).resize(function() {
+    $('#addUser').parent().css({"width":"100%","height":"100%"});
+    $('#editUser').parent().css({"width":"100%","height":"100%"});
+    $('#detailUser').parent().css({"width":"100%","height":"100%"});
+    $('.chosen-container').css({"width":"100%"});
+});
 function remove(id) {
 	layer.confirm('确定要删除选中的记录？', {
 		btn : [ '确定', '取消' ]
@@ -132,13 +211,39 @@ function remove(id) {
 	})
 }
 function edit(id) {
+//	layer.open({
+//		type : 2,
+//		title : '用户修改',
+//		maxmin : true,
+//		shadeClose : false,
+//		area : [ '800px', '520px' ],
+//		content : prefix + '/edit/' + id // iframe的url
+//	});
 	layer.open({
+		id : 'editUser',
 		type : 2,
 		title : '用户修改',
 		maxmin : true,
-		shadeClose : false,
-		area : [ '800px', '520px' ],
-		content : prefix + '/edit/' + id // iframe的url
+		shadeClose : false, // 点击遮罩关闭层
+		area : [ '100%','100%'],
+		content : prefix + '/edit/' + id, // iframe的url
+		success:function(layero,index){
+			layer.full(index);
+		}
+	});
+}
+function detail(id) {
+	layer.open({
+		id : 'detailUser',
+		type : 2,
+		title : '用户详情',
+		maxmin : true,
+		shadeClose : false, // 点击遮罩关闭层
+		area : [ '100%','100%'],
+		content : prefix + '/detail/' + id, // iframe的url
+		success:function(layero,index){
+			layer.full(index);
+		}
 	});
 }
 function resetPwd(id) {

@@ -6,7 +6,7 @@
 <body class="gray-bg">
 	<div class="wrapper wrapper-content ">
 		<div class="row">
-			<div class="col-sm-3">
+		<!-- 	<div class="col-sm-3">
 				<div class="ibox ibox-body">
 					<div class="ibox-title">
 						<h5>选择部门</h5>
@@ -15,8 +15,8 @@
 						<div id="jstree"></div>
 					</div>
 				</div>
-			</div>
-			<div class="col-sm-8">
+			</div> -->
+			<div class="col-sm-12">
 				<div class="ibox">
 					<div class="ibox-body">
 						<div class="fixed-table-toolbar">
@@ -34,9 +34,9 @@
 								<button class="btn btn-success" onclick="reLoad()">查询</button>
 							</div>
 
-							<div class="columns pull-right col-md-2 nopadding">
-								<input id="searchName" type="text" class="form-control"
-									placeholder="姓名">
+							<div class="columns pull-right col-md-4 nopadding">
+								<input id="searchCondition" type="text" class="form-control"
+									placeholder="中文/英文姓名、手机号、状态、邮箱、所在机构" onkeypress="getKey();">
 							</div>
 						</div>
 						<table id="exampleTable" data-mobile-responsive="true">

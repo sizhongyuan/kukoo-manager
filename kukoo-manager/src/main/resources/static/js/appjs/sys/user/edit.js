@@ -1,5 +1,11 @@
 // 以下为官方示例
 $().ready(function() {
+	loadAccountType();
+	loadGender();
+	loadStatus();
+	loadRole();
+	loadLicensCase();
+	loadTime();
 	validateRule();
 	// $("#signupForm").validate();
 });
@@ -10,7 +16,8 @@ $.validator.setDefaults({
 	}
 });
 function update() {
-	$("#roleIds").val(getCheckedRoles());
+//	$("#roleIds").val(getCheckedRoles());
+	$("#roleIds").val($("#roleIds").val().join(','));
 	$.ajax({
 		cache : true,
 		type : "POST",
@@ -122,4 +129,193 @@ var openDept = function(){
 function loadDept( deptId,deptName){
 	$("#deptId").val(deptId);
 	$("#deptName").val(deptName);
+}
+
+//性别
+function loadGender(){
+	console.log("${user.gender}");
+	var html = "";
+	$.ajax({
+		url : '/common/dict/list/sys_user_gender',
+		success : function(data) {
+			//加载数据
+			for (var i = 0; i < data.length; i++) {
+				if(data[i].value == '1'){
+					html += '<option value="' + data[i].value + '">' + data[i].name + '</option>'
+				}else{
+					html += '<option value="' + data[i].value + '">' + data[i].name + '</option>'
+				}
+				
+			}
+			$("#gender").append(html);
+			$("#gender").chosen({
+				maxHeight : 200,
+				width : "100%",
+			});
+			$(".chosen-select").val($("#Tgender").val());
+			$(".chosen-select").trigger("chosen:updated");  
+			//点击事件
+			$('#gender').on('change', function(e, params) {
+				console.log(params.selected);
+				var opt = {
+					query : {
+						type : params.selected,
+					}
+				}
+				$('#exampleTable').bootstrapTable('refresh', opt);
+			});
+		}
+	});
+}
+
+//角色
+function loadRole(){
+	var html = "";
+	$.ajax({
+		url : '/sys/role/list',
+		success : function(data) {
+			console.log(data);
+			//加载数据
+			for (var i = 0; i < data.length; i++) {
+				html += '<option value="' + data[i].roleId + '">' + data[i].roleName + '</option>'
+			}
+			$("#roleIds").append(html);
+			$("#roleIds").chosen({
+				maxHeight : 200,
+				width : "100%"
+			});
+			var roleIds = $("#Trole").val().split(',');
+			for (i = 0; i < roleIds.length; i++) {  
+		        value = roleIds[i];  
+		        $("#roleIds" + " option[value='" + value + "']").attr('selected', 'selected');  
+		    }
+			$(".chosen-select").trigger("chosen:updated");  
+			//点击事件
+			$('#roleIds').on('change', function(e, params) {
+				console.log(params.selected);
+				var opt = {
+					query : {
+						type : params.selected,
+					}
+				}
+				$('#exampleTable').bootstrapTable('refresh', opt);
+			});
+		}
+	});
+}
+
+//账号类型
+function loadAccountType(){
+	var html = "";
+	$.ajax({
+		url : '/common/dict/list/sys_user_accountType',
+		success : function(data) {
+			//加载数据
+			for (var i = 0; i < data.length; i++) {
+				html += '<option value="' + data[i].value + '">' + data[i].name + '</option>'
+			}
+			$("#accountType").append(html);
+			$("#accountType").chosen({
+				maxHeight : 200,
+				width : "100%"
+			});
+			$(".chosen-select").val($("#TaccountType").val());
+			$(".chosen-select").trigger("chosen:updated");  
+			//点击事件
+			$('#accountType').on('change', function(e, params) {
+				var opt = {
+					query : {
+						type : params.selected,
+					}
+				}
+				$('#exampleTable').bootstrapTable('refresh', opt);
+			});
+		}
+	});
+}
+//状态
+function loadStatus(){
+	var html = "";
+	$.ajax({
+		url : '/common/dict/list/sys_user_status',
+		success : function(data) {
+			//加载数据
+			for (var i = 0; i < data.length; i++) {
+				html += '<option value="' + data[i].value + '">' + data[i].name + '</option>'
+			}
+			$("#status").append(html);
+			$("#status").chosen({
+				maxHeight : 200,
+				width : "100%"
+			});
+			$(".chosen-select").val($("#Tstatus").val());
+			$(".chosen-select").trigger("chosen:updated");
+			//点击事件
+			$('#status').on('change', function(e, params) {
+				console.log(params.selected);
+				var opt = {
+					query : {
+						type : params.selected,
+					}
+				}
+				$('#exampleTable').bootstrapTable('refresh', opt);
+			});
+		}
+	});
+}
+
+//持牌情况 
+function loadLicensCase(){
+	var html = "";
+	$.ajax({
+		url : '/common/dict/list/sys_user_licensCase',
+		success : function(data) {
+			//加载数据
+			for (var i = 0; i < data.length; i++) {
+				html += '<option value="' + data[i].value + '">' + data[i].name + '</option>'
+			}
+			$("#licensCase").append(html);
+			$("#licensCase").chosen({
+				maxHeight : 200,
+				width : "100%"
+			});
+			$(".chosen-select").val($("#TlicensCase").val());
+			$(".chosen-select").trigger("chosen:updated");
+			//点击事件
+			$('#licensCase').on('change', function(e, params) {
+				console.log(params.selected);
+				var opt = {
+					query : {
+						type : params.selected,
+					}
+				}
+				$('#exampleTable').bootstrapTable('refresh', opt);
+			});
+		}
+	});
+}
+
+function loadTime(){
+	$("#joinTime").datetimepicker({
+		   value:$("#TjoinTime").val(),
+		   showSecond: true,
+		   //showMillisec: true,
+		   dateFormat: "yy-mm-dd",
+		   timeFormat: 'hh:mm:ss'
+	});
+	$("#leaveTime").datetimepicker({
+		   value:$("#TleaveTime").val(),
+		   showSecond: true,
+		   //showMillisec: true,
+		   dateFormat: "yy-mm-dd",
+		   timeFormat: 'hh:mm:ss'
+	});
+	$("#birthday").datepicker({
+		value:$("#Tbirthday").val(),
+		dateFormat: "yy-mm-dd"
+	});
+	$("#laborLimit").datepicker({
+		value:$("#TlaborLimit").val(),
+		dateFormat: "yy-mm-dd"
+	});
 }

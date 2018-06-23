@@ -56,6 +56,15 @@ public class UserController extends BaseController {
 		PageUtils pageUtil = new PageUtils(sysUserList, total);
 		return pageUtil;
 	}
+	
+	@GetMapping("/detail/{id}")
+	String detail(Model model, @PathVariable("id") Long id) {
+		UserDO userDO = userService.get(id);
+		model.addAttribute("user", userDO);
+//		List<RoleDO> roles = roleService.list(id);
+//		model.addAttribute("roles", roles);
+		return prefix+"/detail";
+	}
 
 	@RequiresPermissions("sys:user:add")
 	@Log("添加用户")
@@ -72,8 +81,8 @@ public class UserController extends BaseController {
 	String edit(Model model, @PathVariable("id") Long id) {
 		UserDO userDO = userService.get(id);
 		model.addAttribute("user", userDO);
-		List<RoleDO> roles = roleService.list(id);
-		model.addAttribute("roles", roles);
+		//List<RoleDO> roles = roleService.list(id);
+		//model.addAttribute("roles", roles);
 		return prefix+"/edit";
 	}
 
@@ -85,7 +94,10 @@ public class UserController extends BaseController {
 		if (Constant.DEMO_ACCOUNT.equals(getUsername())) {
 			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
 		}
+		//user.setIDNumber("E0000000");
 		user.setPassword(MD5Utils.encrypt(user.getUsername(), user.getPassword()));
+		user.setGmtCreate(new Date());
+		user.setRegistTime(new Date());
 		if (userService.save(user) > 0) {
 			return R.ok();
 		}

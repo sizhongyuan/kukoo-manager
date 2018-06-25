@@ -4,6 +4,7 @@ $(function() {
     load();
 });
 
+//输出时间轴环节列表
 function load() {
     $('#exampleTable')
         .bootstrapTable(
@@ -46,6 +47,12 @@ function load() {
                 columns : [
                     {
                         checkbox : true
+                    },
+                    {
+                        visible :false,
+                        field : 'orderby',
+                        title : '时间轴顺序',
+                        class : 'handle'
                     },
                     {
                         visible :false,
@@ -142,11 +149,13 @@ function load() {
                     } ]
             });
 }
+//查询后刷新页面
 function reLoad() {
     $('#exampleTable').bootstrapTable('refresh');
 }
+//新增环节页面
 function add() {
-    layer.open({
+    fullAdd = layer.open({
         type : 2,
         title : '新增模板',
         maxmin : true,
@@ -154,17 +163,33 @@ function add() {
         area : [ '800px', '520px' ],
         content : prefix + '/add' // iframe的url
     });
+    layer.full(fullAdd);
 }
-// function edit(id) {
-//     layer.open({
-//         type : 2,
-//         title : '编辑',
-//         maxmin : true,
-//         shadeClose : false, // 点击遮罩关闭层
-//         area : [ '800px', '520px' ],
-//         content : prefix + '/edit/' + id // iframe的url
-//     });
-// }
+//进入排序页面
+function orderby() {
+    fullOrderby = layer.open({
+        type : 2,
+        title : '排序',
+        maxmin : true,
+        shadeClose : false, // 点击遮罩关闭层
+        area : [ '800px', '520px' ],
+        content : prefix + '/orderby' // iframe的url
+    });
+    layer.full(fullOrderby);
+}
+//编辑页面
+function edit(id) {
+    fullEdit = layer.open({
+        type : 2,
+        title : '编辑',
+        maxmin : true,
+        shadeClose : false, // 点击遮罩关闭层
+        area : [ '800px', '520px' ],
+        content : prefix + '/edit/' + id // iframe的url
+    });
+    layer.full(fullEdit);
+}
+//删除
 function remove(id) {
     layer.confirm('确定要删除选中的记录？', {
         btn : [ '确定', '取消' ]
@@ -189,6 +214,7 @@ function remove(id) {
 //
 // function resetPwd(id) {
 // }
+//批量删除
 function batchRemove() {
     var rows = $('#exampleTable').bootstrapTable('getSelections'); // 返回所有选择的行，当没有选择的记录时，返回一个空数组
     if (rows.length == 0) {

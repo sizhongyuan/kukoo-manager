@@ -2,6 +2,7 @@ package com.bootdo.timeline.service;
 
 import com.bootdo.common.utils.PageUtils;
 import com.bootdo.oa.domain.NotifyDO;
+import com.bootdo.timeline.domain.TtTimelineTempFile;
 import com.bootdo.timeline.domain.TtTimelineTempLink;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +18,11 @@ import java.util.Map;
  */
 public interface TLTempService {
 
-//    NotifyDO get(Long id);
+    TtTimelineTempLink get(Long id);
+
+    List<TtTimelineTempLink> getOrderby();
+
+    List<TtTimelineTempFile> queryFile(Long id);
 
     List<TtTimelineTempLink> list(Map<String, Object> map);
 
@@ -25,7 +30,9 @@ public interface TLTempService {
 
     int save(TtTimelineTempLink ttTimelineTempLink,HttpServletRequest request);
 
-//    int update(NotifyDO notify);
+    int update(TtTimelineTempLink ttTimelineTempLink,HttpServletRequest request);
+
+    int updateOrderby(HttpServletRequest request);
 
     int remove(int id);
 

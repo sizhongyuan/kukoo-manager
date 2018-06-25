@@ -17,6 +17,10 @@
 								class="btn  btn-danger" onclick="batchRemove()">
 								<i class="fa fa-trash" aria-hidden="true"></i>删除
 							</button>
+							<button shiro:hasPermission="timeline:temp:orderby" type="button"
+									class="btn  btn-success" onclick="orderby()">
+								<i class="fa fa-arrows" aria-hidden="true"></i>排序
+							</button>
 						</div>
 						<div class="columns pull-right">
 							<button class="btn btn-success" onclick="reLoad()">查询</button>

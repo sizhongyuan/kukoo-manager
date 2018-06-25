@@ -58,7 +58,7 @@
                 <input type="text" name="username" class="form-control uname"
                        value=""/>
                 <input type="password" name="password"
-                       class="form-control pword m-b" value=""/>
+                       class="form-control pword m-b" value="" onkeypress="getKey();"/>
                 <a id="login" class="btn btn-login btn-block">登录</a>
                 <!--按钮模块-->
                 <div class="outside-login">
@@ -116,7 +116,14 @@
             login();
         }
     });
-
+    
+    
+    function getKey(){  
+        if(event.keyCode==13){  
+         	$("#login").click();
+        }     
+    }  
+    
     function login() {
         $.ajax({
             type: "POST",

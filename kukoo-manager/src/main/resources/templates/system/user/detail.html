@@ -1,56 +1,118 @@
 <!DOCTYPE html>
 <html>
 <meta charset="utf-8">
-<head th:include="include :: header">
-</head>
+<head th:include="include :: header"></head>
 <body class="gray-bg">
-	<div class="wrapper wrapper-content ">
+	<div class="wrapper wrapper-content animated fadeInRight">
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="ibox float-e-margins">
-					<div class="ibox-content"> 
-						<form class="form-horizontal m-t" id="signupForm">
+				<div class="ibox-content">
+					<form class="form-horizontal m-t" id="signupForm">
+						<!-- <input id="userId" name="userId" th:value="${user.userId}"
+							type="hidden"> -->
+						<!-- <div class="form-group">
+							<label class="col-sm-3 control-label">姓名：</label>
+							<div class="col-sm-8">
+								<input id="name" name="name" class="form-control" type="text"
+									th:value="${user.name}">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label">用户名：</label>
+							<div class="col-sm-8">
+								<input id="username" name="username" class="form-control"
+									type="text" th:value="${user.username}" readonly>
+							</div>
+						</div>
+						<div class="form-group">
+								<label class="col-sm-3 control-label">部门：</label>
+								<div class="col-sm-8">
+									<input id="deptId" name="deptId" class="hidden" th:value="${user.deptId}">
+									 <input id="deptName" name="deptName"
+										class="form-control" type="text" style="cursor: pointer;"
+										onclick="openDept()" readonly="readonly" placeholder="所属部门" th:value="${user.deptName}">
+								</div>
+							</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label">E-mail：</label>
+							<div class="col-sm-8">
+								<input id="email" name="email" class="form-control" type="email"
+									th:value="${user.email}">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label">状态:</label>
+							<div class="col-sm-8">
+								<label class="radio-inline"> <input
+									th:field="*{user.status}" type="radio" name="status" value="1" />
+									正常
+								</label> <label class="radio-inline"> <input
+									th:field="*{user.status}" type="radio" name="status" value="0" />
+									禁用
+								</label>
+							</div>
+						</div>
+						<input type="hidden" name="roleIds" id="roleIds"
+							th:value="${roleIds}">
+						<div class="form-group">
+							<label class="col-sm-3 control-label">角色</label>
+							<div class="col-sm-8">
+								<label th:each="role:${roles}" class="checkbox-inline">
+									<input name="role" type="checkbox" th:value="${role.roleId}"
+									th:text="${role.roleName}" th:checked="${role.roleSign}">
+								</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-8 col-sm-offset-3">
+								<button type="submit" class="btn btn-primary">提交</button>
+							</div>
+						</div> -->
+						
+						
 						<fieldset>
     							<legend>基础信息</legend>
-							<input id="userId" name="userId" type="hidden">
+							<input id="userId" name="userId" th:value="${user.userId}"
+							type="hidden">
 							<div class="form-group">
 								<label class="col-sm-1 control-label">姓名：</label>
 								<div class="col-sm-3">
-									<input id="name" name="name" class="form-control" type="text">
+									<input id="name" name="name" class="form-control" type="text" th:value="${user.name}" readonly=true>
 								</div>
 								
 								<label class="col-sm-1 control-label">用户名：</label>
 								<div class="col-sm-3">
 									<input id="username" name="username" class="form-control"
-										type="text">
+										type="text" th:value="${user.username}" readonly=true>
 								</div>
 								
 								<label class="col-sm-1 control-label">密码：</label>
 								<div class="col-sm-3">
 									<input id="password" name="password" class="form-control"
-										type="password">
+										type="password" th:value="${user.password}" readonly=true>
 								</div>
 							</div>
 							
 							<div class="form-group">
 								<label class="col-sm-1 control-label">部门：</label>
 								<div class="col-sm-3">
-									<input id="deptId" name="deptId" class="hidden"> <input
-										id="deptName" name="deptName" class="form-control" type="text"
-										style="cursor: pointer;" onclick="openDept()"
-										readonly="readonly" placeholder="所属部门">
+									<input id="deptId" name="deptId" class="hidden" th:value="${user.deptId}">
+									 <input id="deptName" name="deptName"
+										class="form-control" type="text" style="cursor: pointer;"
+										readonly="readonly" placeholder="所属部门" th:value="${user.deptName}" >
 								</div>
 								
 								<label class="col-sm-1 control-label">E-mail：</label>
 								<div class="col-sm-3">
 									<input id="email" name="email" class="form-control"
-										type="email">
+										type="email" th:value="${user.email}" readonly=true>
 								</div>
 								
 								<label class="col-sm-1 control-label">账号类型：</label>
 								<div class="col-sm-3">
+									<input id="TaccountType" name="TaccountType" th:value="${user.accountType}" type="hidden">
 									<select data-placeholder="--选择类别--" name="accountType" id="accountType" style="width:100%"
-                                        class="form-control chosen-select" tabindex="2" required>
+                                        class="form-control chosen-select" tabindex="2" required disabled=true>
                                     		<!-- <option value="">--选择类别--</option> -->
                                 		</select>
 								</div>
@@ -60,24 +122,27 @@
 							<div class="form-group">
 								<label class="col-sm-1 control-label">性别：</label>
 								<div class="col-sm-3">
+									<input id="Tgender" name="Tgender" th:value="${user.gender}" type="hidden">
 									<select data-placeholder="--选择性别--" name="gender" id="gender"
-                                        class="form-control chosen-select" tabindex="2" required>
+                                        class="form-control chosen-select" tabindex="2" required disabled=true>
                                     		<option value="">--选择性别--</option>
                                 		</select>
 								</div>
 								
 								<label class="col-sm-1 control-label">角色：</label>
 								<div class="col-sm-3">
+									<input id="Trole" name="Trole" th:value="${user.roleIds}" type="hidden">
 									<select data-placeholder="--选择角色--" name="roleIds" id="roleIds"
-                                        class="form-control chosen-select" tabindex="2" multiple="multiple" required>
+                                        class="form-control chosen-select" tabindex="2" multiple="multiple" required disabled=true>
                                     		<option value="">--选择角色--</option>
                                 		</select>
 								</div>
 								
 								<label class="col-sm-1 control-label">状态：</label>
 								<div class="col-sm-3">
+									<input id="Tstatus" name="Tstatus" th:value="${user.status}" type="hidden">
 									<select data-placeholder="--选择状态--" name="status" id="status"
-                                        class="form-control chosen-select" tabindex="2" required>
+                                        class="form-control chosen-select" tabindex="2" required disabled=true>
                                     		<option value="">--选择状态--</option>
                                 		</select>
 								</div>
@@ -88,19 +153,19 @@
 								<label class="col-sm-1 control-label">昵称：</label>
 								<div class="col-sm-3">
 									<input id="nickname" name="nickname" class="form-control"
-										type="text" required>
+										type="text" th:value="${user.nickname}" readonly=true>
 								</div>
 								
 								<label class="col-sm-1 control-label">中文姓名：</label>
 								<div class="col-sm-3">
 									<input id="cnname" name="cnname" class="form-control"
-										type="text">
+										type="text" th:value="${user.cnname}" readonly=true>
 								</div>
 								
 								<label class="col-sm-1 control-label">英文姓名：</label>
 								<div class="col-sm-3">
 									<input id="enname" name="enname" class="form-control"
-										type="text">
+										type="text" th:value="${user.enname}" readonly=true >
 								</div>
 							</div>
 							
@@ -108,13 +173,13 @@
 								<label class="col-sm-1 control-label">所在机构：</label>
 								<div class="col-sm-3">
 									<input id="institutions" name="institutions" class="form-control"
-										type="text">
+										type="text" th:value="${user.institutions}" readonly=true>
 								</div>
 								
 								<label class="col-sm-1 control-label">所在地：</label>
 								<div class="col-sm-3">
 									<input id="location" name="location" class="form-control"
-										type="text">
+										type="text" th:value="${user.location}" readonly=true>
 								</div>
 							</div>
 							</fieldset>
@@ -124,26 +189,26 @@
 							<div class="form-group">
 								<label class="col-sm-1 control-label">手机号码-国内：</label>
 								<div class="col-sm-3">
-									<input id="mobileInland" name="mobileInland" class="form-control" type="text">
+									<input id="mobileInland" name="mobileInland" class="form-control" type="text" th:value="${user.mobileInland}" readonly=true>
 								</div>
 								
 								<label class="col-sm-1 control-label">手机号码-国外：</label>
 								<div class="col-sm-3">
 									<input id="mobileForeign" name="mobileForeign" class="form-control"
-										type="text">
+										type="text" th:value="${user.mobileForeign}" readonly=true>
 								</div>
 								
 								<label class="col-sm-1 control-label">微信号：</label>
 								<div class="col-sm-3">
 									<input id="weChat" name="weChat" class="form-control"
-										type="text">
+										type="text" th:value="${user.weChat}" readonly=true>
 								</div>
 							</div>
 							
 							<div class="form-group">
 								<label class="col-sm-1 control-label">其他：</label>
 								<div class="col-sm-11">
-									<input id="other" name="other" class="form-control" type="text">
+									<input id="other" name="other" class="form-control" type="text" th:value="${user.other}" readonly=true>
 								</div>
 							</div>
 							</fieldset>
@@ -153,46 +218,47 @@
 							<div class="form-group">
 								<label class="col-sm-1 control-label">专业范围：</label>
 								<div class="col-sm-3">
-									<input id="majorRange" name="majorRange" class="form-control" type="text">
+									<input id="majorRange" name="majorRange" class="form-control" type="text" th:value="${user.majorRange}" readonly=true>
 								</div>
 								
 								<label class="col-sm-1 control-label">级别：</label>
 								<div class="col-sm-3">
 									<input id="level" name="level" class="form-control"
-										type="text">
+										type="text" th:value="${user.level}" readonly=true>
 								</div>
 								
 								<label class="col-sm-1 control-label">负责人数：</label>
 								<div class="col-sm-3">
 									<input id="peopleNumber" name="peopleNumber" class="form-control"
-										type="text">
+										type="text" th:value="${user.peopleNumber}" readonly=true>
 								</div>
 							</div>
 							
 							<div class="form-group">
 								<label class="col-sm-1 control-label">负责CASE数：</label>
 								<div class="col-sm-3">
-									<input id="caseNumber" name="caseNumber" class="form-control" type="text">
+									<input id="caseNumber" name="caseNumber" class="form-control" type="text" th:value="${user.caseNumber}" readonly=true>
 								</div>
 								
 								<label class="col-sm-1 control-label">咨询人数：</label>
 								<div class="col-sm-3">
 									<input id="consultNumber" name="consultNumber" class="form-control"
-										type="text">
+										type="text" th:value="${user.consultNumber}" readonly=true>
 								</div>
 								
 								<label class="col-sm-1 control-label">从业年限：</label>
 								<div class="col-sm-3">
 									<input id="workyear" name="workyear" class="form-control"
-										type="text">
+										type="text" th:value="${user.workyear}" readonly=true>
 								</div>
 							</div>
 							
 							<div class="form-group">
 								<label class="col-sm-1 control-label">持牌情况：</label>
 								<div class="col-sm-3">
+									<input id="TlicensCase" name="TlicensCase" th:value="${user.licensCase}" type="hidden">
 									<select data-placeholder="--选择持牌情况--" name="licensCase" id="licensCase"
-                                        class="form-control chosen-select" tabindex="2" required>
+                                        class="form-control chosen-select" tabindex="2" required disabled=true>
                                     		<option value="">--选择持牌情况--</option>
                                 		</select>
 								</div>
@@ -205,45 +271,45 @@
 							<div class="form-group">
 								<label class="col-sm-1 control-label">基本工资：</label>
 								<div class="col-sm-3">
-									<input id="baseSalary" name="baseSalary" class="form-control" type="text">
+									<input id="baseSalary" name="baseSalary" class="form-control" type="text" th:value="${user.baseSalary}" readonly=true>
 								</div>
 								
 								<label class="col-sm-1 control-label">社保标准：</label>
 								<div class="col-sm-3">
 									<input id="socialSecurity" name="socialSecurity" class="form-control"
-										type="text">
+										type="text" th:value="${user.socialSecurity}" readonly=true>
 								</div>
 								
 								<label class="col-sm-1 control-label">公司社保成本：</label>
 								<div class="col-sm-3">
 									<input id="companySecurity" name="companySecurity" class="form-control"
-										type="text">
+										type="text" th:value="${user.companySecurity}" readonly=true>
 								</div>
 							</div>
 							
 							<div class="form-group">
 								<label class="col-sm-1 control-label">加入时间：</label>
 								<div class="col-sm-3">
-									<input id="joinTime" name="joinTime" class="form-control" type="text">
+									<input id="joinTime" name="joinTime" class="form-control" type="text" th:value="${user.joinTime}" readonly=true>
 								</div>
 								
 								<label class="col-sm-1 control-label">离开时间：</label>
 								<div class="col-sm-3">
 									<input id="leaveTime" name="leaveTime" class="form-control"
-										type="text">
+										type="text" th:value="${user.leaveTime}" readonly=true>
 								</div>
 								
 								<label class="col-sm-1 control-label">合同：</label>
 								<div class="col-sm-3">
 									<input id="contract" name="contract" class="form-control"
-										type="text">
+										type="text" th:value="${user.contract}" readonly=true>
 								</div>
 							</div>
 							
 							<div class="form-group">
 								<label class="col-sm-1 control-label">劳动关系期限：</label>
 								<div class="col-sm-3">
-									<input id="laborLimit" name="laborLimit" class="form-control" type="text">
+									<input id="laborLimit" name="laborLimit" class="form-control" type="text" th:value="${user.laborLimit}" readonly=true>
 								</div>
 							
 							</div>
@@ -254,32 +320,32 @@
 							<div class="form-group">
 								<label class="col-sm-1 control-label">证件号码：</label>
 								<div class="col-sm-3">
-									<input id="IDNumber" name="IDNumber" class="form-control" type="text">
+									<input id="IDNumber" name="IDNumber" class="form-control" type="text" th:value="${user.IDNumber}" readonly=true>
 								</div>
 								
 								<label class="col-sm-1 control-label">血型：</label>
 								<div class="col-sm-3">
 									<input id="bloodType" name="bloodType" class="form-control"
-										type="text">
+										type="text" th:value="${user.bloodType}" readonly=true>
 								</div>
 								
 								<label class="col-sm-1 control-label">籍贯：</label>
 								<div class="col-sm-3">
 									<input id="nativePlace" name="nativePlace" class="form-control"
-										type="text">
+										type="text" th:value="${user.nativePlace}" readonly=true>
 								</div>
 							</div>
 							
 							<div class="form-group">
 								<label class="col-sm-1 control-label">出生日期：</label>
 								<div class="col-sm-3">
-									<input id="birthday" name="birthday" class="form-control" type="text">
+									<input id="birthday" name="birthday" class="form-control" type="text" th:value="${user.birthday}" readonly=true>
 								</div>
 								
 								<label class="col-sm-1 control-label">紧急联系人信息：</label>
 								<div class="col-sm-3">
 									<input id="emergencyContact" name="emergencyContact" class="form-control"
-										type="text">
+										type="text" th:value="${user.emergencyContact}" readonly=true>
 								</div>
 								
 							</div>
@@ -291,7 +357,7 @@
 							<div class="form-group">
 								<label class="col-sm-1 control-label">备注：</label>
 								<div class="col-sm-11">
-									<textarea id="remark" name="remark" class="form-control" type="textarea"></textarea>
+									<textarea id="remark" name="remark" class="form-control" type="textarea" th:value="${user.remark}" readonly=true></textarea>
 								</div>
 								
 							</div>
@@ -320,20 +386,18 @@
 									</label>
 								</div>
 							</div> -->
-							<div class="form-group">
+							<!-- <div class="form-group">
 								<div class="col-sm-8 col-sm-offset-6">
 									<button type="submit" class="btn btn-primary">提交</button>
 								</div>
-							</div>
-						</form>
-					</div>
+							</div> -->
+					</form>
 				</div>
 			</div>
 		</div>
-
 	</div>
 	<div th:include="include::footer"></div>
-	<script type="text/javascript" src="/js/appjs/sys/user/add.js">
+	<script type="text/javascript" src="/js/appjs/sys/user/detail.js">
 	</script>
 </body>
 </html>

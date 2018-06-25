@@ -4,11 +4,18 @@
 <mapper namespace="com.bootdo.system.dao.UserDao">
 
 	<select id="get" resultType="com.bootdo.system.domain.UserDO">
-		select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user where user_id = #{value}
+		select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district`, 
+		`registTime`,`accountType`,`headImg`,`gender`,`location`,`role`,`nickname`,`cnname`,`enname`,`institutions`,`mobileInland`,`mobileForeign`,`weChat`,`other`,`majorRange`,`level`,`peopleNumber`,`caseNumber`,
+		`consultNumber`,`workyear`,`licensCase`,`baseSalary`,`socialSecurity`,`companySecurity`,`joinTime`,`leaveTime`,`contract`,`laborLimit`,`IDNumber`,`bloodType`,`nativePlace`,`birthday`,`emergencyContact`,`remark`
+		from sys_user where user_id = #{value}
+		
 	</select>
 
 	<select id="list" resultType="com.bootdo.system.domain.UserDO">
-		select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user
+		select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district`, 
+		`registTime`,`accountType`,`headImg`,`gender`,`location`,`role`,`nickname`,`cnname`,`enname`,`institutions`,`mobileInland`,`mobileForeign`,`weChat`,`other`,`majorRange`,`level`,`peopleNumber`,`caseNumber`,
+		`consultNumber`,`workyear`,`licensCase`,`baseSalary`,`socialSecurity`,`companySecurity`,`joinTime`,`leaveTime`,`contract`,`laborLimit`,`IDNumber`,`bloodType`,`nativePlace`,`birthday`,`emergencyContact`,`remark`
+		from sys_user
         <where>  
 		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
 		  		  <if test="username != null and username != ''"> and username = #{username} </if>
@@ -29,6 +36,41 @@
 		  		  <if test="province != null and province != ''"> and province = #{province} </if>
 		  		  <if test="city != null and city != ''"> and city = #{city} </if>
 		  		  <if test="district != null and district != ''"> and district = #{district} </if>
+		  		  <if test="registTime != null and registTime != ''"> and registTime = #{registTime} </if>
+		  		  <if test="accountType != null and accountType != ''"> and accountType = #{accountType} </if>
+		  		  <if test="headImg != null and headImg != ''"> and headImg = #{headImg} </if>
+		  		  <if test="gender != null and gender != ''"> and gender = #{gender} </if>
+		  		  <if test="location != null and location != ''"> and location = #{location} </if>
+		  		  <if test="role != null and role != ''"> and role = #{role} </if>
+		  		  <if test="nickname != null and nickname != ''"> and nickname = #{nickname} </if>
+		  		  <if test="cnname != null and cnname != ''"> and cnname = #{cnname} </if>
+		  		  <if test="enname != null and enname != ''"> and enname = #{enname} </if>
+		  		  <if test="institutions != null and institutions != ''"> and institutions = #{institutions} </if>
+		  		  <if test="mobileInland != null and mobileInland != ''"> and mobileInland = #{mobileInland} </if>
+		  		  <if test="mobileForeign != null and mobileForeign != ''"> and mobileForeign = #{mobileForeign} </if>
+		  		  <if test="weChat != null and weChat != ''"> and weChat = #{weChat} </if>
+		  		  <if test="other != null and other != ''"> and other = #{other} </if>
+		  		  <if test="majorRange != null and majorRange != ''"> and majorRange = #{majorRange} </if>
+		  		  <if test="level != null and level != ''"> and level = #{level} </if>
+		  		  <if test="peopleNumber != null and peopleNumber != ''"> and peopleNumber = #{peopleNumber} </if>
+		  		  <if test="caseNumber != null and caseNumber != ''"> and caseNumber = #{caseNumber} </if>
+		  		  <if test="consultNumber != null and consultNumber != ''"> and consultNumber = #{consultNumber} </if>
+		  		  <if test="workyear != null and workyear != ''"> and workyear = #{workyear} </if>
+		  		  <if test="licensCase != null and licensCase != ''"> and licensCase = #{licensCase} </if>
+		  		  <if test="baseSalary != null and socialSecurity != ''"> and socialSecurity = #{socialSecurity} </if>
+		  		  <if test="socialSecurity != null and consultNumber != ''"> and consultNumber = #{consultNumber} </if>
+		  		  <if test="companySecurity != null and companySecurity != ''"> and companySecurity = #{companySecurity} </if>
+		  		  <if test="joinTime != null and joinTime != ''"> and joinTime = #{joinTime} </if>
+		  		  <if test="leaveTime != null and leaveTime != ''"> and leaveTime = #{leaveTime} </if>
+		  		  <if test="contract != null and contract != ''"> and contract = #{contract} </if>
+		  		  <if test="laborLimit != null and laborLimit != ''"> and laborLimit = #{laborLimit} </if>
+		  		  <if test="IDNumber != null and IDNumber != ''"> and IDNumber = #{IDNumber} </if>
+		  		  <if test="bloodType != null and bloodType != ''"> and bloodType = #{bloodType} </if>
+		  		  <if test="nativePlace != null and nativePlace != ''"> and nativePlace = #{nativePlace} </if>
+		  		  <if test="birthday != null and birthday != ''"> and birthday = #{birthday} </if>
+		  		  <if test="emergencyContact != null and emergencyContact != ''"> and emergencyContact = #{emergencyContact} </if>
+		  		  <if test="remark != null and remark != ''"> and remark = #{remark} </if>
+		  		  <if test="searchCondition != null and searchCondition != ''"> and (cnname like '%${searchCondition}%' or enname like '%${searchCondition}%' or mobileInland like '%${searchCondition}%' or status like '%${searchCondition}%' or email like '%${searchCondition}%' or institutions like '%${searchCondition}%')</if>
 		  		</where>
         <choose>
             <when test="sort != null and sort.trim() != ''">
@@ -65,6 +107,40 @@
 		  		  <if test="province != null and province != ''"> and province = #{province} </if>
 		  		  <if test="city != null and city != ''"> and city = #{city} </if>
 		  		  <if test="district != null and district != ''"> and district = #{district} </if>
+		  		  <if test="registTime != null and registTime != ''"> and registTime = #{registTime} </if>
+		  		  <if test="accountType != null and accountType != ''"> and accountType = #{accountType} </if>
+		  		  <if test="headImg != null and headImg != ''"> and headImg = #{headImg} </if>
+		  		  <if test="gender != null and gender != ''"> and gender = #{gender} </if>
+		  		  <if test="location != null and location != ''"> and location = #{location} </if>
+		  		  <if test="role != null and role != ''"> and role = #{role} </if>
+		  		  <if test="nickname != null and nickname != ''"> and nickname = #{nickname} </if>
+		  		  <if test="cnname != null and cnname != ''"> and cnname = #{cnname} </if>
+		  		  <if test="enname != null and enname != ''"> and enname = #{enname} </if>
+		  		  <if test="institutions != null and institutions != ''"> and institutions = #{institutions} </if>
+		  		  <if test="mobileInland != null and mobileInland != ''"> and mobileInland = #{mobileInland} </if>
+		  		  <if test="mobileForeign != null and mobileForeign != ''"> and mobileForeign = #{mobileForeign} </if>
+		  		  <if test="weChat != null and weChat != ''"> and weChat = #{weChat} </if>
+		  		  <if test="other != null and other != ''"> and other = #{other} </if>
+		  		  <if test="majorRange != null and majorRange != ''"> and majorRange = #{majorRange} </if>
+		  		  <if test="level != null and level != ''"> and level = #{level} </if>
+		  		  <if test="peopleNumber != null and peopleNumber != ''"> and peopleNumber = #{peopleNumber} </if>
+		  		  <if test="caseNumber != null and caseNumber != ''"> and caseNumber = #{caseNumber} </if>
+		  		  <if test="consultNumber != null and consultNumber != ''"> and consultNumber = #{consultNumber} </if>
+		  		  <if test="workyear != null and workyear != ''"> and workyear = #{workyear} </if>
+		  		  <if test="licensCase != null and licensCase != ''"> and licensCase = #{licensCase} </if>
+		  		  <if test="baseSalary != null and socialSecurity != ''"> and socialSecurity = #{socialSecurity} </if>
+		  		  <if test="socialSecurity != null and consultNumber != ''"> and consultNumber = #{consultNumber} </if>
+		  		  <if test="companySecurity != null and companySecurity != ''"> and companySecurity = #{companySecurity} </if>
+		  		  <if test="joinTime != null and joinTime != ''"> and joinTime = #{joinTime} </if>
+		  		  <if test="leaveTime != null and leaveTime != ''"> and leaveTime = #{leaveTime} </if>
+		  		  <if test="contract != null and contract != ''"> and contract = #{contract} </if>
+		  		  <if test="laborLimit != null and laborLimit != ''"> and laborLimit = #{laborLimit} </if>
+		  		  <if test="IDNumber != null and IDNumber != ''"> and IDNumber = #{IDNumber} </if>
+		  		  <if test="bloodType != null and bloodType != ''"> and bloodType = #{bloodType} </if>
+		  		  <if test="nativePlace != null and nativePlace != ''"> and nativePlace = #{nativePlace} </if>
+		  		  <if test="birthday != null and birthday != ''"> and birthday = #{birthday} </if>
+		  		  <if test="emergencyContact != null and emergencyContact != ''"> and emergencyContact = #{emergencyContact} </if>
+		  		  <if test="remark != null and remark != ''"> and remark = #{remark} </if>
 		  		</where>
 	</select>
 	 
@@ -88,7 +164,9 @@
 			`hobby`, 
 			`province`, 
 			`city`, 
-			`district`
+			`district`,
+			`registTime`,`accountType`,`headImg`,`gender`,`location`,`role`,`nickname`,`cnname`,`enname`,`institutions`,`mobileInland`,`mobileForeign`,`weChat`,`other`,`majorRange`,`level`,`peopleNumber`,`caseNumber`,
+		`consultNumber`,`workyear`,`licensCase`,`baseSalary`,`socialSecurity`,`companySecurity`,`joinTime`,`leaveTime`,`contract`,`laborLimit`,`IDNumber`,`bloodType`,`nativePlace`,`birthday`,`emergencyContact`,`remark`
 		)
 		values
 		(
@@ -109,7 +187,41 @@
 			#{hobby}, 
 			#{province}, 
 			#{city}, 
-			#{district}
+			#{district},
+			#{registTime},
+		  	#{accountType},
+		  	#{headImg},
+		  	#{gender},
+		  	#{location},
+		  	#{role},
+		  	#{nickname},
+		  	#{cnname},
+		  	#{enname},
+		  	#{institutions},
+		    #{mobileInland},
+		  	#{mobileForeign},
+		  	#{weChat},
+		  	#{other},
+		  	#{majorRange},
+		  	#{level},
+		  	#{peopleNumber},
+		  	#{caseNumber},
+		  	#{consultNumber},
+		  	#{workyear},
+		  	#{licensCase},
+		  	#{socialSecurity},
+		  	#{consultNumber},
+		  	#{companySecurity},
+		  	#{joinTime},
+		  	#{leaveTime},
+		  	#{contract},
+		  	#{laborLimit},
+		  	#{IDNumber},
+		  	#{bloodType},
+		  	#{nativePlace},
+		  	#{birthday},
+		  	#{emergencyContact},
+		  	#{remark}
 		)
 	</insert>
 	 
@@ -134,6 +246,40 @@
 			<if test="province != null">`province` = #{province}, </if>
 			<if test="city != null">`city` = #{city}, </if>
 			<if test="district != null">`district` = #{district}</if>
+			<if test="registTime != null and registTime != ''">`registTime` = #{registTime}</if>
+		  		  <if test="accountType != null and accountType != ''">`accountType` = #{accountType}</if>
+		  		  <if test="headImg != null and headImg != ''">`headImg` = #{headImg}</if>
+		  		  <if test="gender != null and gender != ''">`gender` = #{gender}</if>
+		  		  <if test="location != null and location != ''">`location` = #{location}</if>
+		  		  <if test="role != null and role != ''">`role` = #{role}</if>
+		  		  <if test="nickname != null and nickname != ''">`nickname` = #{nickname}</if>
+		  		  <if test="cnname != null and cnname != ''">`cnname` = #{cnname}</if>
+		  		  <if test="enname != null and enname != ''">`enname` = #{enname}</if>
+		  		  <if test="institutions != null and institutions != ''">`institutions` = #{institutions}</if>
+		  		  <if test="mobileInland != null and mobileInland != ''">`mobileInland` = #{mobileInland}</if>
+		  		  <if test="mobileForeign != null and mobileForeign != ''">`mobileForeign` = #{mobileForeign}</if>
+		  		  <if test="weChat != null and weChat != ''">`weChat` = #{weChat}</if>
+		  		  <if test="other != null and other != ''">`other` = #{other}</if>
+		  		  <if test="majorRange != null and majorRange != ''">`majorRange` = #{majorRange}</if>
+		  		  <if test="level != null and level != ''">`level` = #{level}</if>
+		  		  <if test="peopleNumber != null and peopleNumber != ''">`peopleNumber` = #{peopleNumber}</if>
+		  		  <if test="caseNumber != null and caseNumber != ''">`caseNumber` = #{caseNumber}</if>
+		  		  <if test="consultNumber != null and consultNumber != ''">`consultNumber` = #{consultNumber}</if>
+		  		  <if test="workyear != null and workyear != ''">`workyear` = #{workyear}</if>
+		  		  <if test="licensCase != null and licensCase != ''">`licensCase` = #{licensCase}</if>
+		  		  <if test="baseSalary != null and socialSecurity != ''">`socialSecurity` = #{socialSecurity}</if>
+		  		  <if test="socialSecurity != null and consultNumber != ''">`consultNumber` = #{consultNumber}</if>
+		  		  <if test="companySecurity != null and companySecurity != ''">`companySecurity` = #{companySecurity}</if>
+		  		  <if test="joinTime != null and joinTime != ''">`joinTime` = #{joinTime}</if>
+		  		  <if test="leaveTime != null and leaveTime != ''">`leaveTime` = #{leaveTime}</if>
+		  		  <if test="contract != null and contract != ''">`contract` = #{contract}</if>
+		  		  <if test="laborLimit != null and laborLimit != ''">`laborLimit` = #{laborLimit}</if>
+		  		  <if test="IDNumber != null and IDNumber != ''">`IDNumber` = #{IDNumber}</if>
+		  		  <if test="bloodType != null and bloodType != ''">`bloodType` = #{bloodType}</if>
+		  		  <if test="nativePlace != null and nativePlace != ''">`nativePlace` = #{nativePlace}</if>
+		  		  <if test="birthday != null and birthday != ''">`birthday` = #{birthday}</if>
+		  		  <if test="emergencyContact != null and emergencyContact != ''">`emergencyContact` = #{emergencyContact}</if>
+		  		  <if test="remark != null and remark != ''">`remark` = #{remark}</if>
 		</set>
 		where user_id = #{userId}
 	</update>

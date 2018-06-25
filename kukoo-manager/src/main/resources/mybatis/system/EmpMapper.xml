@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 顾问管理mapper文件 -->
+<mapper namespace="com.bootdo.system.dao.EmpDao">
+	<!-- 保存一条顾问 -->
+	<insert id="save" parameterType="com.bootdo.system.domain.EmpDO">
+		<selectKey keyProperty="id" resultType="string" order="BEFORE">
+			select REPLACE(UUID(),'-','')
+		</selectKey>
+		insert into tt_emp
+		(
+			EMPID,
+			REGISTTIME,
+			ACCOUNTTYPE,
+			HEADIMG,
+			GENDER,
+			LOCATION,
+			ROLE,
+			STATUS,
+			NICKNAME,
+			CNNAME,
+			ENNAME,
+			INSTITUTIONS,
+			MOBILEINLAND,
+			MOBILEFOREIGN,
+			EMAIL,
+			WECHAT,
+			OTHER,
+			MAJORRANGE,
+			LEVEL,
+			PEOPLENUMBER,
+			CASENUMBER,
+			CONSULTNUMBER,
+			WORKYEAR,
+			LICENSCASE,
+			BASESALARY,
+			SOCIALSECURITY,
+			COMPANYSECURITY,
+			JOINTIME,
+			LEAVETIME,
+			CONTRACT,
+			LABORLIMIT,
+			IDNUMBER,
+			BLOODTYPE,
+			NATIVEPLACE,
+			BIRTHDAY,
+			EMERGENCYCONTACT,
+			REMARK
+		)
+		values
+		(
+			#{empId,jdbcType=VARCHAR},
+			#{registTime,jdbcType=DATE},
+			#{accountType,jdbcType=VARCHAR},
+			#{headImg,jdbcType=VARCHAR},
+			#{gender,jdbcType=VARCHAR},
+			#{location,jdbcType=VARCHAR},
+			#{role,jdbcType=VARCHAR},
+			#{status,jdbcType=VARCHAR},
+			#{nickname,jdbcType=VARCHAR},
+			#{cnname,jdbcType=VARCHAR},
+			#{enname,jdbcType=VARCHAR},
+			#{institutions,jdbcType=VARCHAR},
+			#{mobileInland,jdbcType=VARCHAR},
+			#{mobileForeign,jdbcType=VARCHAR},
+			#{email,jdbcType=VARCHAR},
+			#{weChat,jdbcType=VARCHAR},
+			#{other,jdbcType=VARCHAR},
+			#{majorRange,jdbcType=VARCHAR},
+			#{level,jdbcType=VARCHAR},
+			#{peopleNumber,jdbcType=VARCHAR},
+			#{caseNumber,jdbcType=VARCHAR},
+			#{consultNumber,jdbcType=VARCHAR},
+			#{workyear,jdbcType=VARCHAR},
+			#{licensCase,jdbcType=VARCHAR},
+			#{baseSalary,jdbcType=VARCHAR},
+			#{socialSecurity,jdbcType=VARCHAR},
+			#{companySecurity,jdbcType=VARCHAR},
+			#{joinTime,jdbcType=DATE},
+			#{leaveTime,jdbcType=DATE},
+			#{contract,jdbcType=VARCHAR},
+			#{laborLimit,jdbcType=DATE},
+			#{IDNumber,jdbcType=VARCHAR},
+			#{bloodType,jdbcType=VARCHAR},
+			#{nativePlace,jdbcType=VARCHAR},
+			#{birthday,jdbcType=DATE},
+			#{emergencyContact,jdbcType=DATE},
+			#{remark,jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	<!-- 根据empId查询顾问对象 -->
+	<select id="getEmpByEmpId" parameterType="string" resultType="com.bootdo.system.domain.EmpDO">
+		SELECT
+			EMPID,
+			REGISTTIME,
+			ACCOUNTTYPE,
+			HEADIMG,
+			GENDER,
+			LOCATION,
+			ROLE,
+			STATUS,
+			NICKNAME,
+			CNNAME,
+			ENNAME,
+			INSTITUTIONS,
+			MOBILEINLAND,
+			MOBILEFOREIGN,
+			EMAIL,
+			WECHAT,
+			OTHER,
+			MAJORRANGE,
+			LEVEL,
+			PEOPLENUMBER,
+			CASENUMBER,
+			CONSULTNUMBER,
+			WORKYEAR,
+			LICENSCASE,
+			BASESALARY,
+			SOCIALSECURITY,
+			COMPANYSECURITY,
+			JOINTIME,
+			LEAVETIME,
+			CONTRACT,
+			LABORLIMIT,
+			IDNUMBER,
+			BLOODTYPE,
+			NATIVEPLACE,
+			BIRTHDAY,
+			EMERGENCYCONTACT,
+			REMARK
+		FROM
+			tt_emp
+		WHERE
+			EMPID=#{empId}
+	</select>
+	
+	<!-- 根据empId查询顾问对象 -->
+	<select id="getEmpByCondition" parameterType="string" resultType="java.util.HashMap">
+		SELECT
+			EMPID,
+			REGISTTIME,
+			ACCOUNTTYPE,
+			HEADIMG,
+			GENDER,
+			LOCATION,
+			ROLE,
+			STATUS,
+			NICKNAME,
+			CNNAME,
+			ENNAME,
+			INSTITUTIONS,
+			MOBILEINLAND,
+			MOBILEFOREIGN,
+			EMAIL,
+			WECHAT,
+			OTHER,
+			MAJORRANGE,
+			LEVEL,
+			PEOPLENUMBER,
+			CASENUMBER,
+			CONSULTNUMBER,
+			WORKYEAR,
+			LICENSCASE,
+			BASESALARY,
+			SOCIALSECURITY,
+			COMPANYSECURITY,
+			JOINTIME,
+			LEAVETIME,
+			CONTRACT,
+			LABORLIMIT,
+			IDNUMBER,
+			BLOODTYPE,
+			NATIVEPLACE,
+			BIRTHDAY,
+			EMERGENCYCONTACT,
+			REMARK
+		FROM
+			tt_emp
+		WHERE
+			1 = 1 
+			${condition}	
+	</select>
+	
+	<!-- 更新一个顾问 -->
+	<update id="update" parameterType="com.bootdo.system.domain.EmpDO">
+    		update tt_emp
+    		set EMPID = #{empId},
+			REGISTTIME = #{registTime},
+			ACCOUNTTYPE = #{accountType},
+			HEADIMG = #{headImg},
+			GENDER = #{gender},
+			LOCATION = #{location},
+			ROLE = #{role},
+			STATUS = #{status},
+			NICKNAME = #{nickname},
+			CNNAME = #{cnname},
+			ENNAME = #{enname},
+			INSTITUTIONS = #{institutions},
+			MOBILEINLAND = #{mobileInland},
+			MOBILEFOREIGN = #{mobileForeign},
+			EMAIL = #{email},
+			WECHAT = #{weChat},
+			OTHER = #{other},
+			MAJORRANGE = #{majorRange},
+			LEVEL = #{level},
+			PEOPLENUMBER = #{peopleNumber},
+			CASENUMBER = #{caseNumber},
+			CONSULTNUMBER = #{consultNumber},
+			WORKYEAR = #{workyear},
+			LICENSCASE = #{licensCase},
+			BASESALARY = #{baseSalary},
+			SOCIALSECURITY = #{socialSecurity},
+			COMPANYSECURITY = #{companySecurity},
+			JOINTIME = #{joinTime},
+			LEAVETIME = #{leaveTime},
+			CONTRACT = #{contract},
+			LABORLIMIT = #{laborLimit},
+			IDNUMBER = #{IDNumber},
+			BLOODTYPE = #{bloodType},
+			NATIVEPLACE = #{nativePlace},
+			BIRTHDAY = #{birthday},
+			EMERGENCYCONTACT = #{emergencyContact},
+			REMARK = #{remark}
+		where EMPID = #{empId}
+    </update>
+	
+	<!-- 根据id删除项目信息对象 -->
+	<delete id="deleteByEmpId" parameterType="java.lang.String">  
+        delete from tt_emp where EMPID = #{empId,jdbcType=VARCHAR}
+    </delete>
+	
+
+</mapper>

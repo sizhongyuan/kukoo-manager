@@ -1,14 +1,16 @@
+var FieldCount = 0;
+
 $().ready(function() {
     validateRule();
+    loadFile();
 });
 
 $.validator.setDefaults({
 	submitHandler : function() {
-		save();
+		update();
 	}
 });
 $(document).ready(function() {
-    var FieldCount=0;
     var addInput = $("#addInput");
     var inputFile = $("#inputFile");
 
@@ -19,7 +21,7 @@ $(document).ready(function() {
             '<input id="ttTimelineTempFile['+ FieldCount +'].fileName" name="ttTimelineTempFile['+ FieldCount +'].fileName" class="form-control" type="text" placeholder="请输入附件名" required>' +
             '</label>' +
             '<div class="col-sm-7">' +
-            '<input id="ttTimelineTempFile['+ FieldCount +'].fileId" name="ttTimelineTempFile['+ FieldCount +'].fileId" class="form-control" type="file" required>' +
+            '<input id="ttTimelineTempFile['+ FieldCount +'].fileId" name="ttTimelineTempFile['+ FieldCount +'].fileId" class="form-control" type="file">' +
             '</div>' +
             '<div class="col-sm-1">' +
             '<button type="button" class="btn btn-warning removeInput">' +
@@ -37,11 +39,11 @@ $(document).ready(function() {
     });
 });
 
-function save() {
+function update() {
 	$.ajax({
 		cache : true,
 		type : "POST",
-		url : "/timeline/temp/save",
+		url : "/timeline/temp/update",
 		data : $('#signupForm').serialize(),// 你的formid
 		async : false,
 		error : function(request) {
@@ -76,4 +78,27 @@ function validateRule() {
             }
         }
     })
+}
+
+function loadFile() {
+    if(tempFileList != "" && tempFileList != null && tempFileList != undefined){
+        FieldCount = tempFileList.length;
+
+        for(var i = 0;i<tempFileList.length;i++){
+            $(inputFile).append('' +
+                '<div class="form-group">' +
+                '<label class="col-sm-3">' +
+                '<input id="ttTimelineTempFile['+ i +'].fileName" name="ttTimelineTempFile['+ i +'].fileName" value="'+ tempFileList[i].fileName +'" class="form-control" type="text" placeholder="请输入附件名" required>' +
+                '</label>' +
+                '<div class="col-sm-7">' +
+                '<input id="ttTimelineTempFile['+ i +'].fileId" name="ttTimelineTempFile['+ i +'].fileId" value="'+ tempFileList[i].fileId +'" class="form-control" type="file">' +
+                '</div>' +
+                '<div class="col-sm-1">' +
+                '<button type="button" class="btn btn-warning removeInput">' +
+                '<i class="fa fa-remove" aria-hidden="true"></i>' +
+                '</button>' +
+                '</div>' +
+                '</div>');
+        }
+    }
 }

@@ -11,6 +11,7 @@ import com.bootdo.oa.domain.NotifyDO;
 import com.bootdo.oa.domain.NotifyRecordDO;
 import com.bootdo.oa.service.NotifyRecordService;
 import com.bootdo.oa.service.NotifyService;
+import com.bootdo.timeline.domain.TtTimelineTempFile;
 import com.bootdo.timeline.domain.TtTimelineTempLink;
 import com.bootdo.timeline.service.TLTempService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -66,22 +67,27 @@ public class TLTempController extends BaseController {
     String add() {
         return "timeline/temp/add";
     }
-//
-//    @GetMapping("/edit/{id}")
-//    @RequiresPermissions("oa:notify:edit")
-//    String edit(@PathVariable("id") Long id, Model model) {
-//        NotifyDO notify = notifyService.get(id);
-//        List<DictDO> dictDOS = dictService.listByType("oa_notify_type");
-//        String type = notify.getType();
-//        for (DictDO dictDO:dictDOS){
-//            if(type.equals(dictDO.getValue())){
-//                dictDO.setRemarks("checked");
-//            }
-//        }
-//        model.addAttribute("oaNotifyTypes",dictDOS);
-//        model.addAttribute("notify", notify);
-//        return "oa/notify/edit";
-//    }
+
+    @GetMapping("/edit/{id}")
+    @RequiresPermissions("timeline:temp:edit")
+    String edit(@PathVariable("id") Long id, Model model) {
+        TtTimelineTempLink ttTimelineTempLink = tlTempService.get(id);
+        List<TtTimelineTempFile> tempFileList = tlTempService.queryFile(id);
+        model.addAttribute("ttTimelineTempLink", ttTimelineTempLink);
+        model.addAttribute("tempFileList", tempFileList);
+        return "timeline/temp/edit";
+    }
+
+    /**
+     * 排序
+     */
+    @GetMapping("/orderby")
+    @RequiresPermissions("timeline:temp:orderby")
+    String orderby(Model model) {
+        List<TtTimelineTempLink> tempOrderbyList = tlTempService.getOrderby();
+        model.addAttribute("tempOrderbyList", tempOrderbyList);
+        return "timeline/temp/orderby";
+    }
 
     /**
      * 保存
@@ -99,19 +105,37 @@ public class TLTempController extends BaseController {
         return R.error();
     }
 
-//    /**
-//     * 修改
-//     */
-//    @ResponseBody
-//    @RequestMapping("/update")
-//    @RequiresPermissions("oa:notify:edit")
-//    public R update(NotifyDO notify) {
-//        if (Constant.DEMO_ACCOUNT.equals(getUsername())) {
-//            return R.error(1, "演示系统不允许修改,完整体验请部署程序");
-//        }
-//        notifyService.update(notify);
-//        return R.ok();
-//    }
+    /**
+     * 保存修改
+     */
+    @ResponseBody
+    @RequestMapping("/update")
+    @RequiresPermissions("timeline:temp:edit")
+    public R update(TtTimelineTempLink ttTimelineTempLink,HttpServletRequest request) {
+        if (Constant.DEMO_ACCOUNT.equals(getUsername())) {
+            return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+        }
+        if (tlTempService.update(ttTimelineTempLink,request) > 0) {
+            return R.ok();
+        }
+        return R.error();
+    }
+
+    /**
+     * 更改排序
+     */
+    @ResponseBody
+    @RequestMapping("/updateOrderby")
+    @RequiresPermissions("timeline:temp:orderby")
+    public R updateOrderby(TtTimelineTempLink ttTimelineTempLink,HttpServletRequest request) {
+        if (Constant.DEMO_ACCOUNT.equals(getUsername())) {
+            return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+        }
+        if (tlTempService.updateOrderby(request) > 0) {
+            return R.ok();
+        }
+        return R.error();
+    }
 
     /**
      * 删除

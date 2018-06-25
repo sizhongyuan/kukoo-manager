@@ -5,6 +5,7 @@ import com.bootdo.oa.domain.NotifyDTO;
 import com.bootdo.timeline.domain.TtTimelineTempFile;
 import com.bootdo.timeline.domain.TtTimelineTempLink;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
@@ -17,9 +18,14 @@ import java.util.Map;
  * @date 2017-10-05 17:11:16
  */
 @Mapper
+@Repository
 public interface TLTempDao {
 
-//	NotifyDO get(Long id);
+	TtTimelineTempLink get(Long id);
+
+	List<TtTimelineTempLink> getOrderby();
+
+	List<TtTimelineTempFile> queryFile(long id);
 
 	List<TtTimelineTempLink> list(Map<String, Object> map);
 
@@ -27,9 +33,15 @@ public interface TLTempDao {
 
 	int save(TtTimelineTempLink ttTimelineTempLink);
 
+	Integer maxOrderby();
+
 	int saveFile(List<TtTimelineTempFile> ttTimelineTempFileList);
 
-//	int update(NotifyDO notify);
+	int saveOrderby(TtTimelineTempLink ttTimelineTempLink);
+
+	int update(TtTimelineTempLink ttTimelineTempLink);
+
+	int deleteFile(int id);
 
 	int remove(int id);
 

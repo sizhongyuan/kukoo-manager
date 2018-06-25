@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content" id="app">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <form class="form-horizontal m-t" id="signupForm">
+                        <input id="id" name="id" th:value="${ttTimelineTempLink.id}" type="hidden">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">环节名称*</label>
+                            <div class="col-sm-8">
+                                <input id="linkName" name="linkName" class="form-control" th:value="${ttTimelineTempLink.linkName}" type="text" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">环节时限</label>
+                            <div class="col-sm-8">
+                                <input id="linkLimit" name="linkLimit" class="form-control" th:value="${ttTimelineTempLink.linkLimit}" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">简介*</label>
+                            <div class="col-sm-8">
+                                <input id="linkDes" name="linkDes" class="form-control" th:value="${ttTimelineTempLink.linkDes}" type="text" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">详细信息*</label>
+                            <div class="col-sm-8">
+                                <textarea id="linkDetails" name="linkDetails" class="form-control" th:text="${ttTimelineTempLink.linkDetails}" required></textarea>
+                            </div>
+                        </div>
+                        <HR align=center width=700 color=#987cb9 SIZE=1>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">添加附件</label>
+                            <div class="col-sm-8">
+                                <button type="button"
+                                        class="btn  btn-primary" id="addInput">
+                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="inputFile"> </div>
+                        <HR align=center width=700 color=#987cb9 SIZE=1>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">备注</label>
+                            <div class="col-sm-8">
+                                <textarea id="remark" name="remark" class="form-control" th:text="${ttTimelineTempLink.remark}"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-8 col-sm-offset-3">
+                                <button type="submit" class="btn btn-primary">提交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="include::footer"></div>
+<script th:inline="javascript">
+    var tempFileList = [[${tempFileList}]];
+</script>
+<script type="text/javascript" src="/js/appjs/timeline/temp/tempEdit.js">
+</script>
+
+</body>
+</html>

@@ -8,6 +8,7 @@
 			<div class="ibox">
 				<div class="ibox-body">
 					<div class="fixed-table-toolbar">
+						<input id="projectId" name="projectId" th:value="${projectId}" type="hidden">
 						<div class="columns pull-left">
 							<button shiro:hasPermission="timeline:temp:add" type="button"
 								class="btn  btn-primary" onclick="add()">
@@ -22,13 +23,13 @@
 								<i class="fa fa-arrows" aria-hidden="true"></i>排序
 							</button>
 						</div>
-						<div class="columns pull-right">
-							<button class="btn btn-success" onclick="reLoad()">查询</button>
-						</div>
-						<div class="columns pull-right col-md-2 nopadding">
-							<input id="searchName" type="text" class="form-control"
-								placeholder="">
-						</div>
+						<!--<div class="columns pull-right">-->
+							<!--<button class="btn btn-success" onclick="reLoad()">查询</button>-->
+						<!--</div>-->
+						<!--<div class="columns pull-right col-md-2 nopadding">-->
+							<!--<input id="searchName" type="text" class="form-control"-->
+								<!--placeholder="">-->
+						<!--</div>-->
 					</div>
 					<table id="exampleTable" data-mobile-responsive="true">
 					</table>

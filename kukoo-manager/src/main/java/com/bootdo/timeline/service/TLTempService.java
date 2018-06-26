@@ -1,7 +1,5 @@
 package com.bootdo.timeline.service;
 
-import com.bootdo.common.utils.PageUtils;
-import com.bootdo.oa.domain.NotifyDO;
 import com.bootdo.timeline.domain.TtTimelineTempFile;
 import com.bootdo.timeline.domain.TtTimelineTempLink;
 
@@ -18,27 +16,54 @@ import java.util.Map;
  */
 public interface TLTempService {
 
+    /**
+     * 根据id查询时间轴信息
+     */
     TtTimelineTempLink get(Long id);
 
-    List<TtTimelineTempLink> getOrderby();
-
+    /**
+     * 根据id查询时间轴信息对应的附件
+     */
     List<TtTimelineTempFile> queryFile(Long id);
 
+    /**
+     * 根据projectId查询排序列表
+     */
+    List<TtTimelineTempLink> getOrderby(String projectId);
+
+    /**
+     * 出时间轴列表
+     */
     List<TtTimelineTempLink> list(Map<String, Object> map);
 
+    /**
+     * 时间轴列表总条数
+     */
     int count(Map<String, Object> map);
 
+    /**
+     * 保存新增
+     */
     int save(TtTimelineTempLink ttTimelineTempLink,HttpServletRequest request);
 
+    /**
+     * 保存修改
+     */
     int update(TtTimelineTempLink ttTimelineTempLink,HttpServletRequest request);
 
+    /**
+     * 更新排序
+     */
     int updateOrderby(HttpServletRequest request);
 
+    /**
+     * 删除
+     */
     int remove(int id);
 
+    /**
+     * 批量删除
+     */
     int batchRemove(int[] ids);
 
-////	Map<String, Object> message(Long userId);
-//
-//    PageUtils selfList(Map<String, Object> map);
 }

@@ -16,11 +16,17 @@ function validateRule() {
         rules : {
             subProjectName : {
                 required : true
+            },
+            quota : {
+                required : true
             }
         },
         messages : {
             subProjectName : {
                 required : icon + "请输入二级项目名称"
+            },
+            quota : {
+                required : icon + "请输入配额情况"
             }
         }
     })
@@ -63,12 +69,36 @@ function loadType(){
         }
     });
     laydate.render({
-        elem: '#startTime'
-        ,type: 'date'
+        elem: '#startTime',
+        type: 'date',
+        done: function(value){
+            var entTimeVal = $("#endTime").val();
+            if(entTimeVal != undefined && entTimeVal != null && entTimeVal != ''){
+                var startTime = new Date(value);
+                var endTime = new Date(entTimeVal);
+                if(startTime >= endTime){
+                    layer.msg("开始时间应该小于结束时间,请重新填写");
+                    $("#startTime").val("");
+                }
+            }
+
+        }
     });
     laydate.render({
-        elem: '#endTime'
-        ,type: 'date'
+        elem: '#endTime',
+        type: 'date',
+        done: function(value){
+            var startTimeVal = $("#startTime").val();
+            if(startTimeVal != undefined && startTimeVal != null && startTimeVal != ''){
+                var startTime = new Date(startTimeVal);
+                var endTime = new Date(value);
+                if(startTime >= endTime){
+                    layer.msg("结束时间应该大于开始时间,请重新填写");
+                    $("#endTime").val("");
+                }
+            }
+
+        }
     });
 
 }

@@ -258,13 +258,13 @@ function subRemove(id) {
     })
 }
 function openTimeline(id){
-    layer.open({
+    fullOpen = layer.open({
         type : 2,
         title : '查看时间轴模板',
         maxmin : true,
         shadeClose : false, // 点击遮罩关闭层
         area : [ '800px', '520px' ],
-        content : '/timeline/temp/list?subProjectId='+ id+"&offset=1&limit=10" // iframe的url
+        content : '/timeline/temp/'+ id // iframe的url
     });
-
+    layer.full(fullOpen);
 }

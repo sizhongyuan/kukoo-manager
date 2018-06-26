@@ -1,7 +1,5 @@
 package com.bootdo.timeline.dao;
 
-import com.bootdo.oa.domain.NotifyDO;
-import com.bootdo.oa.domain.NotifyDTO;
 import com.bootdo.timeline.domain.TtTimelineTempFile;
 import com.bootdo.timeline.domain.TtTimelineTempLink;
 import org.apache.ibatis.annotations.Mapper;
@@ -23,7 +21,7 @@ public interface TLTempDao {
 
 	TtTimelineTempLink get(Long id);
 
-	List<TtTimelineTempLink> getOrderby();
+	List<TtTimelineTempLink> getOrderby(String projectId);
 
 	List<TtTimelineTempFile> queryFile(long id);
 
@@ -51,9 +49,4 @@ public interface TLTempDao {
 
 	int batchRemoveFile(int[] ids);
 
-//	List<NotifyDO> listByIds(Long[] ids);
-//
-//	int countDTO(Map<String, Object> map);
-//
-//	List<NotifyDTO> listDTO(Map<String, Object> map);
 }

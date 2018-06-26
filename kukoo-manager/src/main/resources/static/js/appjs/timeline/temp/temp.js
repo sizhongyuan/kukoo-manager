@@ -33,7 +33,8 @@ function load() {
                     return {
                         //说明：传入后台的参数包括offset开始索引，limit步长，sort排序列，order：desc或者,以及所有列的键值对
                         limit : params.limit,
-                        offset : params.offset
+                        offset : params.offset,
+                        projectId : $('#projectId').val(),
                         // name:$('#searchName').val(),
                         // username:$('#searchName').val()
                     };
@@ -155,25 +156,27 @@ function reLoad() {
 }
 //新增环节页面
 function add() {
+    var projectId = $('#projectId').val();
     fullAdd = layer.open({
         type : 2,
         title : '新增模板',
         maxmin : true,
         shadeClose : false, // 点击遮罩关闭层
         area : [ '800px', '520px' ],
-        content : prefix + '/add' // iframe的url
+        content : prefix + '/add/' + projectId // iframe的url
     });
     layer.full(fullAdd);
 }
 //进入排序页面
 function orderby() {
+    var projectId = $('#projectId').val();
     fullOrderby = layer.open({
         type : 2,
         title : '排序',
         maxmin : true,
         shadeClose : false, // 点击遮罩关闭层
         area : [ '800px', '520px' ],
-        content : prefix + '/orderby' // iframe的url
+        content : prefix + '/orderby/' + projectId // iframe的url
     });
     layer.full(fullOrderby);
 }

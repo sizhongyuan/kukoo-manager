@@ -1,32 +1,14 @@
 package com.bootdo.timeline.service.impl;
 
-import com.bootdo.oa.domain.NotifyDO;
-import com.bootdo.system.domain.UserDO;
-import com.bootdo.system.service.SessionService;
 import com.bootdo.timeline.dao.TLTempDao;
 import com.bootdo.timeline.domain.TtTimelineTempFile;
 import com.bootdo.timeline.domain.TtTimelineTempLink;
 import com.bootdo.timeline.service.TLTempService;
-import org.apache.shiro.session.Session;
-import org.apache.shiro.session.mgt.eis.SessionDAO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
-import java.util.concurrent.LinkedBlockingDeque;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-
-import com.bootdo.common.service.DictService;
-import com.bootdo.common.utils.DateUtils;
-import com.bootdo.common.utils.PageUtils;
-import com.bootdo.oa.dao.NotifyRecordDao;
-import com.bootdo.oa.domain.NotifyDTO;
-import com.bootdo.oa.domain.NotifyRecordDO;
-import com.bootdo.timeline.service.TLTempService;
-import com.bootdo.system.dao.UserDao;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -36,17 +18,7 @@ import static com.bootdo.common.utils.ShiroUtils.getUser;
 public class TLTempServiceImpl implements TLTempService {
     @Autowired
     private TLTempDao tlTempDao;
-//    @Autowired
-//    private NotifyRecordDao recordDao;
-//    @Autowired
-//    private UserDao userDao;
-//    @Autowired
-//    private DictService dictService;
-//    @Autowired
-//    private SessionService sessionService;
-//    @Autowired
-//    private SimpMessagingTemplate template;
-//
+
     @Override
     public TtTimelineTempLink get(Long id) {
         TtTimelineTempLink ttTimelineTempLink = tlTempDao.get(id);
@@ -54,8 +26,8 @@ public class TLTempServiceImpl implements TLTempService {
     }
 
     @Override
-    public List<TtTimelineTempLink> getOrderby() {
-        List<TtTimelineTempLink> tempOrderbyList = tlTempDao.getOrderby();
+    public List<TtTimelineTempLink> getOrderby(String projectId) {
+        List<TtTimelineTempLink> tempOrderbyList = tlTempDao.getOrderby(projectId);
         return tempOrderbyList;
     }
 
@@ -167,17 +139,5 @@ public class TLTempServiceImpl implements TLTempService {
         tlTempDao.batchRemoveFile(ids);
         return tlTempDao.batchRemove(ids);
     }
-
-
-//    @Override
-//    public PageUtils selfList(Map<String, Object> map) {
-//        List<NotifyDTO> rows = notifyDao.listDTO(map);
-//        for (NotifyDTO notifyDTO : rows) {
-//            notifyDTO.setBefore(DateUtils.getTimeBefore(notifyDTO.getUpdateDate()));
-//            notifyDTO.setSender(userDao.get(notifyDTO.getCreateBy()).getName());
-//        }
-//        PageUtils page = new PageUtils(rows, notifyDao.countDTO(map));
-//        return page;
-//    }
 
 }

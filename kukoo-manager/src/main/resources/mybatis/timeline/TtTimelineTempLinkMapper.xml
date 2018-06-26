@@ -12,7 +12,7 @@
 	<select id="getOrderby" resultType="com.bootdo.timeline.domain.TtTimelineTempLink">
 		select
 		`id`,`link_name`,`orderby`
-		from tt_timeline_temp_link where deleted = 0
+		from tt_timeline_temp_link where deleted = 0 and project_id = id = #{value}
 	</select>
 
 	<select id="queryFile" resultType="com.bootdo.timeline.domain.TtTimelineTempFile">

@@ -78,7 +78,6 @@ function load() {
                         field : 'ifOpen',
                         title : '开放情况'
                     },
-
                     {
                         title : '操作',
                         field : 'operation',
@@ -144,6 +143,12 @@ function initSubTable (index, row, $detail) {
         },{
             field: 'status',
             title: '项目状态'
+        },{
+            field : 'id',
+            title : '时间轴模板',
+            formatter: function(value,row,index){
+                return '<a href="#" onclick="openTimeline(\''+row.id+'\')">'+'查看模板'+'</a>';
+            }
         },{
             title : '操作',
             field : 'operation',
@@ -252,4 +257,14 @@ function subRemove(id) {
         });
     })
 }
+function openTimeline(id){
+    layer.open({
+        type : 2,
+        title : '查看时间轴模板',
+        maxmin : true,
+        shadeClose : false, // 点击遮罩关闭层
+        area : [ '800px', '520px' ],
+        content : '/timeline/temp/list?subProjectId='+ id+"&offset=1&limit=10" // iframe的url
+    });
 
+}

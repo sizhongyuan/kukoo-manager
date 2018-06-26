@@ -67,8 +67,9 @@ public class SubProjectServiceImpl implements SubProjectService {
             String maxSubProjectId = subDO.getId();
             String[] maxSubProjectIds = maxSubProjectId.split("-");
             Integer i = new Integer(maxSubProjectIds[1]);
+            i = i + 1;
             String subId = i.toString();
-            if(subId.length()<1){
+            if(subId.length()<2){
                 subId = "0"+subId;
             }
             subProjectId = projectId + "-" + subId;

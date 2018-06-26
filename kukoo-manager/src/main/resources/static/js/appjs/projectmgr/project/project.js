@@ -47,9 +47,6 @@ function load() {
                 // 返回false将会终止请求
                 columns : [
                     {
-                        checkbox : true
-                    },
-                    {
                         field : 'id',
                         title : '一级项目Id'
                     },
@@ -174,7 +171,7 @@ function reLoad() {
 }
 
 function add() {
-    layer.open({
+    var fullOpen = layer.open({
         type : 2,
         title : '增加',
         maxmin : true,
@@ -182,9 +179,10 @@ function add() {
         area : [ '800px', '520px' ],
         content : projectUrl + '/add' // iframe的url
     });
+    layer.full(fullOpen);
 }
 function edit(id) {
-    layer.open({
+    var fullOpen = layer.open({
         type : 2,
         title : '编辑',
         maxmin : true,
@@ -192,6 +190,7 @@ function edit(id) {
         area : [ '800px', '520px' ],
         content : projectUrl + '/edit/' + id // iframe的url
     });
+    layer.full(fullOpen);
 }
 function remove(id) {
     layer.confirm('确定要删除选中的记录？', {
@@ -217,7 +216,7 @@ function remove(id) {
 
 //二级项目打开新增页面
 function subAdd(projectId){
-    layer.open({
+    var fullOpen = layer.open({
         type : 2,
         title : '增加',
         maxmin : true,
@@ -225,9 +224,10 @@ function subAdd(projectId){
         area : [ '800px', '520px' ],
         content : subProjectUrl + '/add/' + projectId // iframe的url
     });
+    layer.full(fullOpen);
 }
 function subEdit(id) {
-    layer.open({
+    var fullOpen = layer.open({
         type : 2,
         title : '编辑',
         maxmin : true,
@@ -235,6 +235,7 @@ function subEdit(id) {
         area : [ '800px', '520px' ],
         content : subProjectUrl + '/edit/' + id // iframe的url
     });
+    layer.full(fullOpen);
 }
 function subRemove(id) {
     layer.confirm('确定要删除选中的记录？', {
@@ -258,7 +259,7 @@ function subRemove(id) {
     })
 }
 function openTimeline(id){
-    fullOpen = layer.open({
+    var fullOpen = layer.open({
         type : 2,
         title : '查看时间轴模板',
         maxmin : true,

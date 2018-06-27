@@ -42,7 +42,7 @@ public class ProjectController extends BaseController {
     @ResponseBody
     @GetMapping("/list")
     @RequiresPermissions("projectmgr:project:project")
-    public PageUtils list(@RequestParam Map<String, Object> params) {
+    public PageUtils list(@RequestParam Map<String, Object> params) throws Exception{
         // 查询列表数据
         Query query = new Query(params);
         List<ProjectDO> list = projectService.list(query);
@@ -64,7 +64,7 @@ public class ProjectController extends BaseController {
      * */
     @GetMapping("/edit/{id}")
     @RequiresPermissions("projectmgr:project:edit")
-    String edit(@PathVariable("id") String id, Model model) {
+    String edit(@PathVariable("id") String id, Model model) throws Exception{
         ProjectDO projectDO = projectService.get(id);
         model.addAttribute("projectDO", projectDO);
         return "projectmgr/project/edit";
@@ -77,7 +77,7 @@ public class ProjectController extends BaseController {
     @ResponseBody
     @PostMapping("/save")
     @RequiresPermissions("projectmgr:project:add")
-    public R save(ProjectDO projectDO) {
+    public R save(ProjectDO projectDO) throws Exception{
 
 
         Integer sequence = projectService.getSequence();
@@ -104,7 +104,7 @@ public class ProjectController extends BaseController {
     @ResponseBody
     @RequestMapping("/update")
     @RequiresPermissions("projectmgr:project:edit")
-    public R update(ProjectDO projectDO) {
+    public R update(ProjectDO projectDO) throws Exception{
         //不知道需不需要保存操作人
         if (projectService.update(projectDO) > 0) {
             return R.ok();
@@ -119,7 +119,7 @@ public class ProjectController extends BaseController {
     @PostMapping("/remove")
     @ResponseBody
     @RequiresPermissions("projectmgr:project:remove")
-    public R remove(String id) {
+    public R remove(String id) throws Exception{
 
         if (projectService.remove(id) > 0) {
             return R.ok();

@@ -54,7 +54,7 @@ public class SubProjectController extends BaseController {
 
     @GetMapping("/add/{projectId}")
     @RequiresPermissions("projectmgr:subproject:add")
-    String add(@PathVariable("projectId") String projectId, Model model) {
+    String add(@PathVariable("projectId") String projectId, Model model) throws Exception{
         //根据一级项目id,获取名称
         ProjectDO projectDO = projectService.get(projectId);
         model.addAttribute("projectDO", projectDO);

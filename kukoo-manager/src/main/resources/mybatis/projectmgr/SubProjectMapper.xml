@@ -136,6 +136,12 @@
 		update sub_project_detail set deleted='1' where id = #{id}
 	</delete>
 
+    <delete id="removeByProjectId" >
+		update sub_project_detail set deleted='1' where projectId = #{projectId}
+	</delete>
+
+
+
     <delete id="batchRemove">
         update sub_project_detail set deleted='1' where id in
         <foreach item="id" collection="array" open="(" separator=","

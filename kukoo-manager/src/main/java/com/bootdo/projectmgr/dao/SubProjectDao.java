@@ -70,5 +70,10 @@ public interface SubProjectDao {
      * @return int
      * */
     int getSequence() throws Exception ;
+    /**
+     * 根据一级项目id 删除对应的二级项目
+     * @return int
+     * */
+    int removeByProjectId(String projectId) throws Exception;
 
 }

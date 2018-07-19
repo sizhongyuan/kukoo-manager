@@ -19,7 +19,9 @@ public interface RoleService {
 
 	int remove(Long id);
 
-	List<RoleDO> list(Long userId);
+	List<RoleDO> list(String userId);
 
 	int batchremove(Long[] ids);
+	
+	List<RoleDO> userRefRole(String userId);
 }

@@ -29,7 +29,7 @@ public class MenuServiceImpl implements MenuService {
 	 */
 	@Cacheable
 	@Override
-	public Tree<MenuDO> getSysMenuTree(Long id) {
+	public Tree<MenuDO> getSysMenuTree(String id) {
 		List<Tree<MenuDO>> trees = new ArrayList<Tree<MenuDO>>();
 		List<MenuDO> menuDOs = menuMapper.listMenuByUserId(id);
 		for (MenuDO sysMenuDO : menuDOs) {
@@ -130,7 +130,7 @@ public class MenuServiceImpl implements MenuService {
 	}
 
 	@Override
-	public Set<String> listPerms(Long userId) {
+	public Set<String> listPerms(String userId) {
 		List<String> perms = menuMapper.listUserPerms(userId);
 		Set<String> permsSet = new HashSet<>();
 		for (String perm : perms) {
@@ -142,7 +142,7 @@ public class MenuServiceImpl implements MenuService {
 	}
 
 	@Override
-	public List<Tree<MenuDO>> listMenuTree(Long id) {
+	public List<Tree<MenuDO>> listMenuTree(String id) {
 		List<Tree<MenuDO>> trees = new ArrayList<Tree<MenuDO>>();
 		List<MenuDO> menuDOs = menuMapper.listMenuByUserId(id);
 		for (MenuDO sysMenuDO : menuDOs) {

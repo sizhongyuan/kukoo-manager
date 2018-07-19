@@ -67,10 +67,10 @@ public class NotifyServiceImpl implements NotifyService {
         notify.setUpdateDate(new Date());
         int r = notifyDao.save(notify);
         // 保存到接受者列表中
-        Long[] userIds = notify.getUserIds();
+        String[] userIds = notify.getUserIds();
         Long notifyId = notify.getId();
         List<NotifyRecordDO> records = new ArrayList<>();
-        for (Long userId : userIds) {
+        for (String userId : userIds) {
             NotifyRecordDO record = new NotifyRecordDO();
             record.setNotifyId(notifyId);
             record.setUserId(userId);
@@ -84,7 +84,7 @@ public class NotifyServiceImpl implements NotifyService {
             @Override
             public void run() {
                 for (UserDO userDO : sessionService.listOnlineUser()) {
-                    for (Long userId : userIds) {
+                    for (String userId : userIds) {
                         if (userId.equals(userDO.getUserId())) {
                             template.convertAndSendToUser(userDO.toString(), "/queue/notifications", "新消息：" + notify.getTitle());
                         }
@@ -121,7 +121,7 @@ public class NotifyServiceImpl implements NotifyService {
         List<NotifyDTO> rows = notifyDao.listDTO(map);
         for (NotifyDTO notifyDTO : rows) {
             notifyDTO.setBefore(DateUtils.getTimeBefore(notifyDTO.getUpdateDate()));
-            notifyDTO.setSender(userDao.get(notifyDTO.getCreateBy()).getName());
+            notifyDTO.setSender(userDao.get(notifyDTO.getCreateBy()+"").getName());
         }
         PageUtils page = new PageUtils(rows, notifyDao.countDTO(map));
         return page;

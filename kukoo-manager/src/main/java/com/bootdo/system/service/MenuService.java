@@ -11,9 +11,9 @@ import com.bootdo.system.domain.MenuDO;
 
 @Service
 public interface MenuService {
-	Tree<MenuDO> getSysMenuTree(Long id);
+	Tree<MenuDO> getSysMenuTree(String id);
 
-	List<Tree<MenuDO>> listMenuTree(Long id);
+	List<Tree<MenuDO>> listMenuTree(String id);
 
 	Tree<MenuDO> getTree();
 
@@ -29,5 +29,5 @@ public interface MenuService {
 
 	MenuDO get(Long id);
 
-	Set<String> listPerms(Long userId);
+	Set<String> listPerms(String userId);
 }

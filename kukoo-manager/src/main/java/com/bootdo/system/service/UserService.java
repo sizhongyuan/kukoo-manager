@@ -14,7 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public interface UserService {
-	UserDO get(Long id);
+	UserDO get(String id);
 
 	List<UserDO> list(Map<String, Object> map);
 
@@ -24,17 +24,19 @@ public interface UserService {
 
 	int update(UserDO user);
 
-	int remove(Long userId);
+	int remove(String userId);
 
-	int batchremove(Long[] userIds);
+	int batchremove(String[] userIds);
 
 	boolean exit(Map<String, Object> params);
 
-	Set<String> listRoles(Long userId);
+	Set<String> listRoles(String userId);
 
 	int resetPwd(UserVO userVO,UserDO userDO) throws Exception;
 	int adminResetPwd(UserVO userVO) throws Exception;
 	Tree<DeptDO> getTree();
+	
+	int getUserSecquence();
 
 	/**
 	 * 更新个人信息
@@ -50,5 +52,5 @@ public interface UserService {
 	 * @param userId 用户ID
 	 * @throws Exception
 	 */
-    Map<String, Object> updatePersonalImg(MultipartFile file, String avatar_data, Long userId) throws Exception;
+    Map<String, Object> updatePersonalImg(MultipartFile file, String avatar_data, String userId) throws Exception;
 }

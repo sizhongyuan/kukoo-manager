@@ -3,6 +3,7 @@ $(function() {
 	var deptId = '';
 	//getTreeData();
 	load(deptId);
+	loadRole();
 });
 
 function load(deptId) {
@@ -36,6 +37,7 @@ function load(deptId) {
 						limit : params.limit,
 						offset : params.offset,
 						searchCondition : $('#searchCondition').val(),
+						role : $('#roleId').val(),
 						deptId : deptId
 					};
 				},
@@ -55,7 +57,9 @@ function load(deptId) {
 						align : 'center',
 						formatter:function(value,row,index){
 							var url = row.headImg;
-							var s = '<a class = "view"  href="javascript:void(0)" onclick="detail('+row.userId+')"><img style="width:20px;height:20px;border-radius:20px;"  src="/img/user.png" /></a>';
+							var s = '<a class = "view"  href="javascript:void(0)" onclick="detail(\''
+								+ row.userId
+								+ '\')"><img style="width:20px;height:20px;border-radius:20px;"  src="/img/user.png" /></a>';
 							return s;
 						}
 					},
@@ -68,7 +72,9 @@ function load(deptId) {
 						title : '姓名',
 						formatter:function(value,row,index){
 							var url = row.headImg;
-							var s = '<a class = "view"  href="javascript:void(0)" onclick="detail('+row.userId+')">'+row.name+'</a>';
+							var s = '<a class = "view"  href="javascript:void(0)" onclick="detail(\''
+								+ row.userId
+								+ '\')">'+row.name+'</a>';
 							return s;
 						}
 					},
@@ -89,11 +95,35 @@ function load(deptId) {
 						title : '状态',
 						align : 'center',
 						formatter : function(value, row, index) {
-							if (value == '0') {
-								return '<span class="label label-danger">禁用</span>';
+							if (value == '6') {
+								return '<span class="label label-warning">合作暂停</span>';
+							} else if (value == '5') {
+								return '<span class="label label-primary">合作中</span>';
+							} else if (value == '4') {
+								return '<span class="label label-danger">合作终止</span>';
+							} else if (value == '3') {
+								return '<span class="label label-danger">离职</span>';
+							} else if (value == '2') {
+								return '<span class="label label-warning">休假</span>';
 							} else if (value == '1') {
-								return '<span class="label label-primary">正常</span>';
+								return '<span class="label label-primary">在职</span>';
 							}
+						}
+					},
+					{
+						field : 'userId',
+						title : '角色',
+						formatter : function(value, row, index) {
+							var name;
+							$.ajax({
+								url : "/sys/role/roleList/"+value+"",
+								type : "get",
+								async:false, 
+								success : function(data) {
+									name = data;
+								}
+							});
+							return '<span class="label label-info">'+name+'</span>';
 						}
 					},
 					{
@@ -233,6 +263,7 @@ function edit(id) {
 	});
 }
 function detail(id) {
+	console.log(id);
 	layer.open({
 		id : 'detailUser',
 		type : 2,
@@ -247,6 +278,7 @@ function detail(id) {
 	});
 }
 function resetPwd(id) {
+	console.log(id);
 	layer.open({
 		type : 2,
 		title : '重置密码',
@@ -324,3 +356,32 @@ $('#jstree').on("changed.jstree", function(e, data) {
 	}
 
 });
+
+//角色
+function loadRole(){
+	var html = "";
+	$.ajax({
+		url : '/sys/role/list',
+		success : function(data) {
+			console.log(data);
+			//加载数据
+			for (var i = 0; i < data.length; i++) {
+				html += '<option value="' + data[i].roleId + '">' + data[i].roleName + '</option>'
+			}
+			$("#roleId").append(html);
+			$("#roleId").chosen({
+				maxHeight : 200,
+				width : "100%"
+			});
+			//点击事件
+			$('#roleId').on('change', function(e, params) {
+				var opt = {
+					query : {
+						type : params.selected,
+					}
+				}
+				$('#exampleTable').bootstrapTable('refresh', opt);
+			});
+		}
+	});
+}

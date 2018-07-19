@@ -1,5 +1,8 @@
 package com.bootdo.system.service;
 
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +15,39 @@ import com.bootdo.system.domain.EmpDO;
  */
 @Service
 public interface EmpService {
+	
+	/**
+	 * 查询顾问列表
+	 * @return
+	 */
+	public List list(Map<String, Object> map);
+	
+	/**
+	 * 查询列表总数
+	 * @return
+	 */
+	public int count(Map<String, Object> map);
+	
+	/**
+	 * 查询顾问关联客户
+	 * @return
+	 */
+	public List clientList(Map<String, Object> map);
+	
+	/**
+	 * 查询顾问关联客户总数
+	 * @return
+	 */
+	public int clientCount(Map<String, Object> map);
+	
+	/**
+	 * 解除关联
+	 */
+	public void removeRef(Long id);
+	
+	
+	
+	
 	
 	/**
 	 * 保存顾问
@@ -37,5 +73,7 @@ public interface EmpService {
 	 * @param empId
 	 */
 	public void deleteByEmpId(@Param("empId") String empId);
+	
+	
 
 }

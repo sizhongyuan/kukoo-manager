@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.caseList.dao.CaseListDao">
+
+	<select id="get" resultType="com.bootdo.caseList.domain.TtCase">
+		select
+		`id`,`case_name`,`contract_number`,`main_applicant_id`,`main_applicant_name`,`deputy_applicant_id`,`deputy_applicant_name`,`project_id`,`project_name`,`sub_project_id`,`sub_project_name`,`adviser_id`,`adviser_name`,`immigration_account`,`registration_fee`,`remark`
+		from tt_case where id = #{value}
+	</select>
+
+	<!--<select id="getOrderby" resultType="com.bootdo.timeline.domain.TtTimelineTempLink">-->
+		<!--select-->
+		<!--`id`,`link_name`,`orderby`-->
+		<!--from tt_timeline_temp_link where deleted = 0 and project_id = id = #{value}-->
+	<!--</select>-->
+
+	<select id="list" resultType="com.bootdo.caseList.domain.TtCase">
+		select
+		`id`,`case_name`,`contract_number`,`main_applicant_id`,`main_applicant_name`,`deputy_applicant_id`,`deputy_applicant_name`,`project_id`,`project_name`,`sub_project_id`,`sub_project_name`,`adviser_id`,`adviser_name`,`immigration_account`,`registration_fee`,`remark`
+		from tt_case
+		<where>
+			<if test="id != null and id != ''"> and id = #{id} </if>
+			<if test="caseName != null and caseName != ''"> and case_name = #{caseName} </if>
+			<if test="contractNumber != null and contractNumber != ''"> and contract_number = #{contractNumber} </if>
+			<if test="mainApplicantId != null and mainApplicantId != ''"> and main_applicant_id = #{mainApplicantId} </if>
+			<if test="mainApplicantName != null and mainApplicantName != ''"> and main_applicant_name = #{mainApplicantName} </if>
+			<if test="deputyApplicantId != null and deputyApplicantId != ''"> and deputy_applicant_id = #{deputyApplicantId} </if>
+			<if test="deputyApplicantName != null and deputyApplicantName != ''"> and deputy_applicant_name = #{deputyApplicantName} </if>
+			<if test="projectId != null and projectId != ''"> and project_id = #{projectId} </if>
+			<if test="projectName != null and projectName != ''"> and project_name = #{projectName} </if>
+			<if test="subProjectId != null and subProjectId != ''"> and sub_project_id = #{subProjectId} </if>
+			<if test="subProjectName != null and subProjectName != ''"> and sub_project_name = #{subProjectName} </if>
+			<if test="adviserId != null and adviserId != ''"> and adviser_id = #{adviserId} </if>
+			<if test="adviserName != null and adviserName != ''"> and adviser_name = #{adviserName} </if>
+			<if test="immigrationAccount != null and immigrationAccount != ''"> and immigration_account = #{immigrationAccount} </if>
+			<if test="registrationFee != null and registrationFee != ''"> and registration_fee = #{registrationFee} </if>
+			<if test="remark != null and remark != ''"> and remark = #{remark} </if>
+			and deleted = 0
+		</where>
+		<!--<choose>-->
+			<!--<when test="sort != null and sort.trim() != ''">-->
+				<!--order by ${sort} ${order}-->
+			<!--</when>-->
+			<!--<otherwise>-->
+				<!--order by id desc-->
+			<!--</otherwise>-->
+		<!--</choose>-->
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+	<select id="count" resultType="int">
+		select count(*) from tt_case
+		<where>
+			<if test="id != null and id != ''"> and id = #{id} </if>
+			<if test="caseName != null and caseName != ''"> and case_name = #{caseName} </if>
+			<if test="contractNumber != null and contractNumber != ''"> and contract_number = #{contractNumber} </if>
+			<if test="mainApplicantId != null and mainApplicantId != ''"> and main_applicant_id = #{mainApplicantId} </if>
+			<if test="mainApplicantName != null and mainApplicantName != ''"> and main_applicant_name = #{mainApplicantName} </if>
+			<if test="deputyApplicantId != null and deputyApplicantId != ''"> and deputy_applicant_id = #{deputyApplicantId} </if>
+			<if test="deputyApplicantName != null and deputyApplicantName != ''"> and deputy_applicant_name = #{deputyApplicantName} </if>
+			<if test="projectId != null and projectId != ''"> and project_id = #{projectId} </if>
+			<if test="projectName != null and projectName != ''"> and project_name = #{projectName} </if>
+			<if test="subProjectId != null and subProjectId != ''"> and sub_project_id = #{subProjectId} </if>
+			<if test="subProjectName != null and subProjectName != ''"> and sub_project_name = #{subProjectName} </if>
+			<if test="adviserId != null and adviserId != ''"> and adviser_id = #{adviserId} </if>
+			<if test="adviserName != null and adviserName != ''"> and adviser_name = #{adviserName} </if>
+			<if test="immigrationAccount != null and immigrationAccount != ''"> and immigration_account = #{immigrationAccount} </if>
+			<if test="registrationFee != null and registrationFee != ''"> and registration_fee = #{registrationFee} </if>
+			<if test="remark != null and remark != ''"> and remark = #{remark} </if>
+			and deleted = 0
+		</where>
+	</select>
+
+	<insert id="save" parameterType="com.bootdo.caseList.domain.TtCase"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into tt_case
+		(
+		`case_name`,
+		`contract_number`,
+		`main_applicant_id`,
+		`main_applicant_name`,
+		`deputy_applicant_id`,
+		`deputy_applicant_name`,
+		`project_id`,
+		`project_name`,
+		`sub_project_id`,
+		`sub_project_name`,
+		`adviser_id`,
+		`adviser_name`,
+		`immigration_account`,
+		`registration_fee`,
+		`remark`,
+		`deleted`,
+		`create_time`
+		)
+		values
+		(
+		#{caseName},
+		#{contractNumber},
+		#{mainApplicantId},
+		#{mainApplicantName},
+		#{deputyApplicantId},
+		#{deputyApplicantName},
+		#{projectId},
+		#{projectName},
+		#{subProjectId},
+		#{subProjectName},
+		#{adviserId},
+		#{adviserName},
+		#{immigrationAccount},
+		#{registrationFee},
+		#{remark},
+		#{deleted},
+		#{createTime}
+		)
+	</insert>
+
+	<!--<select id="maxOrderby" resultType="Integer">-->
+		<!--SELECT max(`orderby`) FROM tt_timeline_temp_link WHERE deleted = 0-->
+	<!--</select>-->
+
+	<!--<insert id="saveFile" parameterType="com.bootdo.timeline.domain.TtTimelineTempFile"-->
+			<!--useGeneratedKeys="true" keyProperty="id">-->
+		<!--insert into tt_timeline_temp_file-->
+		<!--(-->
+		<!--`temp_id`,-->
+		<!--`file_name`,-->
+		<!--`file_id`,-->
+		<!--`create_time`-->
+		<!--)-->
+		<!--values-->
+		<!--<foreach collection="list" item="item" index="index" separator=",">-->
+			<!--(-->
+			<!--#{item.tempId},-->
+			<!--#{item.fileName},-->
+			<!--#{item.fileId},-->
+			<!--#{item.createTime}-->
+			<!--)-->
+		<!--</foreach>-->
+	<!--</insert>-->
+
+	<!--<update id="saveOrderby" parameterType="com.bootdo.timeline.domain.TtTimelineTempLink">-->
+		<!--update tt_timeline_temp_link-->
+		<!--<set>-->
+			<!--<if test="orderby != null and orderby != ''"> orderby = #{orderby} </if>-->
+		<!--</set>-->
+		<!--where id = #{id}-->
+	<!--</update>-->
+
+	<update id="update" parameterType="com.bootdo.caseList.domain.TtCase">
+		update tt_case
+		<set>
+			<if test="caseName != null and caseName != ''"> case_name = #{caseName}, </if>
+			<if test="contractNumber != null and contractNumber != ''"> contract_number = #{contractNumber}, </if>
+			<if test="mainApplicantId != null and mainApplicantId != ''"> main_applicant_id = #{mainApplicantId}, </if>
+			<if test="mainApplicantName != null and mainApplicantName != ''"> main_applicant_name = #{mainApplicantName}, </if>
+			<if test="deputyApplicantId != null and deputyApplicantId != ''"> deputy_applicant_id = #{deputyApplicantId}, </if>
+			<if test="deputyApplicantName != null and deputyApplicantName != ''"> deputy_applicant_name = #{deputyApplicantName}, </if>
+			<if test="projectId != null and projectId != ''"> project_id = #{projectId}, </if>
+			<if test="projectName != null and projectName != ''"> project_name = #{projectName}, </if>
+			<if test="subProjectId != null and subProjectId != ''"> sub_project_id = #{subProjectId}, </if>
+			<if test="subProjectName != null and subProjectName != ''"> sub_project_name = #{subProjectName}, </if>
+			<if test="adviserId != null and adviserId != ''"> adviser_id = #{adviserId}, </if>
+			<if test="adviserName != null and adviserName != ''"> adviser_name = #{adviserName}, </if>
+			<if test="immigrationAccount != null and immigrationAccount != ''"> immigration_account = #{immigrationAccount}, </if>
+			<if test="registrationFee != null and registrationFee != ''"> registration_fee = #{registrationFee}, </if>
+			<if test="remark != null and remark != ''"> remark = #{remark} </if>
+		</set>
+		where id = #{id}
+	</update>
+
+	<!--<delete id="deleteFile" parameterType="Integer">-->
+		<!--DELETE FROM tt_timeline_temp_file WHERE temp_id = #{value}-->
+	<!--</delete>-->
+
+	<update id="remove" parameterType="com.bootdo.caseList.domain.TtCase">
+		update tt_case set deleted = 1 where id = #{id}
+	</update>
+
+	<update id="batchRemove" parameterType="com.bootdo.caseList.domain.TtCase">
+		update tt_case set deleted = 1 where id in
+		<foreach item="id" collection="array" open="(" separator=","
+				 close=")">
+			#{id}
+		</foreach>
+	</update>
+</mapper>

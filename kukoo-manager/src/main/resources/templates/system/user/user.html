@@ -30,13 +30,20 @@
 									<i class="fa fa-trash hidden" aria-hidden="true"></i>删除
 								</button>
 							</div>
-							<div class="columns pull-right">
+							<div class="columns pull-right" style="margin-left:3px">
 								<button class="btn btn-success" onclick="reLoad()">查询</button>
 							</div>
 
 							<div class="columns pull-right col-md-4 nopadding">
 								<input id="searchCondition" type="text" class="form-control"
 									placeholder="中文/英文姓名、手机号、状态、邮箱、所在机构" onkeypress="getKey();">
+									
+							</div>&nbsp;&nbsp;&nbsp;
+							<div class="columns pull-right col-md-2 nopadding">
+								<select data-placeholder="--选择角色--" name="roleId" id="roleId"
+                                        class="form-control chosen-select" tabindex="2">
+                                    		<option value="">--选择角色--</option>
+                                		</select>
 							</div>
 						</div>
 						<table id="exampleTable" data-mobile-responsive="true">

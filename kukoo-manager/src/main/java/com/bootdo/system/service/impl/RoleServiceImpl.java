@@ -44,7 +44,7 @@ public class RoleServiceImpl implements RoleService {
 
 
     @Override
-    public List<RoleDO> list(Long userId) {
+    public List<RoleDO> list(String userId) {
         List<Long> rolesIds = userRoleMapper.listRoleId(userId);
         List<RoleDO> roles = roleMapper.list(new HashMap<>(16));
         for (RoleDO roleDO : roles) {
@@ -117,5 +117,12 @@ public class RoleServiceImpl implements RoleService {
         int r = roleMapper.batchRemove(ids);
         return r;
     }
+
+
+	@Override
+	public List<RoleDO> userRefRole(String userId) {
+		// TODO Auto-generated method stub
+		return roleMapper.userRefRole(userId);
+	}
 
 }

@@ -2,7 +2,7 @@ package com.bootdo.system.domain;
 
 public class UserRoleDO {
     private Long id;
-    private Long userId;
+    private String userId;
     private Long roleId;
 
     public Long getId() {
@@ -13,11 +13,11 @@ public class UserRoleDO {
         this.id = id;
     }
 
-    public Long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

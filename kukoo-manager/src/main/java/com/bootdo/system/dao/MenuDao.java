@@ -30,7 +30,7 @@ public interface MenuDao {
 	
 	int batchRemove(Long[] menuIds);
 	
-	List<MenuDO> listMenuByUserId(Long id);
+	List<MenuDO> listMenuByUserId(String id);
 	
-	List<String> listUserPerms(Long id);
+	List<String> listUserPerms(String id);
 }

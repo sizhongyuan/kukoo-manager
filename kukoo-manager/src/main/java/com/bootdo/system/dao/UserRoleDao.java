@@ -31,13 +31,13 @@ public interface UserRoleDao {
 
 	int batchRemove(Long[] ids);
 
-	List<Long> listRoleId(Long userId);
+	List<Long> listRoleId(String userId);
 
-	int removeByUserId(Long userId);
+	int removeByUserId(String userId);
 
 	int removeByRoleId(Long roleId);
 
 	int batchSave(List<UserRoleDO> list);
 
-	int batchRemoveByUserId(Long[] ids);
+	int batchRemoveByUserId(String[] ids);
 }

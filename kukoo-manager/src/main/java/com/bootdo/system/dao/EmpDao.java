@@ -1,11 +1,13 @@
 package com.bootdo.system.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import com.bootdo.system.domain.EmpDO;
+import com.bootdo.system.domain.UserDO;
 
 /**
  * 顾问dao接口
@@ -14,7 +16,40 @@ import com.bootdo.system.domain.EmpDO;
  */
 @Mapper
 public interface EmpDao {
+	
+	/**
+	 * 查询顾问
+	 * @return
+	 */
+	public List<UserDO> list(Map<String, Object> map);
 
+	/**
+	 * 查询总数
+	 * @return
+	 */
+	public int count(Map<String, Object> map);
+	
+	/**
+	 * 查询顾问关联客户
+	 * @return
+	 */
+	public List clientList(Map<String, Object> map);
+	
+	/**
+	 * 查询顾问关联客户总数
+	 * @return
+	 */
+	public int clientCount(Map<String, Object> map);
+	
+	/**
+	 * 解除关联
+	 */
+	public void removeRef(Long id);
+	
+	
+	
+	
+	
 	/**
 	 * 保存顾问
 	 * @param empDO

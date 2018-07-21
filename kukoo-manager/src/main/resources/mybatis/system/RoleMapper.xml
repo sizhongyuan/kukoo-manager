@@ -34,6 +34,14 @@
 			limit #{offset}, #{limit}
 		</if>
 	</select>
+	
+	<select id="userRefRole" resultType="com.bootdo.system.domain.RoleDO">
+		select
+		r.`role_id`,r.`role_name`,r.`role_sign`,r.`remark`,r.`user_id_create`,r.`gmt_create`,r.`gmt_modified`
+		from sys_role r,sys_user_role u
+		where r.`role_id`=u.`role_id` 
+		and u.`user_id`=#{userId} 
+	</select>
 
 	<select id="count" resultType="int">
 		select count(*) from sys_role

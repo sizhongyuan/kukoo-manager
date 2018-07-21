@@ -29,7 +29,7 @@ public class NotifyDO implements Serializable {
 	//状态
 	private String status;
 	//创建者
-	private Long createBy;
+	private String createBy;
 	//创建时间
 	private Date createDate;
 	//更新者
@@ -41,7 +41,7 @@ public class NotifyDO implements Serializable {
 	//删除标记
 	private String delFlag;
 	
-	private Long[] userIds;
+	private String[] userIds;
 
 	/**
 	 * 设置：编号
@@ -118,13 +118,13 @@ public class NotifyDO implements Serializable {
 	/**
 	 * 设置：创建者
 	 */
-	public void setCreateBy(Long createBy) {
+	public void setCreateBy(String createBy) {
 		this.createBy = createBy;
 	}
 	/**
 	 * 获取：创建者
 	 */
-	public Long getCreateBy() {
+	public String getCreateBy() {
 		return createBy;
 	}
 	/**
@@ -187,10 +187,10 @@ public class NotifyDO implements Serializable {
 	public String getDelFlag() {
 		return delFlag;
 	}
-	public Long[] getUserIds() {
+	public String[] getUserIds() {
 		return userIds;
 	}
-	public void setUserIds(Long[] userIds) {
+	public void setUserIds(String[] userIds) {
 		this.userIds = userIds;
 	}
 

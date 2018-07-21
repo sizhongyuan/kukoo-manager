@@ -7,7 +7,7 @@ import java.util.Date;
 public class LogDO {
 	private Long id;
 
-	private Long userId;
+	private String userId;
 
 	private String username;
 
@@ -31,11 +31,11 @@ public class LogDO {
 		this.id = id;
 	}
 
-	public Long getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 
-	public void setUserId(Long userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 

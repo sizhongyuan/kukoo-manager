@@ -58,7 +58,7 @@ public class UserController extends BaseController {
 	}
 	
 	@GetMapping("/detail/{id}")
-	String detail(Model model, @PathVariable("id") Long id) {
+	String detail(Model model, @PathVariable("id") String id) {
 		UserDO userDO = userService.get(id);
 		model.addAttribute("user", userDO);
 //		List<RoleDO> roles = roleService.list(id);
@@ -78,7 +78,7 @@ public class UserController extends BaseController {
 	@RequiresPermissions("sys:user:edit")
 	@Log("编辑用户")
 	@GetMapping("/edit/{id}")
-	String edit(Model model, @PathVariable("id") Long id) {
+	String edit(Model model, @PathVariable("id") String id) {
 		UserDO userDO = userService.get(id);
 		model.addAttribute("user", userDO);
 		//List<RoleDO> roles = roleService.list(id);
@@ -94,10 +94,13 @@ public class UserController extends BaseController {
 		if (Constant.DEMO_ACCOUNT.equals(getUsername())) {
 			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
 		}
-		//user.setIDNumber("E0000000");
 		user.setPassword(MD5Utils.encrypt(user.getUsername(), user.getPassword()));
 		user.setGmtCreate(new Date());
 		user.setRegistTime(new Date());
+		user.setDeleted("0");
+		String number = userService.getUserSecquence() + "";
+		String userId = 'E' + number.substring(1, number.length());
+		user.setUserId(userId);
 		if (userService.save(user) > 0) {
 			return R.ok();
 		}
@@ -138,7 +141,7 @@ public class UserController extends BaseController {
 	@Log("删除用户")
 	@PostMapping("/remove")
 	@ResponseBody
-	R remove(Long id) {
+	R remove(String id) {
 		if (Constant.DEMO_ACCOUNT.equals(getUsername())) {
 			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
 		}
@@ -152,7 +155,7 @@ public class UserController extends BaseController {
 	@Log("批量删除用户")
 	@PostMapping("/batchRemove")
 	@ResponseBody
-	R batchRemove(@RequestParam("ids[]") Long[] userIds) {
+	R batchRemove(@RequestParam("ids[]") String[] userIds) {
 		if (Constant.DEMO_ACCOUNT.equals(getUsername())) {
 			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
 		}
@@ -173,7 +176,7 @@ public class UserController extends BaseController {
 	@RequiresPermissions("sys:user:resetPwd")
 	@Log("请求更改用户密码")
 	@GetMapping("/resetPwd/{id}")
-	String resetPwd(@PathVariable("id") Long userId, Model model) {
+	String resetPwd(@PathVariable("id") String userId, Model model) {
 
 		UserDO userDO = new UserDO();
 		userDO.setUserId(userId);

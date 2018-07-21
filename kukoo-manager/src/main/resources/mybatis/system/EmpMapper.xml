@@ -3,6 +3,194 @@
 
 <!-- 顾问管理mapper文件 -->
 <mapper namespace="com.bootdo.system.dao.EmpDao">
+
+	<select id="list" resultType="com.bootdo.system.domain.UserDO">
+		select u.`user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district`, 
+		`registTime`,`accountType`,`headImg`,`gender`,`location`,`role`,`nickname`,`cnname`,`enname`,`institutions`,`mobileInland`,`mobileForeign`,`weChat`,`other`,`majorRange`,`level`,`peopleNumber`,`caseNumber`,
+		`consultNumber`,`workyear`,`licensCase`,`baseSalary`,`socialSecurity`,`companySecurity`,`joinTime`,`leaveTime`,`contract`,`laborLimit`,`IDNumber`,`bloodType`,`nativePlace`,`birthday`,`emergencyContact`,`remark`,`deleted`
+		from sys_user u,sys_user_role r
+        <where>  
+		  		  <if test="userId != null and userId != ''"> and u.user_id = #{userId} </if>
+		  		  <if test="username != null and username != ''"> and username = #{username} </if>
+		  		  <if test="name != null and name != ''"> and name = #{name} </if>
+		  		  <if test="password != null and password != ''"> and password = #{password} </if>
+		  		  <if test="deptId != null and deptId != ''"> and dept_id = #{deptId} </if>
+		  		  <if test="email != null and email != ''"> and email = #{email} </if>
+		  		  <if test="mobile != null and mobile != ''"> and mobile = #{mobile} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="userIdCreate != null and userIdCreate != ''"> and user_id_create = #{userIdCreate} </if>
+		  		  <if test="gmtCreate != null and gmtCreate != ''"> and gmt_create = #{gmtCreate} </if>
+		  		  <if test="gmtModified != null and gmtModified != ''"> and gmt_modified = #{gmtModified} </if>
+		  		  <if test="sex != null and sex != ''"> and sex = #{sex} </if>
+		  		  <if test="birth != null and birth != ''"> and birth = #{birth} </if>
+		  		  <if test="picId != null and picId != ''"> and pic_id = #{picId} </if>
+		  		  <if test="liveAddress != null and liveAddress != ''"> and live_address = #{liveAddress} </if>
+		  		  <if test="hobby != null and hobby != ''"> and hobby = #{hobby} </if>
+		  		  <if test="province != null and province != ''"> and province = #{province} </if>
+		  		  <if test="city != null and city != ''"> and city = #{city} </if>
+		  		  <if test="district != null and district != ''"> and district = #{district} </if>
+		  		  <if test="registTime != null and registTime != ''"> and registTime = #{registTime} </if>
+		  		  <if test="accountType != null and accountType != ''"> and accountType = #{accountType} </if>
+		  		  <if test="headImg != null and headImg != ''"> and headImg = #{headImg} </if>
+		  		  <if test="gender != null and gender != ''"> and gender = #{gender} </if>
+		  		  <if test="location != null and location != ''"> and location = #{location} </if>
+		  		  <!-- <if test="role != null and role != ''"> and role = #{role} </if> -->
+		  		  <if test="nickname != null and nickname != ''"> and nickname = #{nickname} </if>
+		  		  <if test="cnname != null and cnname != ''"> and cnname = #{cnname} </if>
+		  		  <if test="enname != null and enname != ''"> and enname = #{enname} </if>
+		  		  <if test="institutions != null and institutions != ''"> and institutions = #{institutions} </if>
+		  		  <if test="mobileInland != null and mobileInland != ''"> and mobileInland = #{mobileInland} </if>
+		  		  <if test="mobileForeign != null and mobileForeign != ''"> and mobileForeign = #{mobileForeign} </if>
+		  		  <if test="weChat != null and weChat != ''"> and weChat = #{weChat} </if>
+		  		  <if test="other != null and other != ''"> and other = #{other} </if>
+		  		  <if test="majorRange != null and majorRange != ''"> and majorRange = #{majorRange} </if>
+		  		  <if test="level != null and level != ''"> and level = #{level} </if>
+		  		  <if test="peopleNumber != null and peopleNumber != ''"> and peopleNumber = #{peopleNumber} </if>
+		  		  <if test="caseNumber != null and caseNumber != ''"> and caseNumber = #{caseNumber} </if>
+		  		  <if test="consultNumber != null and consultNumber != ''"> and consultNumber = #{consultNumber} </if>
+		  		  <if test="workyear != null and workyear != ''"> and workyear = #{workyear} </if>
+		  		  <if test="licensCase != null and licensCase != ''"> and licensCase = #{licensCase} </if>
+		  		  <if test="baseSalary != null and socialSecurity != ''"> and socialSecurity = #{socialSecurity} </if>
+		  		  <if test="socialSecurity != null and consultNumber != ''"> and consultNumber = #{consultNumber} </if>
+		  		  <if test="companySecurity != null and companySecurity != ''"> and companySecurity = #{companySecurity} </if>
+		  		  <if test="joinTime != null and joinTime != ''"> and joinTime = #{joinTime} </if>
+		  		  <if test="leaveTime != null and leaveTime != ''"> and leaveTime = #{leaveTime} </if>
+		  		  <if test="contract != null and contract != ''"> and contract = #{contract} </if>
+		  		  <if test="laborLimit != null and laborLimit != ''"> and laborLimit = #{laborLimit} </if>
+		  		  <if test="IDNumber != null and IDNumber != ''"> and IDNumber = #{IDNumber} </if>
+		  		  <if test="bloodType != null and bloodType != ''"> and bloodType = #{bloodType} </if>
+		  		  <if test="nativePlace != null and nativePlace != ''"> and nativePlace = #{nativePlace} </if>
+		  		  <if test="birthday != null and birthday != ''"> and birthday = #{birthday} </if>
+		  		  <if test="emergencyContact != null and emergencyContact != ''"> and emergencyContact = #{emergencyContact} </if>
+		  		  <if test="remark != null and remark != ''"> and remark = #{remark} </if>
+		  		  <if test="deleted != null and deleted != ''"> and deleted = #{deleted} </if>
+		  		  <if test="role != null and role != ''"> and role_id = #{role} </if>
+		  		  <if test="searchCondition != null and searchCondition != ''"> and (cnname like '%${searchCondition}%' or enname like '%${searchCondition}%' or mobileInland like '%${searchCondition}%' or status like '%${searchCondition}%' or email like '%${searchCondition}%' or institutions like '%${searchCondition}%')</if>
+		  		  and u.user_id = r.user_id 
+		  		  and deleted = '0' 
+		  		  and r.role_id = 60 
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by user_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from sys_user u,sys_user_role r
+		 <where>  
+		  		  <if test="userId != null and userId != ''"> and u.user_id = #{userId} </if>
+		  		  <if test="username != null and username != ''"> and username = #{username} </if>
+		  		  <if test="name != null and name != ''"> and name = #{name} </if>
+		  		  <if test="password != null and password != ''"> and password = #{password} </if>
+		  		  <if test="deptId != null and deptId != ''"> and dept_id = #{deptId} </if>
+		  		  <if test="email != null and email != ''"> and email = #{email} </if>
+		  		  <if test="mobile != null and mobile != ''"> and mobile = #{mobile} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="userIdCreate != null and userIdCreate != ''"> and user_id_create = #{userIdCreate} </if>
+		  		  <if test="gmtCreate != null and gmtCreate != ''"> and gmt_create = #{gmtCreate} </if>
+		  		  <if test="gmtModified != null and gmtModified != ''"> and gmt_modified = #{gmtModified} </if>
+		  		  <if test="sex != null and sex != ''"> and sex = #{sex} </if>
+		  		  <if test="birth != null and birth != ''"> and birth = #{birth} </if>
+		  		  <if test="picId != null and picId != ''"> and pic_id = #{picId} </if>
+		  		  <if test="liveAddress != null and liveAddress != ''"> and live_address = #{liveAddress} </if>
+		  		  <if test="hobby != null and hobby != ''"> and hobby = #{hobby} </if>
+		  		  <if test="province != null and province != ''"> and province = #{province} </if>
+		  		  <if test="city != null and city != ''"> and city = #{city} </if>
+		  		  <if test="district != null and district != ''"> and district = #{district} </if>
+		  		  <if test="registTime != null and registTime != ''"> and registTime = #{registTime} </if>
+		  		  <if test="accountType != null and accountType != ''"> and accountType = #{accountType} </if>
+		  		  <if test="headImg != null and headImg != ''"> and headImg = #{headImg} </if>
+		  		  <if test="gender != null and gender != ''"> and gender = #{gender} </if>
+		  		  <if test="location != null and location != ''"> and location = #{location} </if>
+		  		  <!-- <if test="role != null and role != ''"> and role = #{role} </if> -->
+		  		  <if test="nickname != null and nickname != ''"> and nickname = #{nickname} </if>
+		  		  <if test="cnname != null and cnname != ''"> and cnname = #{cnname} </if>
+		  		  <if test="enname != null and enname != ''"> and enname = #{enname} </if>
+		  		  <if test="institutions != null and institutions != ''"> and institutions = #{institutions} </if>
+		  		  <if test="mobileInland != null and mobileInland != ''"> and mobileInland = #{mobileInland} </if>
+		  		  <if test="mobileForeign != null and mobileForeign != ''"> and mobileForeign = #{mobileForeign} </if>
+		  		  <if test="weChat != null and weChat != ''"> and weChat = #{weChat} </if>
+		  		  <if test="other != null and other != ''"> and other = #{other} </if>
+		  		  <if test="majorRange != null and majorRange != ''"> and majorRange = #{majorRange} </if>
+		  		  <if test="level != null and level != ''"> and level = #{level} </if>
+		  		  <if test="peopleNumber != null and peopleNumber != ''"> and peopleNumber = #{peopleNumber} </if>
+		  		  <if test="caseNumber != null and caseNumber != ''"> and caseNumber = #{caseNumber} </if>
+		  		  <if test="consultNumber != null and consultNumber != ''"> and consultNumber = #{consultNumber} </if>
+		  		  <if test="workyear != null and workyear != ''"> and workyear = #{workyear} </if>
+		  		  <if test="licensCase != null and licensCase != ''"> and licensCase = #{licensCase} </if>
+		  		  <if test="baseSalary != null and socialSecurity != ''"> and socialSecurity = #{socialSecurity} </if>
+		  		  <if test="socialSecurity != null and consultNumber != ''"> and consultNumber = #{consultNumber} </if>
+		  		  <if test="companySecurity != null and companySecurity != ''"> and companySecurity = #{companySecurity} </if>
+		  		  <if test="joinTime != null and joinTime != ''"> and joinTime = #{joinTime} </if>
+		  		  <if test="leaveTime != null and leaveTime != ''"> and leaveTime = #{leaveTime} </if>
+		  		  <if test="contract != null and contract != ''"> and contract = #{contract} </if>
+		  		  <if test="laborLimit != null and laborLimit != ''"> and laborLimit = #{laborLimit} </if>
+		  		  <if test="IDNumber != null and IDNumber != ''"> and IDNumber = #{IDNumber} </if>
+		  		  <if test="bloodType != null and bloodType != ''"> and bloodType = #{bloodType} </if>
+		  		  <if test="nativePlace != null and nativePlace != ''"> and nativePlace = #{nativePlace} </if>
+		  		  <if test="birthday != null and birthday != ''"> and birthday = #{birthday} </if>
+		  		  <if test="emergencyContact != null and emergencyContact != ''"> and emergencyContact = #{emergencyContact} </if>
+		  		  <if test="remark != null and remark != ''"> and remark = #{remark} </if>
+		  		  <if test="deleted != null and deleted != ''"> and deleted = #{deleted} </if>
+		  		  <if test="role != null and role != ''"> and role_id = #{role} </if>
+		  		  <if test="searchCondition != null and searchCondition != ''"> and (cnname like '%${searchCondition}%' or enname like '%${searchCondition}%' or mobileInland like '%${searchCondition}%' or status like '%${searchCondition}%' or email like '%${searchCondition}%' or institutions like '%${searchCondition}%')</if>
+		  		  and u.user_id = r.user_id 
+		  		  and deleted = '0' 
+		  		  and r.role_id = 60 
+		  		</where>
+	</select>
+	
+	<select id="clientList" resultType="com.bootdo.system.domain.ClientDO">
+		select `client_Id`,`regist_time`,`account_type`,`client_photo`,`sex`,`live_address`,`Client_status`,`intention`,`intention_country`,`nickname`,`cn_name`,`en_name`,`spouse`,`mobile_Inland`,`mobile_foreign`,`email`,`wechar`,`other_contact`,`assess_notes`, 
+  		`advisory_time`,`advisory_consultant`,`advisory_notes`,`advisory_result`,`remark`,`user_name`,`password`,`status`,`update_time`  
+		from sys_client c,emp_ref_client e
+        <where>  
+		  		  <if test="searchCondition != null and searchCondition != ''"> and (user_name like '%${searchCondition}%' or mobile_Inland like '%${searchCondition}%' or mobile_foreign like '%${searchCondition}%' or email like '%${searchCondition}%')</if>
+		  		  <if test="empId != null and empId != ''">and empId = #{empId}</if> 
+		  		  and c.client_Id = e.clientId 
+		  		  and e.deleted = '0' 
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by clientId desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+	<select id="clientCount" resultType="int">
+		select count(*)   
+		from sys_client c,emp_ref_client e
+        <where>  
+		  		  <if test="searchCondition != null and searchCondition != ''"> and (user_name like '%${searchCondition}%' or mobile_Inland like '%${searchCondition}%' or mobile_foreign like '%${searchCondition}%' or email like '%${searchCondition}%')</if>
+		  		  <if test="empId != null and empId != ''">and empId = #{empId}</if>
+		  		  and c.client_Id = e.clientId 
+		  		  and e.deleted = '0' 
+		  		</where>
+	</select>
+	
+	<!-- 解除关联 -->
+	<update id="removeRef">
+    		update emp_ref_client set deleted = '1'
+		where clientId = #{client_Id}
+    </update>
+	
+	
+	
+	
 	<!-- 保存一条顾问 -->
 	<insert id="save" parameterType="com.bootdo.system.domain.EmpDO">
 		<selectKey keyProperty="id" resultType="string" order="BEFORE">

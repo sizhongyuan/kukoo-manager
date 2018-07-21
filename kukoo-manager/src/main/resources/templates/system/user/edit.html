@@ -74,11 +74,12 @@
     							<legend>基础信息</legend>
 							<input id="userId" name="userId" th:value="${user.userId}"
 							type="hidden">
+							<input id="name" name="name" type="hidden">
 							<div class="form-group">
-								<label class="col-sm-1 control-label">姓名：</label>
+								<!-- <label class="col-sm-1 control-label">姓名：</label>
 								<div class="col-sm-3">
 									<input id="name" name="name" class="form-control" type="text" th:value="${user.name}">
-								</div>
+								</div> -->
 								
 								<label class="col-sm-1 control-label">用户名：</label>
 								<div class="col-sm-3">
@@ -91,9 +92,18 @@
 									<input id="password" name="password" class="form-control"
 										type="password" th:value="${user.password}">
 								</div>
+								
+								<label class="col-sm-1 control-label">账号类型：</label>
+								<div class="col-sm-3">
+									<input id="TaccountType" name="TaccountType" th:value="${user.accountType}" type="hidden">
+									<select data-placeholder="--选择类别--" name="accountType" id="accountType" 
+                                        class="form-control chosen-select" tabindex="2" required>
+                                    		<!-- <option value="">--选择类别--</option> -->
+                                		</select>
+								</div>
 							</div>
 							
-							<div class="form-group">
+							<!-- <div class="form-group">
 								<label class="col-sm-1 control-label">部门：</label>
 								<div class="col-sm-3">
 									<input id="deptId" name="deptId" class="hidden" th:value="${user.deptId}">
@@ -113,11 +123,11 @@
 									<input id="TaccountType" name="TaccountType" th:value="${user.accountType}" type="hidden">
 									<select data-placeholder="--选择类别--" name="accountType" id="accountType" 
                                         class="form-control chosen-select" tabindex="2" required>
-                                    		<!-- <option value="">--选择类别--</option> -->
+                                    		<option value="">--选择类别--</option>
                                 		</select>
 								</div>
 								
-							</div>
+							</div> -->
 							
 							<div class="form-group">
 								<label class="col-sm-1 control-label">性别：</label>
@@ -153,33 +163,65 @@
 								<label class="col-sm-1 control-label">昵称：</label>
 								<div class="col-sm-3">
 									<input id="nickname" name="nickname" class="form-control"
-										type="text" th:value="${user.nickname}">
+										type="text" th:value="${user.nickname}" required>
 								</div>
 								
 								<label class="col-sm-1 control-label">中文姓名：</label>
 								<div class="col-sm-3">
 									<input id="cnname" name="cnname" class="form-control"
-										type="text" th:value="${user.cnname}">
+										type="text" th:value="${user.cnname}" required>
 								</div>
 								
 								<label class="col-sm-1 control-label">英文姓名：</label>
 								<div class="col-sm-3">
 									<input id="enname" name="enname" class="form-control"
-										type="text" th:value="${user.enname}">
+										type="text" th:value="${user.enname}" required>
 								</div>
 							</div>
 							
 							<div class="form-group">
-								<label class="col-sm-1 control-label">所在机构：</label>
+								<!-- <label class="col-sm-1 control-label">所在机构：</label>
 								<div class="col-sm-3">
 									<input id="institutions" name="institutions" class="form-control"
 										type="text" th:value="${user.institutions}">
+								</div> -->
+								
+								<input id="Tinstitutions" name="Tinstitutions" th:value="${user.institutions}" type="hidden">
+								<label class="col-sm-1 control-label">所在机构：</label>
+								<div class="col-sm-3">
+									<select data-placeholder="--选择所在机构--" name="institutions" id="institutions"
+                                        class="form-control chosen-select" tabindex="2" required>
+                                    		<option value="">--选择所在机构--</option>
+                                		</select>
 								</div>
 								
 								<label class="col-sm-1 control-label">所在地：</label>
-								<div class="col-sm-3">
-									<input id="location" name="location" class="form-control"
-										type="text" th:value="${user.location}">
+								<div class="col-sm-7">
+									<input id="Tcountry" name="Tcountry" th:value="${user.country}" type="hidden">
+									<div id="countryDiv" style="float:left">
+										<select data-placeholder="--选择国家--" name="country" id="country"
+	                                        class="chosen-select" tabindex="2" required>
+	                                    		<option value="">--选择国家--</option>
+	                                		</select>
+                                		</div>
+                                		<input id="Tprovince" name="Tprovince" th:value="${user.province}" type="hidden">
+                                		<div id="provinceDiv" style="float:left">
+	                                		<select data-placeholder="--选择省份--" name="province" id="province"
+	                                        class="chosen-select" tabindex="2" required>
+	                                    		<option value="">--选择省份--</option>
+	                                		</select>
+                                		</div>
+                                		<input id="Tcity" name="Tcity" th:value="${user.city}" type="hidden">
+                                		<div id="cityDiv" style="float:left">
+	                                		<select data-placeholder="--选择城市--" name="city" id="city"
+	                                        class="chosen-select" tabindex="2" required>
+	                                    		<option value="">--选择城市--</option>
+	                                		</select>
+                                		</div>
+                                		<div id="foreignCityDiv" style="float:left;display:none">
+	                                		<input id="foreignCity" name="foreignCity" class="form-control"
+											type="text" th:value="${user.foreignCity}" required>
+									</div>
 								</div>
 							</div>
 							</fieldset>
@@ -189,14 +231,23 @@
 							<div class="form-group">
 								<label class="col-sm-1 control-label">手机号码-国内：</label>
 								<div class="col-sm-3">
-									<input id="mobileInland" name="mobileInland" class="form-control" type="text" th:value="${user.mobileInland}">
+									<input id="mobileInland" name="mobileInland" class="form-control" type="text" th:value="${user.mobileInland}" required>
 								</div>
 								
 								<label class="col-sm-1 control-label">手机号码-国外：</label>
 								<div class="col-sm-3">
 									<input id="mobileForeign" name="mobileForeign" class="form-control"
-										type="text" th:value="${user.mobileForeign}">
+										type="text" th:value="${user.mobileForeign}" required>
 								</div>
+								
+								<label class="col-sm-1 control-label">E-mail：</label>
+								<div class="col-sm-3">
+									<input id="email" name="email" class="form-control"
+										type="email" th:value="${user.email}">
+								</div>
+							</div>
+							
+							<div class="form-group">
 								
 								<label class="col-sm-1 control-label">微信号：</label>
 								<div class="col-sm-3">
@@ -208,7 +259,7 @@
 							<div class="form-group">
 								<label class="col-sm-1 control-label">其他：</label>
 								<div class="col-sm-11">
-									<input id="other" name="other" class="form-control" type="text" th:value="${user.other}">
+									<input id="other" name="other" class="form-control" type="text" th:value="${user.other}" >
 								</div>
 							</div>
 							</fieldset>
@@ -218,23 +269,29 @@
 							<div class="form-group">
 								<label class="col-sm-1 control-label">专业范围：</label>
 								<div class="col-sm-3">
-									<input id="majorRange" name="majorRange" class="form-control" type="text">
+									<input id="majorRange" name="majorRange" class="form-control" type="text" th:value="${user.majorRange}" required>
 								</div>
 								
 								<label class="col-sm-1 control-label">级别：</label>
 								<div class="col-sm-3">
 									<input id="level" name="level" class="form-control"
-										type="text">
+										type="text" th:value="${user.level}" required>
 								</div>
 								
-								<label class="col-sm-1 control-label">负责人数：</label>
+								<label class="col-sm-1 control-label">从业年限：</label>
+								<div class="col-sm-3">
+									<input id="workyear" name="workyear" class="form-control"
+										type="text" th:value="${user.workyear}" required>
+								</div>
+								
+								<!-- <label class="col-sm-1 control-label">负责人数：</label>
 								<div class="col-sm-3">
 									<input id="peopleNumber" name="peopleNumber" class="form-control"
 										type="text">
-								</div>
+								</div> -->
 							</div>
 							
-							<div class="form-group">
+							<!-- <div class="form-group">
 								<label class="col-sm-1 control-label">负责CASE数：</label>
 								<div class="col-sm-3">
 									<input id="caseNumber" name="caseNumber" class="form-control" type="text">
@@ -251,7 +308,7 @@
 									<input id="workyear" name="workyear" class="form-control"
 										type="text">
 								</div>
-							</div>
+							</div> -->
 							
 							<div class="form-group">
 								<label class="col-sm-1 control-label">持牌情况：</label>
@@ -271,19 +328,19 @@
 							<div class="form-group">
 								<label class="col-sm-1 control-label">基本工资：</label>
 								<div class="col-sm-3">
-									<input id="baseSalary" name="baseSalary" class="form-control" type="text">
+									<input id="baseSalary" name="baseSalary" class="form-control" type="text" th:value="${user.baseSalary}" required>
 								</div>
 								
 								<label class="col-sm-1 control-label">社保标准：</label>
 								<div class="col-sm-3">
 									<input id="socialSecurity" name="socialSecurity" class="form-control"
-										type="text">
+										type="text" th:value="${user.socialSecurity}" required>
 								</div>
 								
 								<label class="col-sm-1 control-label">公司社保成本：</label>
 								<div class="col-sm-3">
 									<input id="companySecurity" name="companySecurity" class="form-control"
-										type="text">
+										type="text" th:value="${user.companySecurity}" required>
 								</div>
 							</div>
 							
@@ -291,7 +348,7 @@
 								<label class="col-sm-1 control-label">加入时间：</label>
 								<div class="col-sm-3">
 									<input id="TjoinTime" name="TjoinTime" class="hidden" type="text" th:value="${user.joinTime}">
-									<input id="joinTime" name="joinTime" class="form-control" type="text">
+									<input id="joinTime" name="joinTime" class="form-control" type="text" required>
 								</div>
 								
 								<label class="col-sm-1 control-label">离开时间：</label>
@@ -304,7 +361,7 @@
 								<label class="col-sm-1 control-label">合同：</label>
 								<div class="col-sm-3">
 									<input id="contract" name="contract" class="form-control"
-										type="text">
+										type="text" th:value="${user.contract}" required>
 								</div>
 							</div>
 							
@@ -312,7 +369,7 @@
 								<label class="col-sm-1 control-label">劳动关系期限：</label>
 								<div class="col-sm-3">
 									<input id="TlaborLimit" name="TlaborLimit" class="hidden" type="text" th:value="${user.laborLimit}">
-									<input id="laborLimit" name="laborLimit" class="form-control" type="text">
+									<input id="laborLimit" name="laborLimit" class="form-control" type="text" required>
 								</div>
 							
 							</div>
@@ -323,19 +380,19 @@
 							<div class="form-group">
 								<label class="col-sm-1 control-label">证件号码：</label>
 								<div class="col-sm-3">
-									<input id="IDNumber" name="IDNumber" class="form-control" type="text">
+									<input id="IDNumber" name="IDNumber" class="form-control" type="text" th:value="${user.IDNumber}" required>
 								</div>
 								
 								<label class="col-sm-1 control-label">血型：</label>
 								<div class="col-sm-3">
 									<input id="bloodType" name="bloodType" class="form-control"
-										type="text">
+										type="text" th:value="${user.bloodType}" required>
 								</div>
 								
 								<label class="col-sm-1 control-label">籍贯：</label>
 								<div class="col-sm-3">
 									<input id="nativePlace" name="nativePlace" class="form-control"
-										type="text">
+										type="text" th:value="${user.nativePlace}" required>
 								</div>
 							</div>
 							
@@ -343,13 +400,13 @@
 								<label class="col-sm-1 control-label">出生日期：</label>
 								<div class="col-sm-3">
 									<input id="Tbirthday" name="Tbirthday" class="hidden" type="text" th:value="${user.birthday}">
-									<input id="birthday" name="birthday" class="form-control" type="text">
+									<input id="birthday" name="birthday" class="form-control" type="text" required>
 								</div>
 								
 								<label class="col-sm-1 control-label">紧急联系人信息：</label>
 								<div class="col-sm-3">
 									<input id="emergencyContact" name="emergencyContact" class="form-control"
-										type="text">
+										type="text" th:value="${user.emergencyContact}" required>
 								</div>
 								
 							</div>
@@ -361,7 +418,7 @@
 							<div class="form-group">
 								<label class="col-sm-1 control-label">备注：</label>
 								<div class="col-sm-11">
-									<textarea id="remark" name="remark" class="form-control" type="textarea"></textarea>
+									<textarea id="remark" name="remark" class="form-control" type="textarea" th:inline="text">[[${user.remark}]]</textarea>
 								</div>
 								
 							</div>

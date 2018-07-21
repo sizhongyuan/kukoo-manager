@@ -9,7 +9,7 @@ import java.util.List;
 public class UserDO implements Serializable {
     private static final long serialVersionUID = 1L;
     //
-    private Long userId;
+    private String userId;
     // 用户名
     private String username;
     // 用户真实姓名
@@ -44,10 +44,6 @@ public class UserDO implements Serializable {
     private String liveAddress;
     //爱好
     private String hobby;
-    //省份
-    private String province;
-    //所在城市
-    private String city;
     //所在地区
     private String district;
     
@@ -62,6 +58,14 @@ public class UserDO implements Serializable {
   	private String gender;
   	//所在地
   	private String location;
+  	//国家
+  	private String country;
+  	 //省份
+    private String province;
+    //所在城市
+    private String city;
+    //国外城市
+    private String foreignCity;
   	//角色
   	private String role;
 //  	//状态
@@ -124,12 +128,14 @@ public class UserDO implements Serializable {
   	private String emergencyContact;
   	//备注
   	private String remark;
+  	//删除标识
+  	private String deleted;
 
-    public Long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -351,6 +357,9 @@ public class UserDO implements Serializable {
                 ", birthday='" + birthday + '\'' +
                 ", emergencyContact='" + emergencyContact + '\'' +
                 ", remark='" + remark + '\'' +
+                ", country='" + country + '\'' +
+                ", foreignCity='" + foreignCity + '\'' +
+                ", deleted='" + deleted + '\'' +
                 '}';
     }
 
@@ -624,6 +633,30 @@ public class UserDO implements Serializable {
 
 	public void setRemark(String remark) {
 		this.remark = remark;
+	}
+
+	public String getDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(String deleted) {
+		this.deleted = deleted;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getForeignCity() {
+		return foreignCity;
+	}
+
+	public void setForeignCity(String foreignCity) {
+		this.foreignCity = foreignCity;
 	}
 
 }

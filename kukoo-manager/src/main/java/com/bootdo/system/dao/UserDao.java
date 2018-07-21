@@ -16,7 +16,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface UserDao {
 
-	UserDO get(Long userId);
+	UserDO get(String userId);
 	
 	List<UserDO> list(Map<String,Object> map);
 	
@@ -26,10 +26,12 @@ public interface UserDao {
 	
 	int update(UserDO user);
 	
-	int remove(Long userId);
+	int remove(String userId);
 	
-	int batchRemove(Long[] userIds);
+	int batchRemove(String[] userIds);
 	
 	Long[] listAllDept();
+	
+	int getUserSecquence();
 
 }

@@ -110,4 +110,23 @@ public class RoleController extends BaseController {
 		}
 		return R.error();
 	}
+	
+	/**
+	 * 根据userId获取角色名称
+	 * @param userId
+	 * @return
+	 */
+	@GetMapping("/roleList/{userId}")
+	@ResponseBody
+	String roleName(@PathVariable("userId") String userId){
+		String roleName = "";
+		List<RoleDO> list = roleService.userRefRole(userId);
+		if(list != null && list.size() > 0) {
+			for(int i=0;i<list.size();i++) {
+				RoleDO roleDO = list.get(i);
+				roleName = ("".equals(roleName))?roleDO.getRoleName():roleName+" "+roleDO.getRoleName();
+			}
+		}
+		return roleName;
+	}
 }

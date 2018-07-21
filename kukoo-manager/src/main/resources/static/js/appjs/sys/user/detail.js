@@ -5,8 +5,9 @@ $().ready(function() {
 	loadStatus();
 	loadRole();
 	loadLicensCase();
+	loadInstitutions()
 	validateRule();
-	// $("#signupForm").validate();
+	loadTime();
 });
 
 $.validator.setDefaults({
@@ -283,5 +284,55 @@ function loadLicensCase(){
 				$('#exampleTable').bootstrapTable('refresh', opt);
 			});
 		}
+	});
+}
+//所在机构
+function loadInstitutions(){
+	var html = "";
+	$.ajax({
+		url : '/common/dict/list/sys_user_institutions',
+		success : function(data) {
+			//加载数据
+			for (var i = 0; i < data.length; i++) {
+				html += '<option value="' + data[i].value + '">' + data[i].name + '</option>'
+			}
+			$("#institutions").append(html);
+			$("#institutions").val($("#Tinstitutions").val()).trigger("chosen:updated");
+			$("#institutions").chosen({
+				maxHeight : 200,
+				width : "100%"
+			});
+			//点击事件
+			$('#institutions').on('change', function(e, params) {
+				console.log(params.selected);
+				var opt = {
+					query : {
+						type : params.selected,
+					}
+				}
+				$('#exampleTable').bootstrapTable('refresh', opt);
+			});
+		}
+	});
+}
+function loadTime(){
+	laydate.render({
+		  elem: '#joinTime', //指定元素
+		  type: 'datetime',
+		  value: new Date($("#joinTime").val())
+	});
+	laydate.render({
+		  elem: '#leaveTime', //指定元素
+		  type: 'datetime',
+		  value: new Date($("#leaveTime").val())
+	});
+	laydate.render({
+		  elem: '#laborLimit', //指定元素
+		  type: 'datetime',
+		  value: new Date($("#birthday").val())
+	});
+	laydate.render({
+		  elem: '#birthday', //指定元素
+		  value: new Date($("#laborLimit").val())
 	});
 }

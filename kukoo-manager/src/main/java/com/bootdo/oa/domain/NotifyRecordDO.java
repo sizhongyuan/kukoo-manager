@@ -21,7 +21,7 @@ public class NotifyRecordDO implements Serializable {
     //通知通告ID
     private Long notifyId;
     //接受人
-    private Long userId;
+    private String userId;
     //阅读标记
     private Integer isRead;
     //阅读时间
@@ -58,14 +58,14 @@ public class NotifyRecordDO implements Serializable {
     /**
      * 设置：接受人
      */
-    public void setUserId(Long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
     /**
      * 获取：接受人
      */
-    public Long getUserId() {
+    public String getUserId() {
         return userId;
     }
 

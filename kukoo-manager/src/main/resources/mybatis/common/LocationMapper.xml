@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.common.dao.LocationDao">
+
+	<select id="countris" resultType="com.bootdo.common.domain.CountryDO">
+		select `id`,`countryid`,`country` 
+		from sys_countries
+	</select>
+	
+	<select id="provinces" resultType="com.bootdo.common.domain.ProvinceDO" parameterType="string">
+		select `id`,`provinceid`,`province`,`countryid` 
+		from sys_provinces where `countryid` = #{countryId}
+	</select>
+	
+	<select id="cities" resultType="com.bootdo.common.domain.CityDO" parameterType="string">
+		select `id`,`cityid`,`city`,`provinceid` 
+		from sys_cities where `provinceid` = #{provinceid}
+	</select>
+	
+	<select id="getCountryName" resultType="String" parameterType="string">
+		select `country` 
+		from sys_countries where `countryid` = #{countryId}
+	</select>
+	
+	<select id="getProvinceName" resultType="String" parameterType="string">
+		select `province`
+		from sys_provinces where `provinceid` = #{provinceId}
+	</select>
+	
+	<select id="getCityName" resultType="String" parameterType="string">
+		select `city` 
+		from sys_cities where `cityid` = #{cityId}
+	</select>
+	
+</mapper>

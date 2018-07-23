@@ -16,10 +16,14 @@ $(document).ready(function() {
         $(inputFile).append('' +
             '<div class="form-group">' +
             '<label class="col-sm-3">' +
-            '<input id="ttTimelineTempFile['+ FieldCount +'].fileName" name="ttTimelineTempFile['+ FieldCount +'].fileName" class="form-control" type="text" placeholder="请输入附件名" required>' +
+            '<input id="fileName'+FieldCount+'" name="fileId'+ FieldCount +'" class="form-control" type="text" placeholder="请输入附件名" required>' +
             '</label>' +
-            '<div class="col-sm-7">' +
-            '<input id="ttTimelineTempFile['+ FieldCount +'].fileId" name="ttTimelineTempFile['+ FieldCount +'].fileId" class="form-control" type="file" required>' +
+            '<div class="col-sm-1">' +
+            "<button type='button' class='btn  btn-primary' onclick='uploadFile("+FieldCount+")' >附件上传</button>"+
+            '<input id="fileId'+FieldCount+'" name="ttTimelineTempFile['+ FieldCount +'].fileId" style="display: none" type="file" required>' +
+            '</div>' +
+            '<div class="col-sm-6">' +
+            '<span id = "fileShow'+FieldCount+'" class="form-control"></span>' +
             '</div>' +
             '<div class="col-sm-1">' +
             '<button type="button" class="btn btn-warning removeInput">' +
@@ -27,6 +31,8 @@ $(document).ready(function() {
             '</button>' +
             '</div>' +
             '</div>');
+
+
         FieldCount++;
         return false;
     });
@@ -35,7 +41,45 @@ $(document).ready(function() {
         $(this).parent('div').parent('div').remove();
         return false;
     });
+
 });
+
+function uploadFile(index){
+    //给附件绑定事件
+    $("#fileId"+index).fileupload({
+        dataType: 'json',
+        url: "/accessories/uploadFilesMethod?appCode=timeline",//文件的后台接受地址,appCode代表各自模块文件夹名
+        //设置进度条
+        progressall: function (e, data) {
+            var progress = parseInt(data.loaded / data.total * 100);
+            // console.log(progress);
+            // $('#progress .bar').css(
+            //     'width',
+            //     progress + '%'
+            // );
+        },
+        //上传完成之后的操作
+        done: function (e, data){
+            if(data.result.status == '201'){
+                //获取对应input的name
+                var inputName = data.result.data[0].inputName;
+                //获取对应上传文件名称
+                var fileName = data.result.data[0].fileName;
+                //获取对应上传文件时间戳，唯一标识
+                var saveName = data.result.data[0].saveName;
+                var downLoadUrl = '/accessories/downLoadFilesMethod?fileName='+saveName;
+
+                $("#fileShow"+index).append('<a href="'+downLoadUrl+'">'+fileName+'</a>');
+
+            }else{
+                parent.layer.alert(data.result.error);
+            }
+        }
+    });
+    $("#fileId"+index).click();
+
+}
+
 
 function save() {
 	$.ajax({

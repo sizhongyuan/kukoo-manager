@@ -79,4 +79,9 @@ public class SubProjectServiceImpl implements SubProjectService {
         }
         return subProjectId;
     }
+
+    @Override
+    public int removeByProjectId(String projectId) throws Exception {
+        return subProjectDao.removeByProjectId(projectId);
+    }
 }

@@ -14,23 +14,23 @@ import java.util.Map;
  */
 public interface ProjectService {
 
-    ProjectDO get(String id);
+    ProjectDO get(String id) throws Exception;
 
-    List<ProjectDO> list(Map<String, Object> map);
+    List<ProjectDO> list(Map<String, Object> map) throws Exception;
 
-    int count(Map<String, Object> map);
+    int count(Map<String, Object> map) throws Exception;
 
-    int save(ProjectDO projectDO);
+    int save(ProjectDO projectDO) throws Exception;
 
-    int update(ProjectDO projectDO);
+    int update(ProjectDO projectDO) throws Exception;
 
-    int remove(String id);
+    int remove(String id) throws Exception;
 
-    int batchRemove(String[] ids);
+    int batchRemove(String[] ids) throws Exception;
 
     /**
      * 获取project序列
      * @return int
      * */
-    int getSequence();
+    int getSequence() throws Exception;
 }

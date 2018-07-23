@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.accessories.dao.AccessoriesDao">
+    <resultMap id="BaseResultMap" type="com.bootdo.accessories.domain.AccessoriesDO" >
+        <id column="id" property="id" jdbcType="VARCHAR" />
+		<result column="fileName" property="fileName" jdbcType="VARCHAR" />
+		<result column="fileCnName" property="fileCnName" jdbcType="VARCHAR" />
+		<result column="fileRelPath" property="fileRelPath" jdbcType="VARCHAR" />
+		<result column="fileUserId" property="fileUserId" jdbcType="VARCHAR" />
+        <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="deleted" property="deleted" jdbcType="VARCHAR" />
+</resultMap>
+
+    <sql id="Base_Column_List" >
+		id,
+		fileName,
+		fileCnName,
+		fileRelPath,
+		fileUserId,
+		createTime,
+		deleted
+	</sql>
+    <select id="get" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from tt_accessores where id = #{id}
+	</select>
+	<select id="getByFileName" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from tt_accessores where fileName = #{fileName}
+	</select>
+
+
+	<select id="list" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from tt_accessores
+		<where>
+			and deleted = '0'
+			<if test="id != null and id != ''"> and id = #{id} </if>
+			<if test="fileCnName != null and fileCnName != ''">
+				<bind name="fileCnNameLike" value="'%'+fileCnName+'%'"/>
+			 	and fileCnName like #{fileCnNameLike}
+			</if>
+			<if test="fileName != null and fileName != ''"> and fileName = #{fileName} </if>
+			<if test="fileUserId != null and fileUserId != ''"> and fileUserId = #{fileUserId} </if>
+			<if test="fileRelPath != null and fileRelPath != ''"> and fileRelPath = #{fileRelPath} </if>
+		</where>
+		<choose>
+			<when test="sort != null and sort.trim() != ''">
+				order by ${sort} ${order}
+			</when>
+			<otherwise>
+				order by createTime desc
+			</otherwise>
+		</choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+	<select id="count" resultType="int">
+		select count(*) from tt_accessores
+		<where>
+			and deleted = '0'
+			<if test="id != null and id != ''"> and id = #{id} </if>
+			<if test="fileCnName != null and fileCnName != ''">
+				<bind name="fileCnNameLike" value="'%'+fileCnName+'%'"/>
+				and fileCnName like #{fileCnNameLike}
+			</if>
+			<if test="fileName != null and fileName != ''"> and fileName = #{fileName} </if>
+			<if test="fileUserId != null and fileUserId != ''"> and fileUserId = #{fileUserId} </if>
+			<if test="fileRelPath != null and fileRelPath != ''"> and fileRelPath = #{fileRelPath} </if>
+		</where>
+	</select>
+
+	<insert id="save" parameterType="com.bootdo.accessories.domain.AccessoriesDO">
+		<selectKey keyProperty="id" resultType="string" order="BEFORE">
+			select replace(uuid(), '-', '') as id from dual
+		</selectKey>
+		insert into tt_accessores
+		(
+		id,
+		fileName,
+		fileCnName,
+		fileRelPath,
+		fileUserId,
+		createTime,
+		deleted
+		)
+		values
+		(
+		#{id},
+		#{fileName},
+		#{fileCnName},
+		#{fileRelPath},
+		#{fileUserId},
+		#{createTime},
+		#{deleted}
+		)
+	</insert>
+
+	<update id="update" parameterType="com.bootdo.accessories.domain.AccessoriesDO">
+		update tt_accessores
+		<set>
+			<if test="fileCnName != null and fileCnName != ''">and fileCnName = #{fileCnName}</if>
+			<if test="fileName != null and fileName != ''"> and fileName = #{fileName} </if>
+			<if test="fileUserId != null and fileUserId != ''"> and fileUserId = #{fileUserId} </if>
+			<if test="fileRelPath != null and fileRelPath != ''"> and fileRelPath = #{fileRelPath} </if>
+			<if test="deleted != null and deleted != ''"> and deleted = #{deleted} </if>
+		</set>
+		where id = #{id}
+	</update>
+
+	<delete id="remove" >
+		update tt_accessores set deleted='1' where id = #{id}
+	</delete>
+
+	<delete id="batchRemove">
+		update tt_accessores set deleted='1' where id in
+		<foreach item="id" collection="array" open="(" separator=","
+				 close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+	<select id="listByIds" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from tt_accessores where id in
+		<foreach item="id" collection="array" open="(" separator=","
+				 close=")">
+			#{id}
+		</foreach>
+	</select>
+</mapper>
+<!--create table tt_accessores(-->
+	<!--id varchar(32) PRIMARY key COMMENT '主键',-->
+	<!--fileName varchar(50) COMMENT '文件编码，时间戳',-->
+	<!--fileCnName varchar(100) COMMENT '文件真实名称',-->
+	<!--fileRelPath varchar(200) COMMENT '文件相对路径',-->
+	<!--fileUserId varchar(50) COMMENT '文件上传人',-->
+	<!--createTime datetime COMMENT '创建时间',-->
+	<!--deleted varchar(2) default 0 not null COMMENT '删除标识'-->
+<!--)-->

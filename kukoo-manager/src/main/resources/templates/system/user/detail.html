@@ -325,17 +325,18 @@
 									<!-- <fmt:formatDate th:value="${user.leaveTime}" pattern="yyyy-MM-dd HH:mm:ss"/> -->
 								</div>
 								
+								<label class="col-sm-1 control-label">劳动关系期限：</label>
+								<div class="col-sm-3">
+									<input id="laborLimit" name="laborLimit" class="form-control" type="text" th:value="${user.laborLimit}" readonly=true>
+								</div>
+								
+							</div>
+							
+							<div class="form-group">
 								<label class="col-sm-1 control-label">合同：</label>
 								<div class="col-sm-3">
 									<input id="contract" name="contract" class="form-control"
 										type="text" th:value="${user.contract}" disabled>
-								</div>
-							</div>
-							
-							<div class="form-group">
-								<label class="col-sm-1 control-label">劳动关系期限：</label>
-								<div class="col-sm-3">
-									<input id="laborLimit" name="laborLimit" class="form-control" type="text" th:value="${user.laborLimit}" readonly=true>
 								</div>
 							
 							</div>

@@ -115,7 +115,7 @@ public class UserDO implements Serializable {
   	//合同
   	private String contract;
   	//劳动关系期限
-  	private Date laborLimit;
+  	private String laborLimit;
   	//证件号码
   	private String IDNumber;
   	//血型
@@ -579,11 +579,11 @@ public class UserDO implements Serializable {
 		this.contract = contract;
 	}
 
-	public Date getLaborLimit() {
+	public String getLaborLimit() {
 		return laborLimit;
 	}
 
-	public void setLaborLimit(Date laborLimit) {
+	public void setLaborLimit(String laborLimit) {
 		this.laborLimit = laborLimit;
 	}
 

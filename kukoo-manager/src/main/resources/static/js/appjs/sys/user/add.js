@@ -27,6 +27,7 @@ function getCheckedRoles() {
 	return adIds;
 }
 function save() {
+	console.log($("#contract").val());
 	var roleIdArray = $("#roleIdsSelect").val();
 	$("#roleIds").val(roleIdArray.join(","));
 	$("#name").val($("#cnname").val());
@@ -120,15 +121,15 @@ function validateRule() {
 			enname : {
 				required : true,
 			},
-			mobileInland : {
-				required : true,
-				minlength : 11,
-				isMobile:true
-			},
-			mobileForeign : {
-				required : true,
-				number:true
-			},
+//			mobileInland : {
+//				required : true,
+//				minlength : 11,
+//				isMobile:true
+//			},
+//			mobileForeign : {
+//				required : true,
+//				number:true
+//			},
 			majorRange : {
 				required : true,
 			},
@@ -156,10 +157,10 @@ function validateRule() {
 				required : true,
 				date:true
 			},
-			laborLimit : {
-				required : true,
-				date:true
-			},
+//			laborLimit : {
+//				required : true,
+//				date:true
+//			},
 			IDNumber : {
 				required : true,
 				number:true
@@ -217,8 +218,8 @@ function validateRule() {
 			nickname : icon + "请输入您的昵称",
 			cnname : icon + "请输入您的中文姓名",
 			enname : icon + "请输入您的英文姓名",
-			mobileInland : icon + "请输入您的国内手机号",
-			mobileForeign : icon + "请输入您的国外手机号",
+//			mobileInland : icon + "请输入您的国内手机号",
+//			mobileForeign : icon + "请输入您的国外手机号",
 			majorRange : icon + "请输入您的专业范围",
 			level : icon + "请输入您的级别",
 			workyear : icon + "请输入您的从业年限",
@@ -226,7 +227,7 @@ function validateRule() {
 			socialSecurity: icon + "请输入您的社保标准",
 			companySecurity : icon + "请输入您的公司社保成本",
 			joinTime : icon + "请输入您加入的时间",
-			laborLimit : icon + "请输入您的劳动关系期限",
+//			laborLimit : icon + "请输入您的劳动关系期限",
 			IDNumber : icon + "请输入您的证件号",
 			bloodType : icon + "请输入您的血型",
 			nativePlace : icon + "请输入您的籍贯",
@@ -438,7 +439,39 @@ function loadInstitutions(){
 		}
 	});
 }
-
+////劳动合同关系
+//function loadInstitutions(){
+//	var html = "";
+//	$.ajax({
+//		url : '/common/dict/list/sys_user_laborLimit',
+//		success : function(data) {
+//			//加载数据
+//			for (var i = 0; i < data.length; i++) {
+//				if(data[i].value == '1'){
+//					html += '<option value="' + data[i].value + '">' + data[i].name + '</option>'
+//				}else{
+//					html += '<option value="' + data[i].value + '">' + data[i].name + '</option>'
+//				}
+//				
+//			}
+//			$("#laborLimit").append(html);
+//			$("#laborLimit").chosen({
+//				maxHeight : 200,
+//				width : "100%"
+//			});
+//			//点击事件
+//			$('#laborLimit').on('change', function(e, params) {
+//				console.log(params.selected);
+//				var opt = {
+//					query : {
+//						type : params.selected,
+//					}
+//				}
+//				$('#exampleTable').bootstrapTable('refresh', opt);
+//			});
+//		}
+//	});
+//}
 //国家
 function loadCountry(){
 	var html = "";
@@ -565,12 +598,37 @@ function loadTime(){
 		  elem: '#leaveTime', //指定元素
 		  type: 'datetime'
 	});
-	laydate.render({
-		  elem: '#laborLimit', //指定元素
-		  type: 'datetime'
-	});
+//	laydate.render({
+//		  elem: '#laborLimit', //指定元素
+//		  type: 'datetime'
+//	});
 	laydate.render({
 		  elem: '#birthday' //指定元素
 	});
+}
+
+//手机号校验事件
+$("#mobileInland").bind("change",function(){
+	var value = $(this).val();
+	if(value !== "" && value !== undefined && value !== null){
+		$("#mobileForeign").attr("required",false);
+	}else{
+		$("#mobileForeign").attr("required",true);
+	}
+})
+$("#mobileForeign").bind("change",function(){
+	var value = $(this).val();
+	if(value !== "" && value !== undefined && value !== null){
+		$("#mobileInland").attr("required",false);
+	}else{
+		$("#mobileInland").attr("required",true);
+	}
+})
+//时间校验事件
+//$("#joinTime").bind("change",function(){
+//	console.log("aaa");
+//})
+function aaa(){
+	console.log("aaa");
 }
 

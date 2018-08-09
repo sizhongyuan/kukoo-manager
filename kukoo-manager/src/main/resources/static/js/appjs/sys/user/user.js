@@ -141,9 +141,10 @@ function load(deptId) {
 						}
 					},
 					{
-						field : 'consultNumber',
+						field : 'userId',
 						title : '咨询人数',
 						formatter : function(value, row, index) {
+							console.log(value);
 							return '<a href="">100</a>';
 						}
 					},

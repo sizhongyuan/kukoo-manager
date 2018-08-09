@@ -326,13 +326,13 @@ function loadTime(){
 		  type: 'datetime',
 		  value: new Date($("#leaveTime").val())
 	});
-	laydate.render({
-		  elem: '#laborLimit', //指定元素
-		  type: 'datetime',
-		  value: new Date($("#birthday").val())
-	});
+//	laydate.render({
+//		  elem: '#laborLimit', //指定元素
+//		  type: 'datetime',
+//		  value: new Date($("#birthday").val())
+//	});
 	laydate.render({
 		  elem: '#birthday', //指定元素
-		  value: new Date($("#laborLimit").val())
+		  value: new Date($("#birthday").val())
 	});
 }

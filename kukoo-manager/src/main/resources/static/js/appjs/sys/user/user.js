@@ -127,25 +127,65 @@ function load(deptId) {
 						}
 					},
 					{
-						field : 'peopleNumber',
+						field : 'userId',
 						title : '负责人数',
 						formatter : function(value, row, index) {
-							return '<a href="">100</a>';
+							var number;
+							$.ajax({
+								url : "/sys/user/contract/"+value+"",
+								type : "get",
+								async:false, 
+								success : function(data) {
+									number = data;
+								}
+							});
+							
+							var s = '<a class = "view"  href="javascript:void(0)" onclick="contract(\''
+								+ value
+								+ '\')">'+number+'</a>';
+							return s;
 						}
 					},
 					{
-						field : 'caseNumber',
+						field : 'username',
 						title : '负责case数',
 						formatter : function(value, row, index) {
-							return '<a href="">100</a>';
+							var number;
+							$.ajax({
+								url : "/sys/user/case/"+value+"",
+								type : "get",
+								async:false, 
+								success : function(data) {
+									number = data;
+								}
+							});
+							
+							var s = '<a class = "view"  href="javascript:void(0)" onclick="caseL(\''
+								+ value
+								+ '\')">'+number+'</a>';
+							return s;
+							
 						}
 					},
 					{
-						field : 'userId',
+						field : 'username',
 						title : '咨询人数',
 						formatter : function(value, row, index) {
-							console.log(value);
-							return '<a href="">100</a>';
+							var number;
+							$.ajax({
+								url : "/sys/user/consult/"+value+"",
+								type : "get",
+								async:false, 
+								success : function(data) {
+									number = data;
+								}
+							});
+							
+							var s = '<a class = "view"  href="javascript:void(0)" onclick="consult(\''
+								+ value
+								+ '\')">'+number+'</a>';
+							return s;
+							
 						}
 					},
 					{
@@ -214,6 +254,49 @@ function add() {
 		}
 	});
 }
+function consult(username){
+	layer.open({
+		id : 'consult',
+		type : 2,
+		title : '咨询人员',
+		maxmin : true,
+		shadeClose : false, // 点击遮罩关闭层
+		area : [ '100%','100%'],
+		content : prefix + '/consultPage/' + username, // iframe的url
+		success:function(layero,index){
+			layer.full(index);
+		}
+	});
+}
+function caseL(username){
+	layer.open({
+		id : 'case',
+		type : 2,
+		title : 'case信息',
+		maxmin : true,
+		shadeClose : false, // 点击遮罩关闭层
+		area : [ '100%','100%'],
+		content : prefix + '/casePage/' + username, // iframe的url
+		success:function(layero,index){
+			layer.full(index);
+		}
+	});
+}
+function contract(userId){
+	layer.open({
+		id : 'contract',
+		type : 2,
+		title : '负责人员',
+		maxmin : true,
+		shadeClose : false, // 点击遮罩关闭层
+		area : [ '100%','100%'],
+		content : prefix + '/contractPage/' + userId, // iframe的url
+		success:function(layero,index){
+			layer.full(index);
+		}
+	});
+}
+
 $(window).resize(function() {
     $('#addUser').parent().css({"width":"100%","height":"100%"});
     $('#editUser').parent().css({"width":"100%","height":"100%"});
@@ -264,7 +347,6 @@ function edit(id) {
 	});
 }
 function detail(id) {
-	console.log(id);
 	layer.open({
 		id : 'detailUser',
 		type : 2,

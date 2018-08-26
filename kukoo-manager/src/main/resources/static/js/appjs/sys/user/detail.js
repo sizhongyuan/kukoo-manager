@@ -173,18 +173,15 @@ function loadRole(){
 			for (var i = 0; i < data.length; i++) {
 				html += '<option value="' + data[i].roleId + '">' + data[i].roleName + '</option>'
 			}
+			var roleIds = $("#Trole").val().replace("[","");
+			roleIds = roleIds.replace("]","");
+			roleIds = roleIds.trim().replace(/\s/g,"")
 			$("#roleIds").append(html);
-			var roleIds = $("#Trole").val().split(',');
-			
-			for (i = 0; i < roleIds.length; i++) {  
-		        value = roleIds[i];  
-		        $("#roleIds" + " option[value='" + value + "']").attr('selected', 'selected');  
-		    }
-			$("#roleIdst").trigger("chosen:updated");  
 			$("#roleIds").chosen({
 				maxHeight : 200,
 				width : "100%"
 			});
+			$("#roleIds").val(roleIds.split(",")).trigger("chosen:updated");
 			
 			//点击事件
 			$('#roleIds').on('change', function(e, params) {

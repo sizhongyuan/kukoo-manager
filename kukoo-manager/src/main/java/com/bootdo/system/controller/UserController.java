@@ -1,34 +1,43 @@
 package com.bootdo.system.controller;
 
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.bootdo.caseList.domain.TtCase;
+import com.bootdo.caseList.service.CaseListService;
 import com.bootdo.common.annotation.Log;
 import com.bootdo.common.config.Constant;
 import com.bootdo.common.controller.BaseController;
-import com.bootdo.common.domain.FileDO;
 import com.bootdo.common.domain.Tree;
 import com.bootdo.common.service.DictService;
-import com.bootdo.common.utils.*;
+import com.bootdo.common.utils.MD5Utils;
+import com.bootdo.common.utils.PageUtils;
+import com.bootdo.common.utils.Query;
+import com.bootdo.common.utils.R;
+import com.bootdo.consult.model.Consult;
+import com.bootdo.consult.service.ConsultService;
 import com.bootdo.system.domain.DeptDO;
 import com.bootdo.system.domain.RoleDO;
 import com.bootdo.system.domain.UserDO;
 import com.bootdo.system.service.RoleService;
 import com.bootdo.system.service.UserService;
 import com.bootdo.system.vo.UserVO;
-import javax.servlet.http.HttpServletRequest;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @RequestMapping("/sys/user")
 @Controller
@@ -40,6 +49,10 @@ public class UserController extends BaseController {
 	RoleService roleService;
 	@Autowired
 	DictService dictService;
+	@Autowired
+	ConsultService consultService;
+	@Autowired
+	CaseListService caseListService;
 	@RequiresPermissions("sys:user:user")
 	@GetMapping("")
 	String user(Model model) {
@@ -254,4 +267,124 @@ public class UserController extends BaseController {
 			return R.error("更新图像失败！");
 		}
 	}
+	
+	/**
+	 * 咨询记录数量
+	 * @param params
+	 * @return
+	 */
+	@GetMapping("/consult/{userId}")
+	@ResponseBody
+	Integer consultMsg(@PathVariable("userId") String userId) {
+		Map<String,Object> params = new HashMap<>();
+		params.put("adviser", userId);
+		int total = consultService.count(params);
+		return total;
+	}
+	
+	/**
+	 * 显示咨询信息
+	 * @return
+	 */
+	@GetMapping("/consultPage/{username}")
+	String consultPage(Model model,@PathVariable("username") String username) {
+		model.addAttribute("username", username);
+		return prefix + "/consult";
+	}
+	
+	/**
+	 * 咨询记录
+	 * @param params
+	 * @return
+	 */
+	@GetMapping("/consultList")
+	@ResponseBody
+	public PageUtils consultList(@RequestParam Map<String, Object> params) {
+        // 查询列表数据
+        Query query = new Query(params);
+        List<Consult> consultList = consultService.list(query);
+        int total = consultService.count(query);
+        PageUtils pageUtils = new PageUtils(consultList, total);
+        return pageUtils;
+    }
+	
+	/**
+	 * case记录数量
+	 * @param params
+	 * @return
+	 */
+	@GetMapping("/case/{userId}")
+	@ResponseBody
+	Integer caseMsg(@PathVariable("userId") String userId) {
+		Map<String,Object> params = new HashMap<>();
+		params.put("adviserName", userId);
+		int total = caseListService.count(params);
+		return total;
+	}
+	
+	/**
+	 * 显示咨询信息
+	 * @return
+	 */
+	@GetMapping("/casePage/{username}")
+	String casePage(Model model,@PathVariable("username") String username) {
+		model.addAttribute("username", username);
+		return prefix + "/case";
+	}
+	
+	/**
+	 * 咨询记录
+	 * @param params
+	 * @return
+	 */
+	@GetMapping("/caseList")
+	@ResponseBody
+	public PageUtils caseList(@RequestParam Map<String, Object> params) {
+        // 查询列表数据
+        Query query = new Query(params);
+        List<TtCase> caseList = caseListService.list(query);
+        int total = caseListService.count(query);
+        PageUtils pageUtils = new PageUtils(caseList, total);
+        return pageUtils;
+    }
+	
+	/**
+	 * 负责人数数量
+	 * @param params
+	 * @return
+	 */
+	@GetMapping("/contract/{userId}")
+	@ResponseBody
+	Integer contractMsg(@PathVariable("userId") String userId) {
+		Map<String,Object> params = new HashMap<>();
+		params.put("adviser", userId);
+		int total = consultService.count(params);
+		return total;
+	}
+	
+	/**
+	 * 负责人数信息
+	 * @return
+	 */
+	@GetMapping("/contractPage/{userId}")
+	String contractPage(Model model,@PathVariable("userId") String userId) {
+		model.addAttribute("adviserId", userId);
+		return prefix + "/contract";
+	}
+
+	/**
+	 * 负责人数列表
+	 * @param params
+	 * @return
+	 */
+	@GetMapping("/contractList")
+	@ResponseBody
+	public PageUtils contractList(@RequestParam Map<String, Object> params) {
+        // 查询列表数据
+        Query query = new Query(params);
+        List<TtCase> caseList = caseListService.list(query);
+        int total = caseListService.count(query);
+        PageUtils pageUtils = new PageUtils(caseList, total);
+        return pageUtils;
+    }
 }

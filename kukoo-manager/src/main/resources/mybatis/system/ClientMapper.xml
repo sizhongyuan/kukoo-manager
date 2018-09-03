@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.system.dao.ClientDao">
+
+
+	<select id="get" resultType="com.bootdo.system.domain.ClientDO">
+		select `client_Id`,`regist_time`,`account_type`,`client_photo`,`sex`,`live_address`,`Client_status`,`intention`,`intention_country`,`nickname`,`cn_name`,`en_name`,`spouse`,`mobile_Inland`,`mobile_foreign`,`email`,`wechar`,`other_contact`,`assess_notes`, 
+		`advisory_time`,`advisory_consultant`,`advisory_notes`,`advisory_result`,`remark`,`user_name`,`password`,`status`,`update_time` 
+		from sys_client where client_Id = #{value}
+		
+	</select>
+
+	<select id="list" resultType="com.bootdo.system.domain.ClientDO">
+		select `client_Id`,`regist_time`,`account_type`,`client_photo`,`sex`,`live_address`,`Client_status`,`intention`,`intention_country`,`nickname`,`cn_name`,`en_name`,`spouse`,`mobile_Inland`,`mobile_foreign`,`email`,`wechar`,`other_contact`,`assess_notes`, 
+		`advisory_time`,`advisory_consultant`,`advisory_notes`,`advisory_result`,`remark`,`user_name`,`password`,`status`,`update_time` 
+		from sys_client 
+        <where>  
+		  		  <if test="clientId != null and clientId != ''"> and client_Id = #{clientId} </if>
+		  		  <if test="registTime != null and registTime != ''"> and regist_time = #{registTime} </if>
+		  		  <if test="accountType != null and accountType != ''"> and account_type = #{accountType} </if>
+		  		  <if test="clientPhoto != null and clientPhoto != ''"> and client_photo = #{clientPhoto} </if>
+		  		  <if test="sex != null and sex != ''"> and sex = #{sex} </if>
+		  		  <if test="liveAddress != null and liveAddress != ''"> and live_address = #{liveAddress} </if>
+		  		  <if test="clientStatus != null and clientStatus != ''"> and client_status = #{clientStatus} </if>
+		  		  <if test="intention != null and intention != ''"> and intention = #{intention} </if>
+		  		  <if test="intentionCountry != null and intentionCountry != ''"> and intention_country = #{intentionCountry} </if>
+		  		  <if test="nickname != null and nickname != ''"> and nickname = #{nickname} </if>
+		  		  <if test="cnname != null and cnname != ''"> and cn_name = #{cnname} </if>
+		  		  <if test="enname != null and enname != ''"> and en_name = #{enname} </if>
+		  		  <if test="spouse != null and spouse != ''"> and spouse = #{spouse} </if>
+		  		  <if test="mobileInland != null and mobileInland != ''"> and mobile_Inland = #{mobileInland} </if>
+		  		  <if test="mobileForeign != null and mobileForeign != ''"> and mobile_foreign = #{mobileForeign} </if>
+		  		  <if test="email != null and email != ''"> and email = #{email} </if>
+		  		  <if test="wechar != null and wechar != ''"> and wechar = #{wechar} </if>
+		  		  <if test="otherContact != null and otherContact != ''"> and other_contact = #{otherContact} </if>
+		  		  <if test="assessNotes != null and assessNotes != ''"> and assess_notes = #{assessNotes} </if>
+		  		  <if test="advisoryTime != null and advisoryTime != ''"> and advisory_time = #{advisoryTime} </if>
+		  		  <if test="advisoryConsultant != null and advisoryConsultant != ''"> and advisory_consultant = #{advisoryConsultant} </if>
+		  		  <if test="advisoryNotes != null and advisoryNotes != ''"> and advisory_notes = #{advisoryNotes} </if>
+		  		  <if test="advisoryResult != null and advisoryResult != ''"> and advisory_result = #{advisoryResult} </if>
+		  		  <if test="remark != null and remark != ''"> and remark = #{remark} </if>
+		  		  <if test="username != null and username != ''"> and user_name = #{username} </if>
+		  		  <if test="password != null and password != ''"> and password = #{password} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="searchCondition != null and searchCondition != ''"> and (cn_name like '%${searchCondition}%' or en_name like '%${searchCondition}%' or mobile_Inland like '%${searchCondition}%' or Client_status like '%${searchCondition}%' or email like '%${searchCondition}%' or wechar like '%${searchCondition}%')</if>
+<!-- 		  		  <if test="updateTime != null and updateTime != ''"> and update_time = #{updateTime} </if>
+ -->		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by client_Id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from sys_client
+		 <where>  
+		  		  <if test="clientId != null and clientId != ''"> and client_Id = #{clientId} </if>
+		  		  <if test="registTime != null and registTime != ''"> and regist_time = #{registTime} </if>
+		  		  <if test="accountType != null and accountType != ''"> and account_type = #{accountType} </if>
+		  		  <if test="clientPhoto != null and clientPhoto != ''"> and client_photo = #{clientPhoto} </if>
+		  		  <if test="sex != null and sex != ''"> and sex = #{sex} </if>
+		  		  <if test="liveAddress != null and liveAddress != ''"> and live_address = #{liveAddress} </if>
+		  		  <if test="clientStatus != null and clientStatus != ''"> and client_status = #{clientStatus} </if>
+		  		  <if test="intention != null and intention != ''"> and intention = #{intention} </if>
+		  		  <if test="intentionCountry != null and intentionCountry != ''"> and intention_country = #{intentionCountry} </if>
+		  		  <if test="nickname != null and nickname != ''"> and nickname = #{nickname} </if>
+		  		  <if test="cnname != null and cnname != ''"> and cn_name = #{cnname} </if>
+		  		  <if test="enname != null and enname != ''"> and en_name = #{enname} </if>
+		  		  <if test="spouse != null and spouse != ''"> and spouse = #{spouse} </if>
+		  		  <if test="mobileInland != null and mobileInland != ''"> and mobile_Inland = #{mobileInland} </if>
+		  		  <if test="mobileForeign != null and mobileForeign != ''"> and mobile_foreign = #{mobileForeign} </if>
+		  		  <if test="email != null and email != ''"> and email = #{email} </if>
+		  		  <if test="wechar != null and wechar != ''"> and wechar = #{wechar} </if>
+		  		  <if test="otherContact != null and otherContact != ''"> and other_contact = #{otherContact} </if>
+		  		  <if test="assessNotes != null and assessNotes != ''"> and assess_notes = #{assessNotes} </if>
+		  		  <if test="advisoryTime != null and advisoryTime != ''"> and advisory_time = #{advisoryTime} </if>
+		  		  <if test="advisoryConsultant != null and advisoryConsultant != ''"> and advisory_consultant = #{advisoryConsultant} </if>
+		  		  <if test="advisoryNotes != null and advisoryNotes != ''"> and advisory_notes = #{advisoryNotes} </if>
+		  		  <if test="advisoryResult != null and advisoryResult != ''"> and advisory_result = #{advisoryResult} </if>
+		  		  <if test="remark != null and remark != ''"> and remark = #{remark} </if>
+		  		  <if test="username != null and username != ''"> and user_name = #{username} </if>
+		  		  <if test="password != null and password != ''"> and password = #{password} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="updateTime != null and updateTime != ''"> and update_time = #{updateTime} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.system.domain.ClientDO" useGeneratedKeys="true" keyProperty="clientId">
+		insert into sys_client
+		(
+			`client_Id`, 
+			`regist_time`, 
+			`account_type`, 
+			`client_photo`, 
+			`sex`, 
+			`live_address`, 
+			`Client_status`, 
+			`intention`, 
+			`intention_country`, 
+			`nickname`, 
+			`cn_name`, 
+			`en_name`, 
+			`spouse`, 
+			`mobile_Inland`, 
+			`mobile_foreign`, 
+			`email`, 
+			`wechar`,
+			`other_contact`,
+			`assess_notes`,
+			`advisory_time`,
+			`advisory_consultant`,
+			`advisory_notes`,
+			`advisory_result`,
+			`remark`,
+			`user_name`,
+			`password`,
+			`status`,
+			`update_time`)
+		values
+		(
+			#{clientId}, 
+			#{registTime}, 
+			#{accountType}, 
+			#{clientPhoto}, 
+			#{sex}, 
+			#{liveAddress}, 
+			#{clientStatus}, 
+			#{intention}, 
+			#{intentionCountry}, 
+			#{nickname}, 
+			#{cnname}, 
+			#{enname}, 
+			#{spouse}, 
+			#{mobileInland}, 
+			#{mobileForeign}, 
+			#{email}, 
+			#{wechar}, 
+			#{otherContact},
+			#{assessNotes},
+		  	#{advisoryTime},
+		  	#{advisoryConsultant},
+		  	#{advisoryNotes},
+		  	#{advisoryResult},
+		  	#{remark},
+		  	#{username},
+		  	#{password},
+		  	#{status},
+		  	#{updateTime})
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.system.domain.ClientDO">
+		update sys_client 
+		<set>
+			<if test="clientId != null">`client_Id` = #{clientId}, </if>
+			<if test="registTime != null">`regist_time` = #{registTime}, </if>
+			<if test="accountType != null">`account_type` = #{accountType}, </if>
+			<if test="clientPhoto != null">`client_photo` = #{clientPhoto}, </if>
+			<if test="sex != null">`sex` = #{sex}, </if>
+			<if test="liveAddress != null">`live_address` = #{liveAddress}, </if>
+			<if test="clientStatus != null">`Client_status` = #{clientStatus}, </if>
+			<if test="intention != null">`intention` = #{intention}, </if>
+			<if test="intentionCountry != null">`intention_country` = #{intentionCountry}, </if>
+			<if test="nickname != null">`nickname` = #{nickname}, </if>
+			<if test="cnname != null">`cn_name` = #{cnname}, </if>
+			<if test="enname != null">`en_name` = #{enname}, </if>
+			<if test="spouse != null">`spouse` = #{spouse}, </if>
+			<if test="mobileInland != null">`mobile_Inland` = #{mobileInland}, </if>
+			<if test="mobileForeign != null">`mobile_foreign` = #{mobileForeign}, </if>
+			<if test="email != null">`email` = #{email}, </if>
+			<if test="wechar != null">`wechar` = #{wechar}, </if>
+			<if test="otherContact != null">`other_contact` = #{otherContact},</if>
+			<if test="assessNotes != null and assessNotes != ''">`assess_notes` = #{assessNotes},</if>
+		  		  <if test="advisoryTime != null and advisoryTime != ''">`advisory_time` = #{advisoryTime},</if>	
+		  		  <if test="advisoryConsultant != null and advisoryConsultant != ''">`advisory_consultant` = #{advisoryConsultant},</if>
+		  		  <if test="advisoryNotes != null and advisoryNotes != ''">`advisory_notes` = #{advisoryNotes},</if>
+		  		  <if test="advisoryResult != null and advisoryResult != ''">`advisory_result` = #{advisoryResult},</if>
+		  		  <if test="remark != null and remark != ''">`remark` = #{remark},</if>
+		  		  <if test="username != null and username != ''">`user_name` = #{username},</if>
+		  		  <if test="password != null and password != ''">`password` = #{password},</if>
+		  		  <if test="status != null and status != ''">`status` = #{status},</if>
+		  		  `update_time` = #{updateTime} 
+		</set>
+		 where client_Id = #{clientId}
+	</update>
+	
+	<delete id="remove">
+		delete from sys_client where client_Id = #{clientId}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from sys_user where user_id in 
+		<foreach item="userId" collection="array" open="(" separator="," close=")">
+			#{userId}
+		</foreach>
+	</delete>
+
+	<select id="listAllDept" resultType="long">
+				select DISTINCT dept_id from sys_user
+	</select>
+	
+	
+	<select id="getClientSecquence" resultType="int">
+		select func_nextval("client")
+	</select>
+</mapper>

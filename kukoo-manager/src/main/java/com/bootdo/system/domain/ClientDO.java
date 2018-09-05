@@ -25,9 +25,9 @@ public class ClientDO implements Serializable {
     private String sex;
     //现居住地
     private String liveAddress;
-    //状态  	注册、评估、签约（未付款）、签约、完成、终止
+    //状态  	1：注册、2：评估、3：签约（未付款）、4：签约、5：完成、6：终止
     private String clientStatus;
-    //意向	想移民、申请中、已移民、保密
+    //意向	1：想移民、2：申请中、3：已移民、4：保密
     private String intention;
     //意向国家	国家等，城市可选加备注
     private String intentionCountry;
@@ -65,7 +65,7 @@ public class ClientDO implements Serializable {
     private String username;
   	// 密码
     private String password;
-    // 状态 0:禁用，1:正常
+    // 状态 0:正常，1:禁用
     private Integer status;
     //修改日期
     private Date updateTime;

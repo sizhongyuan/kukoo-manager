@@ -254,21 +254,24 @@
 								
 								<label class="col-sm-1 control-label">负责人数：</label>
 								<div class="col-sm-3">
-									<input id="peopleNumber" name="peopleNumber" class="form-control"
-										type="text" th:value="${user.peopleNumber}" readonly=true>
+									<!-- <input id="peopleNumber" name="peopleNumber" class="form-control"
+										type="text" th:value="${user.peopleNumber}" readonly=true> -->
+									<a id="peopleNumber" href="javascript:void(0)" onclick="contract(this.text)"></a>
 								</div>
 							</div>
 							
 							<div class="form-group">
 								<label class="col-sm-1 control-label">负责CASE数：</label>
 								<div class="col-sm-3">
-									<input id="caseNumber" name="caseNumber" class="form-control" type="text" th:value="${user.caseNumber}" readonly=true>
+									<!-- <input id="caseNumber" name="caseNumber" class="form-control" type="text" th:value="${user.caseNumber}" readonly=true> -->
+									<a id="caseNumber" href="javascript:void(0)" onclick="caseL(this.text)"></a>
 								</div>
 								
 								<label class="col-sm-1 control-label">咨询人数：</label>
 								<div class="col-sm-3">
-									<input id="consultNumber" name="consultNumber" class="form-control"
-										type="text" th:value="${user.consultNumber}" readonly=true>
+									<!-- <input id="consultNumber" name="consultNumber" class="form-control"
+										type="text" th:value="${user.consultNumber}" readonly=true> -->
+										<a id="consultNumber" href="javascript:void(0)" onclick="consult(this.text)"></a>
 								</div>
 								
 								<label class="col-sm-1 control-label">从业年限：</label>

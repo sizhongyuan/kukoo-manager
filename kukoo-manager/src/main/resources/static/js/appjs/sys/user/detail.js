@@ -1,4 +1,5 @@
 // 以下为官方示例
+var prefix = "/sys/user"
 $().ready(function() {
 	loadAccountType();
 	loadGender();
@@ -8,6 +9,34 @@ $().ready(function() {
 	loadInstitutions()
 	validateRule();
 	loadTime();
+	
+	$.ajax({
+		url : "/sys/user/contract/"+$("#userId").val()+"",
+		type : "get",
+		async:false, 
+		success : function(data) {
+			$("#peopleNumber").text(data);
+		}
+	});
+	
+	$.ajax({
+		url : "/sys/user/case/"+$("#username").val()+"",
+		type : "get",
+		async:false, 
+		success : function(data) {
+			$("#caseNumber").text(data);
+		}
+	});
+	
+	$.ajax({
+		url : "/sys/user/consult/"+$("#username").val()+"",
+		type : "get",
+		async:false, 
+		success : function(data) {
+			$("#consultNumber").text(data);
+		}
+	});
+	
 });
 
 $.validator.setDefaults({
@@ -173,18 +202,15 @@ function loadRole(){
 			for (var i = 0; i < data.length; i++) {
 				html += '<option value="' + data[i].roleId + '">' + data[i].roleName + '</option>'
 			}
+			var roleIds = $("#Trole").val().replace("[","");
+			roleIds = roleIds.replace("]","");
+			roleIds = roleIds.trim().replace(/\s/g,"")
 			$("#roleIds").append(html);
-			var roleIds = $("#Trole").val().split(',');
-			
-			for (i = 0; i < roleIds.length; i++) {  
-		        value = roleIds[i];  
-		        $("#roleIds" + " option[value='" + value + "']").attr('selected', 'selected');  
-		    }
-			$("#roleIdst").trigger("chosen:updated");  
 			$("#roleIds").chosen({
 				maxHeight : 200,
 				width : "100%"
 			});
+			$("#roleIds").val(roleIds.split(",")).trigger("chosen:updated");
 			
 			//点击事件
 			$('#roleIds').on('change', function(e, params) {
@@ -334,5 +360,48 @@ function loadTime(){
 	laydate.render({
 		  elem: '#birthday', //指定元素
 		  value: new Date($("#birthday").val())
+	});
+}
+
+function consult(username){
+	layer.open({
+		id : 'consult',
+		type : 2,
+		title : '咨询人员',
+		maxmin : true,
+		shadeClose : false, // 点击遮罩关闭层
+		area : [ '70%','50%'],
+		content : prefix + '/consultPage/' + $("#username").val(), // iframe的url
+		success:function(layero,index){
+//			layer.full(index);
+		}
+	});
+}
+function contract(userId){
+	layer.open({
+		id : 'contract',
+		type : 2,
+		title : '负责人员',
+		maxmin : true,
+		shadeClose : false, // 点击遮罩关闭层
+		area : [ '70%','50%'],
+		content : prefix + '/contractPage/' + $("#userId").val(), // iframe的url
+		success:function(layero,index){
+//			layer.full(index);
+		}
+	});
+}
+function caseL(username){
+	layer.open({
+		id : 'case',
+		type : 2,
+		title : 'case信息',
+		maxmin : true,
+		shadeClose : false, // 点击遮罩关闭层
+		area : [ '70%','50%'],
+		content : prefix + '/casePage/' + $("#username").val(), // iframe的url
+		success:function(layero,index){
+//			layer.full(index);
+		}
 	});
 }

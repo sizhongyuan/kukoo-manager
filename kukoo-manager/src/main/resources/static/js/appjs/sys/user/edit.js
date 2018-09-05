@@ -10,6 +10,14 @@ $().ready(function() {
 	validateRule();
 	loadCountry();
 	// $("#signupForm").validate();
+	var mobileForeign = $("#mobileForeign").val();
+	if(mobileForeign !== "" && mobileForeign !== undefined && mobileForeign !== null){
+		$("#mobileInland").attr("required",false);
+	}
+	var mobileInland = $("#mobileInland").val();
+	if(mobileInland !== "" && mobileInland !== undefined && mobileInland !== null){
+		$("#mobileForeign").attr("required",false);
+	}
 });
 
 $.validator.setDefaults({
@@ -277,17 +285,15 @@ function loadRole(){
 			for (var i = 0; i < data.length; i++) {
 				html += '<option value="' + data[i].roleId + '">' + data[i].roleName + '</option>'
 			}
-			var roleIds = $("#Trole").val().split(',');
-			for (i = 0; i < roleIds.length; i++) {  
-		        value = roleIds[i];  
-		        $("#roleIds" + " option[value='" + value + "']").attr('selected', 'selected');  
-		    }
-			$("#roleIds").trigger("chosen:updated");  
+			var roleIds = $("#Trole").val().replace("[","");
+			roleIds = roleIds.replace("]","");
+			roleIds = roleIds.trim().replace(/\s/g,"")
 			$("#roleIds").append(html);
 			$("#roleIds").chosen({
 				maxHeight : 200,
 				width : "100%"
 			});
+			$("#roleIds").val(roleIds.split(",")).trigger("chosen:updated");
 			//点击事件
 			$('#roleIds').on('change', function(e, params) {
 				var opt = {

@@ -14,7 +14,10 @@
 		select `id`,`parent_id`,`user_id`,`user_name`,`user_telephone`,`create_time`,`adviser`,`consult_record`,`consult_result`
 		from tt_consult
 		where
-			parent_id = #{parentId} and del_flag='0'
+			 del_flag='0'
+			
+			<if test="parentId != null and parentId != ''"> and parent_id = #{parentId} </if>
+			<if test="adviser != null and adviser != ''"> and adviser = #{adviser} </if> 
 		<if test="userId != null and userId != ''"> and (user_id = #{userId} </if>
 			<if test="userName != null and userName != ''"> OR user_name = #{userName} </if>
 			<if test="userTelephone != null and userTelephone != ''"> OR user_telephone = #{userTelephone} )</if>
